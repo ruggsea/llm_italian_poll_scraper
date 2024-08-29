@@ -136,6 +136,7 @@ def get_right_domanda(driver, domande):
     if not domanda_to_click:
         # if we didn't find the right domanda, click on the first one
         domanda_to_click = driver.find_element('id', domande[0].get_attribute('id'))
+        titolo_domanda = domande[0].get_attribute('title')
         domanda_to_click.click()
         # print(f'Clicked on {domande[0].get_attribute("title")}')
     return titolo_domanda
