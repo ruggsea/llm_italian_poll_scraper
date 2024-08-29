@@ -7,8 +7,6 @@ from dotenv import load_dotenv
 # load the .env file from the root directory
 load_dotenv(override=True)
 
-print(os.getenv("OPENAI_API_KEY"))
-
 def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
     """
     Parses the text input of Italian political poll results and returns a JSON object with the percentages
@@ -27,7 +25,7 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
     - Partito Democratico
     - Forza Italia
     - Fratelli d'Italia
-    - Alleanza Verdi Sinistra
+    - Alleanza Verdi Sinistra (Sinistra Italiana/Verdi)
     - Lega
     - Movimento 5 Stelle
     - +Europa
@@ -69,8 +67,7 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
     
     # Create a dictionary with the expected keys and set missing ones to None
     result = {key: data.get(key, None) for key in expected_keys}
-    
-    print(result)
+
     return result
 
 if __name__ == "__main__":

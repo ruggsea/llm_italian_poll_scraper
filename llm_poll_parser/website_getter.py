@@ -99,7 +99,7 @@ def click_on_row(driver, row):
     # click on it once
     input_elem.click()
     # wait for the page to load
-    driver.implicitly_wait(2)
+    driver.implicitly_wait(0.01)
     
 def click_on_domande(driver):
     # find the domande element, it has id ctl00_Titolo_TabSondaggio_DomandeRisposte
@@ -115,13 +115,15 @@ def get_lista_domande(driver):
             domanda_elem = driver.find_element('id', f'ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row{i}_Domanda')
             # get the title of the domanda
             domanda_title = domanda_elem.get_attribute('title')
-            print(domanda_title)
             domande.append(domanda_elem)
         except:
             break
     return domande
 
 def get_right_domanda(driver, domande):
+    
+    domanda_to_click=None
+    
     # we want to find the domanda that contains the word "intenzione di voto" or "sondaggio politico"
     for domanda in domande:
         titolo_domanda = domanda.get_attribute('title')
@@ -129,8 +131,13 @@ def get_right_domanda(driver, domande):
             # find the element again and click on it
             domanda_to_click = driver.find_element('id', domanda.get_attribute('id'))
             domanda_to_click.click()
-            print(f'Clicked on {titolo_domanda}')
+            # print(f'Clicked on {titolo_domanda}')
             break
+    if not domanda_to_click:
+        # if we didn't find the right domanda, click on the first one
+        domanda_to_click = driver.find_element('id', domande[0].get_attribute('id'))
+        domanda_to_click.click()
+        # print(f'Clicked on {domande[0].get_attribute("title")}')
         
 def get_testo_risposta(driver):
     # find the element that contains the testo risposta with id ctl00_Contenuto_ucGestioneDomande_ucSchedaDomandaReadOnly_Risposta
@@ -149,7 +156,7 @@ def parse_allegato_table(html_content):
     table_data = {}
 
     # if n rows is 0, return None
-    if not table:
+    if len(table.find_all('tr')) == 0:
         return None
     
     # Iterate over each row in the table
@@ -168,7 +175,6 @@ def parse_allegato_table(html_content):
 def get_risposta_or_allegato(driver):
      # Get risposta
     testo_risposta = get_testo_risposta(driver)
-    print(testo_risposta)
     attachment_html = driver.page_source  
     
     allegato_data = None
@@ -184,7 +190,11 @@ def get_risposta_or_allegato(driver):
             return allegato_data   
         else:
             return testo_risposta
-        
+
+def go_back_to_sondaggi(driver):
+    # go back 3 times
+    for i in range(3):
+        driver.back()
         
 def get_prossima_pagina(driver):
     # find the element that contains the prossima pagina, a button with id ctl00_Contenuto_dgSondaggi_PaginaSuccessiva
@@ -193,6 +203,21 @@ def get_prossima_pagina(driver):
     prossima_pagina_button.click()
     time.sleep(2)
     
+    
+def handle_one_sondaggio(driver, rownumber):
+    # Click on the sondaggio
+    click_on_row(driver, rownumber)   
+    # Click on domande
+    click_on_domande(driver)
+    domande=get_lista_domande(driver)
+    get_right_domanda(driver, domande)    
+    testo_sondaggio = get_risposta_or_allegato(driver)
+    
+    # Go back to the sondaggi page
+    go_back_to_sondaggi(driver)
+    driver.implicitly_wait(0.5)
+    return testo_sondaggio
+    
 def get_poll_data(driver):
     # Find the table containing the sondaggi
     table = find_sondaggi_table(driver)
@@ -200,28 +225,23 @@ def get_poll_data(driver):
     # Find the rows that contain intenzioni di voto
     rows_to_click = rows_intenzioni_di_voto(driver, table)
     
-    # Click on first row
-    click_on_row(driver, rows_to_click[0])
-    
-    # Click on domande
-    click_on_domande(driver)
-    time.sleep(2)
-    domande=get_lista_domande(driver)
-    get_right_domanda(driver, domande)
-    time.sleep(2)
-    
-    testo_sondaggio = get_risposta_or_allegato(driver)
-    print(testo_sondaggio)
+    testi_sondaggi = []
+    # handle on each row
+    for row in rows_to_click:
+        try:
+            testo_sondaggio = handle_one_sondaggio(driver, row)
+            testi_sondaggi.append((row, testo_sondaggio))
+        except Exception as e:
+            print(f"Error handling sondaggio: {e}")
+            testi_sondaggi.append(None)
+        
+    return testi_sondaggi
 
    
    
 if __name__ == "__main__":
     driver = start_driver()
-    get_poll_data(driver)
-    
-    # go back to the sondaggi page
-    driver.back()
-    time.sleep(2)
+    testi_sondaggi=get_poll_data(driver)
     
     # test getting the next page
     get_prossima_pagina(driver)
