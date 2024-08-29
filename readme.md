@@ -1,6 +1,6 @@
 # Archiving Polls
 
-Questo progetto si occupa di archiviare tutti i sondaggi mai caricati sul sito ufficiale [https://www.sondaggipoliticoelettorali.it/](sondaggipoliticoelettorali.it), cercando quelli che riguardano l'intenzione di voto nazionale utilizzando il confronto di stringhe e l'estrazione delle risposte al sondaggio utilizzando un Large Language Model (LLM).
+Questo progetto si occupa di archiviare tutti i sondaggi mai caricati sul sito ufficiale (https://www.sondaggipoliticoelettorali.it/)[sondaggipoliticoelettorali.it], cercando quelli che riguardano l'intenzione di voto nazionale utilizzando il confronto di stringhe e l'estrazione delle risposte al sondaggio utilizzando un Large Language Model (LLM).
 
 ## Requisiti
 
