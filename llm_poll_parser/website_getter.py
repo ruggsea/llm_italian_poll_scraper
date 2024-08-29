@@ -1,6 +1,6 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
-import re, time
+import re, time, json
 
 
 
@@ -88,7 +88,7 @@ def rows_intenzioni_di_voto(driver, table):
     rows_to_click = []
     # go over the table and find which rows title contains "intenzione di voto" or "sondaggio politico"
     for row in table:
-        if 'intenzioni di voto' in row['Titolo'].lower() or 'sondaggio su elezioni politiche' in row['Titolo'].lower():
+        if 'intenzioni di voto' in row['Titolo'].lower() or 'sondaggio su elezioni politiche' in row['Titolo'].lower() or "monitor italia" in row['Titolo'].lower() or "osservatorio italia" in row['Titolo'].lower() or "sondaggio su elezioni nazionali" in row['Titolo'].lower():
             # return the row number and data inserimento
             rows_to_click.append(row['Row'])
     return rows_to_click
@@ -125,7 +125,7 @@ def get_right_domanda(driver, domande):
     # we want to find the domanda that contains the word "intenzione di voto" or "sondaggio politico"
     for domanda in domande:
         titolo_domanda = domanda.get_attribute('title')
-        if 'elezioni nazionali' in titolo_domanda.lower() or 'intenzioni di voto' in titolo_domanda.lower() or "elezioni politiche" in titolo_domanda.lower() or "votasse oggi" in titolo_domanda.lower():
+        if 'elezioni nazionali' in titolo_domanda.lower() or 'intenzioni di voto' in titolo_domanda.lower() or "elezioni politiche" in titolo_domanda.lower() or "votasse oggi" in titolo_domanda.lower() or "borsino dei partiti" in titolo_domanda.lower():
             # find the element again and click on it
             domanda_to_click = driver.find_element('id', domanda.get_attribute('id'))
             domanda_to_click.click()
@@ -143,11 +143,15 @@ def parse_allegato_table(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     
     # Find the table
-    table = soup.find('table', {'class': 'lista'})
-    
+    table = soup.find('table', {'summary': 'Allegato Domanda'})
+        
     # Initialize dictionary to hold data
     table_data = {}
 
+    # if n rows is 0, return None
+    if not table:
+        return None
+    
     # Iterate over each row in the table
     for row in table.find_all('tr'):
         cols = row.find_all('td')
@@ -157,14 +161,38 @@ def parse_allegato_table(html_content):
             value = cols[1].get_text(strip=True)
             # Add to the dictionary
             table_data[key] = value
-    
-    # check if the table is empty string
-    if not table_data:
-        return None
-    else:
-        return table_data
-        
+            
+    return table_data
 
+
+def get_risposta_or_allegato(driver):
+     # Get risposta
+    testo_risposta = get_testo_risposta(driver)
+    print(testo_risposta)
+    attachment_html = driver.page_source  
+    
+    allegato_data = None
+    # Extract and parse the allegato table
+    try:
+        allegato_data = parse_allegato_table(attachment_html)
+        # stringifying the dictionary
+        allegato_data = json.dumps(allegato_data)
+    except:
+        pass
+    finally:
+        if allegato_data:
+            return allegato_data   
+        else:
+            return testo_risposta
+        
+        
+def get_prossima_pagina(driver):
+    # find the element that contains the prossima pagina, a button with id ctl00_Contenuto_dgSondaggi_PaginaSuccessiva
+    prossima_pagina_button = driver.find_element('id', 'ctl00_Contenuto_dgSondaggi_PaginaSuccessiva')
+    # click on it
+    prossima_pagina_button.click()
+    time.sleep(2)
+    
 def get_poll_data(driver):
     # Find the table containing the sondaggi
     table = find_sondaggi_table(driver)
@@ -182,23 +210,21 @@ def get_poll_data(driver):
     get_right_domanda(driver, domande)
     time.sleep(2)
     
-    # Get risposta
-    testo_risposta = get_testo_risposta(driver)
-    print(testo_risposta)
-    attachment_html = driver.page_source  
-    
-    # Extract and parse the allegato table
-    allegato_data = parse_allegato_table(attachment_html)
-    
-    if allegato_data:
-        print("Allegato Data:", allegato_data)
-    else:
-        print("No data extracted from allegato table.")
+    testo_sondaggio = get_risposta_or_allegato(driver)
+    print(testo_sondaggio)
 
-    
+   
+   
 if __name__ == "__main__":
     driver = start_driver()
     get_poll_data(driver)
-
+    
+    # go back to the sondaggi page
+    driver.back()
+    time.sleep(2)
+    
+    # test getting the next page
+    get_prossima_pagina(driver)
+    
     # Close the driver
     driver.quit()
