@@ -19,7 +19,7 @@ git clone https://github.com/ruggsea/llm_italian_poll_scraper.git
 2. Entra nella directory del progetto:
 
 ```shell
-cd repository
+cd llm_italian_poll_scraper
 ```
 
 ## Utilizzo
