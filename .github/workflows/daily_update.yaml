@@ -1,0 +1,49 @@
+name: Daily and Push Triggered Update
+
+# Triggers the workflow on a schedule, on push, and manually
+on:
+  schedule:
+    - cron: '0 12 * * *'  # Runs every day at 12:00 PM (UTC)
+  push:
+    branches:
+      - main  # Triggers the workflow on every push to the 'main' branch
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  update_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Set up Geckodriver
+      uses: browser-actions/setup-geckodriver@latest
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        geckodriver-version: 'latest'
+
+    - name: Run daily update script
+      run: python llm_poll_parser/daily_update.py
+
+    - name: Commit changes
+      run: |
+        git config --global user.name "GitHub Actions Bot"
+        git config --global user.email "actions@github.com"
+        git add .
+        git commit -m "Daily update: $(date +'%Y-%m-%d')"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
