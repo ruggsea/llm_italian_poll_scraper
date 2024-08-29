@@ -138,6 +138,7 @@ def get_right_domanda(driver, domande):
         domanda_to_click = driver.find_element('id', domande[0].get_attribute('id'))
         domanda_to_click.click()
         # print(f'Clicked on {domande[0].get_attribute("title")}')
+    return titolo_domanda
         
 def get_testo_risposta(driver):
     # find the element that contains the testo risposta with id ctl00_Contenuto_ucGestioneDomande_ucSchedaDomandaReadOnly_Risposta
@@ -210,13 +211,14 @@ def handle_one_sondaggio(driver, rownumber):
     # Click on domande
     click_on_domande(driver)
     domande=get_lista_domande(driver)
-    get_right_domanda(driver, domande)    
+    right_domanda=get_right_domanda(driver, domande)    
     testo_sondaggio = get_risposta_or_allegato(driver)
     
     # Go back to the sondaggi page
     go_back_to_sondaggi(driver)
     driver.implicitly_wait(0.5)
-    return testo_sondaggio
+    
+    return right_domanda, testo_sondaggio
     
 def get_poll_data(driver):
     # Find the table containing the sondaggi
@@ -229,11 +231,11 @@ def get_poll_data(driver):
     # handle on each row
     for row in rows_to_click:
         try:
-            testo_sondaggio = handle_one_sondaggio(driver, row)
-            testi_sondaggi.append((row, testo_sondaggio))
+            right_domanda, testo_sondaggio = handle_one_sondaggio(driver, row)
+            testi_sondaggi.append((row, right_domanda, testo_sondaggio))
         except Exception as e:
             print(f"Error handling sondaggio: {e}")
-            testi_sondaggi.append(None)
+            testi_sondaggi.append((row, None, None))
         
     return testi_sondaggi
 

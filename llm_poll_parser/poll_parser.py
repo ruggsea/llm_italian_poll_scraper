@@ -21,18 +21,19 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
 
     # The system prompt to instruct GPT on the task
     system_prompt = """
-    You are a system that converts text input of Italian political poll results into a JSON object with the percentages for the following political parties:
+    You are a system that detects national voting polls and converts text input of Italian political poll question into a JSON object with the percentages for the following political parties:
     - Partito Democratico
     - Forza Italia
     - Fratelli d'Italia
-    - Alleanza Verdi Sinistra (Sinistra Italiana/Verdi)
+    - Alleanza Verdi Sinistra (also known as Verdi/Sinistra Italiana or AVS)
     - Lega
     - Movimento 5 Stelle
     - +Europa
+    - Italia Viva (or Stati Uniti d'Europa)
     - Azione
-    - Italia Viva
     - Altri (sum of all other parties not listed above)
-
+    
+    Alongside the party percentages, the system returns "national_poll" 1 or 0 based on if the poll is an actual national voting intention poll or not.   
     If any of the specified parties are missing, include them with a null value. For "Altri", sum up the percentages of the other parties that appear in the text input but are not listed above. It does not need to add up to 100%, just the percentages of the parties mentioned in the text input, stick to the party mentioned in the text input and ignore nonresponders or other irrelevant percentages.
     """
 
@@ -60,6 +61,7 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
     
     # Ensure the data matches the expected format
     expected_keys = [
+        "national_poll",
         "Partito Democratico", "Forza Italia", "Fratelli d'Italia",
         "Alleanza Verdi Sinistra", "Lega", "Movimento 5 Stelle",
         "+Europa", "Azione", "Italia Viva", "Altri"

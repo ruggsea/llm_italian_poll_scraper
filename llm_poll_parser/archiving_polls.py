@@ -25,25 +25,29 @@ def handle_one_pagina(driver):
     # poll data is a list of (rownumber, poll) tuples
     # get corresponding table rows from table
     final_dicts = []
-    for rownumber, poll in poll_data:
+    for rownumber, right_domanda, poll in poll_data:
         table_row = table[rownumber-1]
         # Append the poll data to the table row
         table_row["text"] = poll
+        table_row["domanda"] = right_domanda
         
         # if text is None or empty, log an error
         if table_row["text"] is None or table_row["text"] == "":
             logging.error(f"Poll data is None for row {rownumber} and title {table_row['Titolo']}")
         
+        # make a string that contains the poll with the domanda in the beginning
+        poll_with_domanda = f"{right_domanda}\n{poll}"
+        
         # call the parse_poll_results function to get the percentages
-        parsed_poll = parse_poll_results(poll)
+        parsed_poll = parse_poll_results(poll_with_domanda)
         table_row.update(parsed_poll)
 
-        final_dicts.append(table_row)
+        if table_row["national_poll"] == 1:
+            final_dicts.append(table_row)
 
     return final_dicts
     
 if __name__ == "__main__":
-    
     filename = "italian_polls.jsonl"
     logging.basicConfig(level=logging.INFO)
     # Check if a StreamHandler is already added to the root logger
