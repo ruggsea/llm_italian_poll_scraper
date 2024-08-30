@@ -3,4 +3,4 @@ beautifulsoup4
 selenium
 beautifulsoup4
 openai
-dotenv
+python-dotenv 
