@@ -77,7 +77,7 @@ def main():
         console_handler.setFormatter(console_formatter)
         logging.getLogger().addHandler(console_handler)
 
-    driver = start_driver()
+    driver = start_driver(headless=True)
     logging.info("Started the driver")
     # Get the poll data until the latest saved poll
     poll_data = get_polls_until_latest_saved(driver, filename)

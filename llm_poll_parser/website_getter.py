@@ -4,9 +4,16 @@ import re, time, json
 
 
 
-def start_driver():
-    # Create a new instance of the Chrome driver
-    driver = webdriver.Firefox()
+def start_driver(headless=False):
+    # Create a new instance of the firefox driver    
+    if headless:
+        # if headless is True, run the browser in headless mode for github actions
+        options = webdriver.FirefoxOptions()
+        options.headless = True
+        driver = webdriver.Firefox(options=options)
+    else:
+        driver = webdriver.Firefox()
+        
     # Open the website
     driver.get('https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME')
 
