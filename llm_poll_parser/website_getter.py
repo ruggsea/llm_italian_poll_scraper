@@ -225,7 +225,7 @@ def handle_one_sondaggio(driver, rownumber):
     
     # Go back to the sondaggi page
     go_back_to_sondaggi(driver)
-    driver.implicitly_wait(0.5)
+    driver.implicitly_wait(1)
     
     return right_domanda, testo_sondaggio
     
