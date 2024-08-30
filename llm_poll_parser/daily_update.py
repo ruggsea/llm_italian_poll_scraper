@@ -1,5 +1,6 @@
 from website_getter import get_poll_data, get_prossima_pagina, start_driver, find_sondaggi_table
 from archiving_polls import handle_one_pagina
+from calculating_average import load_and_process_data, make_temporal_plot, calculate_moving_average
 import json, logging, time
 from typing import Union
 import json
@@ -84,6 +85,21 @@ def main():
     # Add the poll data to the file
     add_beginning_of_file(filename, poll_data)
     
+    # calculate the averages, put them at the beginning of the readme.md file
+    polls=load_and_process_data(filename)
+    moving_averages=calculate_moving_average(polls)
+    # string to add to the readme.md file: the last moving average per party
+    last_moving_average = moving_averages.iloc[-1].to_markdown()
+    # add the moving averages to the beginning of the readme.md file
+    with open("readme.md", "r") as file:
+        readme = file.readlines()
+    # substitute the old moving averages with the new ones, they are on different lines
+    # get rid of everything in the last moving averages section
+    start_index = readme.index("## Media di oggi\n")
+    end_index = readme.index("## Grafico\n")
+    readme = readme[:start_index] + ["## Media di oggi\n", last_moving_average, "\n"] + readme[end_index:]
+    
+        
 
 if __name__ == "__main__":
     main()

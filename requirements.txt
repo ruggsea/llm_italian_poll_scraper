@@ -4,3 +4,6 @@ selenium
 beautifulsoup4
 openai
 python-dotenv 
+pandas
+matplotlib
+numpy
