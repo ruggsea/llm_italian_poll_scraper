@@ -10,6 +10,7 @@ def start_driver(headless=False):
         # if headless is True, run the browser in headless mode for github actions
         options = webdriver.FirefoxOptions()
         options.headless = True
+        options.add_argument("--headless")
         driver = webdriver.Firefox(options=options)
     else:
         driver = webdriver.Firefox()
