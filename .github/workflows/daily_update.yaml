@@ -13,8 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+    - run: git checkout HEAD^
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -54,6 +57,5 @@ jobs:
         git checkout -b automation-updates
         git push origin automation-updates --force
         git checkout main
-        git merge automation-updates
-        git push origin main 
+        git push origin main --force
       shell: bash
