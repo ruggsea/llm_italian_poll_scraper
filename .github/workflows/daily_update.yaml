@@ -47,6 +47,8 @@ jobs:
           echo "No changes to commit"
         else
           git commit -m "Daily update: $(date +'%Y-%m-%d')"
+        fi
+      shell: bash
 
     - name: Pull latest changes
       run: git pull origin main --rebase
