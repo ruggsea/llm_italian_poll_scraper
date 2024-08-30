@@ -1,6 +1,5 @@
-name: Daily and Push Triggered Update
+name: Daily, Push, and Manual Triggered Update
 
-# Triggers the workflow on a schedule, on push, and manually
 on:
   schedule:
     - cron: '0 12 * * *'  # Runs every day at 12:00 PM (UTC)
@@ -50,10 +49,11 @@ jobs:
         fi
       shell: bash
 
-    - name: Pull latest changes
-      run: git pull origin main --rebase
-
-    - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Push changes to automation branch
+      run: |
+        git checkout -b automation-updates
+        git push origin automation-updates
+        git checkout main
+        git merge automation-updates
+        git push origin main
+      shell: bash
