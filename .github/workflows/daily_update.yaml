@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -52,8 +52,8 @@ jobs:
     - name: Push changes to automation branch
       run: |
         git checkout -b automation-updates
-        git push origin automation-updates
+        git push origin automation-updates --force
         git checkout main
         git merge automation-updates
-        git push origin main
+        git push origin main 
       shell: bash
