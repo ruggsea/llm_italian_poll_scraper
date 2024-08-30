@@ -34,6 +34,8 @@ jobs:
         geckodriver-version: 'latest'
 
     - name: Run daily update script
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: python llm_poll_parser/daily_update.py
 
     - name: Commit changes
