@@ -99,6 +99,10 @@ def main():
     end_index = readme.index("## Grafico\n")
     readme = readme[:start_index] + ["## Media di oggi\n", last_moving_average, "\n"] + readme[end_index:]
     
+    # write the new readme.md file
+    with open("readme.md", "w") as file:
+        file.writelines(readme)
+    
         
 
 if __name__ == "__main__":
