@@ -1,7 +1,6 @@
 ## Media di oggi
 
 Partito Democratico: 24.12%
-
 Forza Italia: 9.30%
 Fratelli d'Italia: 29.78%
 Alleanza Verdi Sinistra: 6.69%
