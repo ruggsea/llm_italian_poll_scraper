@@ -100,7 +100,7 @@ def main():
     
     string_to_use= ""
     for party in parties_list:
-        string_to_use += f"{party}: {moving_averages[party].iloc[-1]:.2f}%\n"
+        string_to_use += f"{party}: {moving_averages[party].iloc[-1]:.2f}%  "
     # add the new moving averages
     readme[start_index+2:end_index] = [string_to_use]
     
