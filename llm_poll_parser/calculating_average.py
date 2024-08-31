@@ -73,6 +73,8 @@ def calculate_moving_average(df, span=10):
     # Normalize to ensure sum is 100%
     normalized = ewm.div(ewm.sum(axis=1), axis=0) * 100
     
+    # order the columns by value in the last row
+    normalized = normalized[sorted(normalized.columns, key=lambda x: normalized[x].iloc[-1], reverse=True)]
     return normalized
 
 def make_temporal_plot(moving_averages, df, gaps=None):

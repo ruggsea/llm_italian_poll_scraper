@@ -1,12 +1,7 @@
 ## Media di oggi
 
-
-
 ## Grafico
 ![Latest Moving Average](latest_average_plot.png)
-
-
-
 
 # Archiving Italian Political Polls
 
