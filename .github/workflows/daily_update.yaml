@@ -1,5 +1,4 @@
 name: Daily, Push, and Manual Triggered Update
-
 on:
   schedule:
     - cron: '0 12 * * *'  # Runs every day at 12:00 PM (UTC)
@@ -11,13 +10,11 @@ on:
 jobs:
   update_job:
     runs-on: ubuntu-latest
-
     steps:
-    
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
       with:
-        fetch-depth: 2
-    - run: git checkout HEAD^
+        fetch-depth: 0  # Fetch all history for all branches and tags
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -52,10 +49,9 @@ jobs:
         fi
       shell: bash
 
-    - name: Push changes to automation branch
+    - name: Rebase and force push changes
       run: |
-        git checkout -b automation-updates
-        git push origin automation-updates --force
-        git checkout main
+        git fetch origin main
+        git rebase origin/main
         git push origin main --force
       shell: bash
