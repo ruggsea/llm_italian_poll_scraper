@@ -1,7 +1,16 @@
 ## Media di oggi
-
-
-
+|                         |        0 |
+|:------------------------|---------:|
+| Partito Democratico     | 24.1156  |
+| Forza Italia            |  9.29846 |
+| Fratelli d'Italia       | 29.7826  |
+| Alleanza Verdi Sinistra |  6.6899  |
+| Lega                    |  8.7999  |
+| Movimento 5 Stelle      | 10.7832  |
+| +Europa                 |  1.79886 |
+| Azione                  |  3.29245 |
+| Italia Viva             |  2.24458 |
+| Altri                   |  3.19449 |
 ## Grafico
 ![Latest Moving Average](latest_average_plot.png)
 
