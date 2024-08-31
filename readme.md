@@ -1,5 +1,15 @@
 ## Media di oggi
 
+Partito Democratico: 24.12%
+Forza Italia: 9.30%
+Fratelli d'Italia: 29.78%
+Alleanza Verdi Sinistra: 6.69%
+Lega: 8.80%
+Movimento 5 Stelle: 10.78%
++Europa: 1.80%
+Azione: 3.29%
+Italia Viva: 2.24%
+Altri: 3.19%
 ## Grafico
 ![Latest Moving Average](latest_average_plot.png)
 
