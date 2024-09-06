@@ -34,10 +34,7 @@ party_colors = {
             
 
 def load_and_process_data(filepath):
-    with open(filepath, "r") as file:
-        polls = [json.loads(line) for line in file]
-    
-    df = pd.DataFrame(polls)
+    df= pd.read_json(filepath, lines=True)
     df['date'] = pd.to_datetime(df['Data Inserimento'], format='%d/%m/%Y')
     df = df.sort_values('date')
     
