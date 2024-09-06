@@ -6,6 +6,7 @@ import pandas as pd
 from website_getter import get_poll_data, get_prossima_pagina, start_driver, find_sondaggi_table
 from archiving_polls import handle_one_pagina
 from calculating_average import load_and_process_data, make_temporal_plot, calculate_moving_average, parties_list, party_colors
+import pandas as pd
 
 def add_beginning_of_file(filename: str, poll_data: Union[dict, list[dict]]) -> None:
     if isinstance(poll_data, dict):
@@ -20,17 +21,11 @@ def add_beginning_of_file(filename: str, poll_data: Union[dict, list[dict]]) -> 
         file.write(data)
 
 def get_latest_poll_from_file(filename: str) -> dict:
-    with open(filename, "r") as file:
-        lines = file.readlines()
-
-    polls = []
-    for line in lines:
-        poll = json.loads(line)
-        poll["date"] = time.strptime(poll["Data Inserimento"], "%d/%m/%Y")
-        polls.append(poll)
-
-    polls.sort(key=lambda x: x["date"])
-    return polls[-1]
+    polls = pd.read_json(filename, lines=True)
+    polls["date"] = pd.to_datetime(polls["Data Inserimento"], format="%d/%m/%Y")
+    polls.sort_values("date", inplace=True)
+    latest_poll = polls.iloc[-1].to_dict()
+    return latest_poll
 
 def get_polls_until_latest_saved(driver, filename):
     latest_poll = get_latest_poll_from_file(filename)
