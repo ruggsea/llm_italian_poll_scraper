@@ -21,11 +21,11 @@ def add_beginning_of_file(filename: str, poll_data: Union[dict, list[dict]]) -> 
         file.write(data)
 
 def get_latest_poll_from_file(filename: str) -> dict:
-    polls = pd.read_json(filename, lines=True)
-    polls["date"] = pd.to_datetime(polls["Data Inserimento"], format="%d/%m/%Y")
-    polls.sort_values("date", inplace=True)
-    latest_poll = polls.iloc[-1].to_dict()
-    return latest_poll
+        polls = pd.read_json(filename, lines=True)
+        polls["date"] = pd.to_datetime(polls["Data Inserimento"], format="%d/%m/%Y")
+        polls.sort_values("date", inplace=True)
+        latest_poll = polls.iloc[-1].to_dict()
+        return latest_poll
 
 def get_polls_until_latest_saved(driver, filename):
     latest_poll = get_latest_poll_from_file(filename)
@@ -55,7 +55,7 @@ def update_readme_with_moving_averages(moving_averages):
     parties_list = list(moving_averages.keys())
     parties_list.sort(key=lambda party: moving_averages[party].iloc[-1], reverse=True)
     
-    readme[start_index+2:end_index] = [f"{party}: {moving_averages[party].iloc[-1]:.2f}%  " for party in parties_list]
+    readme[start_index+2:end_index] = [f"{party}: {moving_averages[party].iloc[-1]:.2f}%  \n" for party in parties_list]
 
     with open("readme.md", "w") as file:
         file.writelines(readme)
@@ -79,7 +79,11 @@ def main():
     logging.info("Started the driver")
 
     poll_data = get_polls_until_latest_saved(driver, filename)
-    add_beginning_of_file(filename, poll_data)
+    # if poll_data is empty, there are no new polls to add
+    if poll_data:
+        add_beginning_of_file(filename, poll_data)
+    else:
+        logging.info("No new polls to add to the file")
 
     polls = load_and_process_data(filename)
     moving_averages = calculate_moving_average(polls)

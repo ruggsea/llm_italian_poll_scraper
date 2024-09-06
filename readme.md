@@ -1,12 +1,22 @@
 ## Media di oggi
 
-Fratelli d'Italia: 29.61%Partito Democratico: 23.62%Movimento 5 Stelle: 10.83%Forza Italia: 9.25%Lega: 8.54%Alleanza Verdi Sinistra: 6.77%Altri: 4.13%Azione: 3.22%Italia Viva: 2.17%+Europa: 1.86%## Grafico
+Fratelli d'Italia: 29.61%  
+Partito Democratico: 23.62%  
+Movimento 5 Stelle: 10.83%  
+Forza Italia: 9.25%  
+Lega: 8.54%  
+Alleanza Verdi Sinistra: 6.77%  
+Altri: 4.13%  
+Azione: 3.22%  
+Italia Viva: 2.17%  
++Europa: 1.86%  
+## Grafico
 ![Latest Moving Average](latest_average_plot.png)
 
 # Archiving Italian Political Polls
 
 Questo progetto si occupa di archiviare tutti i sondaggi mai caricati sul sito ufficiale [sondaggipoliticoelettorali.it](https://www.sondaggipoliticoelettorali.it/), cercando quelli che riguardano l'intenzione di voto nazionale utilizzando il confronto di stringhe e l'estrazione delle risposte al sondaggio utilizzando un Large Language Model (LLM).
-Per a chi interessano solo i dati dei sondaggi aggiornati giornalieramente, sono disponibili in formato JSONL nel file `italian_polls.jsonl`.
+Per a chi interessano solo i dati dei sondaggi aggiornati giornalieramente, sono disponibili in formato JSONL nel file `italian_polls.jsonl` e in formato CSV nel file `italian_polls.csv`.
 
 ## Requisiti
 
