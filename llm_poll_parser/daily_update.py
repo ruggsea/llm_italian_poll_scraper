@@ -60,7 +60,7 @@ def update_readme_with_moving_averages(moving_averages):
     parties_list = list(moving_averages.keys())
     parties_list.sort(key=lambda party: moving_averages[party].iloc[-1], reverse=True)
     
-    readme[start_index+2:end_index] = [f"{party}: {moving_averages[party].iloc[-1]:.2f}%" for party in parties_list]
+    readme[start_index+2:end_index] = [f"{party}: {moving_averages[party].iloc[-1]:.2f}%  " for party in parties_list]
 
     with open("readme.md", "w") as file:
         file.writelines(readme)
