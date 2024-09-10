@@ -96,7 +96,15 @@ def rows_intenzioni_di_voto(driver, table):
     rows_to_click = []
     # go over the table and find which rows title contains "intenzione di voto" or "sondaggio politico"
     for row in table:
-        if 'intenzioni di voto' in row['Titolo'].lower() or 'sondaggio su elezioni politiche' in row['Titolo'].lower() or "monitor italia" in row['Titolo'].lower() or "osservatorio italia" in row['Titolo'].lower() or "sondaggio su elezioni nazionali" in row['Titolo'].lower() or "scenari politici" in row["Titolo"].lower():
+        keywords = [
+            'intenzioni di voto',
+            'sondaggio su elezioni politiche',
+            'monitor italia',
+            'osservatorio italia',
+            'sondaggio su elezioni nazionali',
+            'scenari politici'
+        ]
+        if any(keyword in row['Titolo'].lower() for keyword in keywords):
             # return the row number and data inserimento
             rows_to_click.append(row['Row'])
     return rows_to_click
