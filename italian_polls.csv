@@ -1,4 +1,19 @@
 Row,Data Inserimento,Realizzatore,Committente,Titolo,text,domanda,national_poll,Partito Democratico,Forza Italia,Fratelli d'Italia,Alleanza Verdi Sinistra,Lega,Movimento 5 Stelle,+Europa,Azione,Italia Viva,Altri
+1,11/09/2024,Termometro Politico,True Data,"Sondaggio su elezioni politiche, Kursk","Partiti %
+Fratelli d'Italia 29,3%
+PD 23,7%
+Movimento 5 Stelle 10,1%
+Forza Italia e Noi Moderati 9,0%
+Lega 8,5%
+Alleanza Verdi Sinistra 7,0%
+Azione 3,2%
+Italia Viva 2,1%
+Pace Terra Dignità 1,8%
+Più Europa 1,7%
+Democrazia Sovrana Popolare 1,3%
+Libertà 1,0%
+Alternativa popolare 0,3%
+Altri 1,0%",Cosa voterebbe se domani ci fossero le elezioni politiche?,1,23.7,9.0,29.3,7.0,8.5,10.1,1.7000000000000002,3.2,2.1,1.0
 2,10/09/2024,Tecnè srl,RTI,Scenari politici,"Fratelli d'Italia 28,9%
 Partito democratico 24%
 Forza Italia 10,7%
