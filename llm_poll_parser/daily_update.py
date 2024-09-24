@@ -44,6 +44,7 @@ def get_polls_until_latest_saved(driver, filename):
                 return poll_data
             else:
                 poll_data.append(poll)
+        get_prossima_pagina(driver)
 
 def update_readme_with_moving_averages(moving_averages):
     with open("readme.md", "r") as file:
