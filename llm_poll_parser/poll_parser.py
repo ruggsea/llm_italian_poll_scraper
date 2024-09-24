@@ -24,7 +24,7 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
     system_prompt = """
     You are a system that detects national voting polls and converts text input of Italian political poll question into a JSON object. Before extracting the party percentages, you need to determine if the poll is a national voting intention poll. A national poll is one that includes all the major parties (not leader approval ratings or other types of polls) and refers to nationwide voting intentions. You write your reasoning about whether the poll is a national voting intention poll or not inside the "national_poll_rationale" field and the conclusion inside the "national_poll" field (1 if it is a national poll, 0 if it is not). Then, you extract the percentages of the following parties from the text input and return them in a JSON object: 
     - Partito Democratico
-    - Forza Italia
+    - Forza Italia (also called Popolo della Libertà or PdL before 2013)
     - Fratelli d'Italia
     - Alleanza Verdi Sinistra (also known as Verdi/Sinistra Italiana or AVS)
     - Lega (before 2018, it was known as Lega Nord)
@@ -37,6 +37,10 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
     - Azione/+Europa (Federation between Azione and +Europa that existed between 2021 and 2022)
     - Sinistra Ecologia Libertà (SEL) - only if polls are from before 2017
     - Azione
+    - Unione di Centro (UdC) 
+    - Scelta Civica (SC, Con Monti per l'Italia alle elezioni 2013) (from 2013 to 2019)
+    - Sud Chiama Nord (SCN) (from 2022)
+    - Unione Popolare (UP) (from 2022)
     - Altri (sum of all other parties not listed above)
     
     Alongside the party percentages, the system returns "national_poll" 1 or 0 based on if the poll is an actual national voting intention poll or not. A national poll is one that includes all the current major parties (not leader approval ratings or head to head or other types of polls) and refers to nationwide voting intentions.  
@@ -51,7 +55,8 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
         "Partito Democratico", "Forza Italia", "Fratelli d'Italia",
         "Alleanza Verdi Sinistra", "Lega", "Movimento 5 Stelle",
         "+Europa", "Azione", "Italia Viva", "Stati Uniti d'Europa", "Pace Terra Dignità",
-        "Azione - Italia Viva", "Azione/+Europa", "Sinistra Ecologia Libertà", "Altri",
+        "Azione - Italia Viva", "Azione/+Europa", "Sinistra Ecologia Libertà", "Scelta Civica",
+        "Unione di Centro", "Sud Chiama Nord", "Unione Popolare","Altri",
     ]
     
     json_schema = {
@@ -73,9 +78,13 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
             "Azione - Italia Viva": {"type": ["number", "null"]},
             "Azione/+Europa": {"type": ["number", "null"]},
             "Sinistra Ecologia Libertà": {"type": ["number", "null"]},
+            "Unione di Centro": {"type": ["number", "null"]},
+            "Scelta Civica": {"type": ["number", "null"]},
+            "Sud Chiama Nord": {"type": ["number", "null"]},
+            "Unione Popolare": {"type": ["number", "null"]},
             "Altri": {"type": ["number", "null"]},
         },
-        "required": ["national_poll_rationale", "national_poll", "Partito Democratico", "Forza Italia", "Fratelli d'Italia", "Alleanza Verdi Sinistra", "Lega", "Movimento 5 Stelle", "+Europa", "Azione", "Italia Viva", "Stati Uniti d'Europa", "Pace Terra Dignità", "Azione - Italia Viva", "Azione/+Europa", "Sinistra Ecologia Libertà", "Altri"]
+        "required": ["national_poll_rationale", "national_poll", "Partito Democratico", "Forza Italia", "Fratelli d'Italia", "Alleanza Verdi Sinistra", "Lega", "Movimento 5 Stelle", "+Europa", "Azione", "Italia Viva", "Stati Uniti d'Europa", "Pace Terra Dignità", "Azione - Italia Viva", "Azione/+Europa", "Sinistra Ecologia Libertà","Unione di Centro", "Sud Chiama Nord", "Unione Popolare","Altri"]
     }
         
         
