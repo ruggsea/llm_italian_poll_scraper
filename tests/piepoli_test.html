@@ -1,0 +1,276 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="it" lang="it" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <title>
+    Gestione Domande e Risposte Sondaggio 
+</title>
+    <link href="Style.css" rel="stylesheet" type="text/css" />
+    
+
+  </head>
+  <body>
+      <form method="post" action="./GestioneDomande.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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ZD4xMiw1PC90ZD4NCjx0ZD4tMSw1PC90ZD4NCjwvdHI+DQo8dHIgY2xhc3M9J3RoZWFkZXInPg0KPHRkPkxlZ2E8L3RkPg0KPHRkPjE3LDM1PC90ZD4NCjx0ZD4yODwvdGQ+DQo8dGQ+MTAsNjwvdGQ+DQo8L3RyPg0KPHRyIGNsYXNzPSd0aGVhZGVyJz4NCjx0ZD5GcmF0ZWxsaSBkJ0l0YWxpYSBjb24gR2lvcmdpYSBNZWxvbmk8L3RkPg0KPHRkPjQsMzU8L3RkPg0KPHRkPjM8L3RkPg0KPHRkPi0xLDM8L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ndGhlYWRlcic+DQo8dGQ+Tm9pIGNvbiBsJ0l0YWxpYSAtIFVEQzwvdGQ+DQo8dGQ+MSwzPC90ZD4NCjx0ZD4wLDU8L3RkPg0KPHRkPi0wLDg8L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ndGhlYWRlcic+DQo8dGQ+VE9UQUxFIENFTlRSTyBERVNUUkE8L3RkPg0KPHRkPjM3PC90ZD4NCjx0ZD40NDwvdGQ+DQo8dGQ+NzwvdGQ+DQo8L3RyPg0KPHRyIGNsYXNzPSd0aGVhZGVyJz4NCjx0ZD5QYXJ0aXRvIERlbW9jcmF0aWNvPC90ZD4NCjx0ZD4xOCw3NjwvdGQ+DQo8dGQ+MTg8L3RkPg0KPHRkPi0wLDg8L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ndGhlYWRlcic+DQo8dGQ+K0V1cm9wYTwvdGQ+DQo8dGQ+Miw1NjwvdGQ+DQo8dGQ+MjwvdGQ+DQo8dGQ+LTAsNTwvdGQ+DQo8L3RyPg0KPHRyIGNsYXNzPSd0aGVhZGVyJz4NCjx0ZD5BbHRyaSBkaSBDZW50cm8gU2luaXN0cmE8L3RkPg0KPHRkPjEsNTM8L3RkPg0KPHRkPjAsNTwvdGQ+DQo8dGQ+LTE8L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ndGhlYWRlcic+DQo8dGQ+VE9UQUxFIENFTlRSTyBTSU5JU1RSQTwvdGQ+DQo8dGQ+MjIsODU8L3RkPg0KPHRkPjIwLDU8L3RkPg0KPHRkPi0yLDM8L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ndGhlYWRlcic+DQo8dGQ+TU9WSU1FTlRPIDUgU1RFTExFPC90ZD4NCjx0ZD4zMiw2ODwvdGQ+DQo8dGQ+Mjk8L3RkPg0KPHRkPi0zLDY8L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ndGhlYWRlcic+DQo8dGQ+TGliZXJpIGUgVWd1YWxpPC90ZD4NCjx0ZD4zLDM5PC90ZD4NCjx0ZD4yPC90ZD4NCjx0ZD4tMSwzPC90ZD4NCjwvdHI+DQo8dHIgY2xhc3M9J3RoZWFkZXInPg0KPHRkPkFsdHJpPC90ZD4NCjx0ZD40LDA4PC90ZD4NCjx0ZD40LDU8L3RkPg0KPHRkPjAsNTwvdGQ+DQo8L3RyPg0KPHRyIGNsYXNzPSd0aGVhZGVyJz4NCjx0ZD5UT1RBTEU8L3RkPg0KPHRkPjEwMCU8L3RkPg0KPHRkPjEwMCU8L3RkPg0KPHRkPiA8L3RkPg0KPC90cj4NCjx0ciBjbGFzcz0ndGhlYWRlcic+DQo8dGQ+IDwvdGQ+DQo8dGQ+SW5kZWNpc2k8L3RkPg0KPHRkPjIwJTwvdGQ+DQo8dGQ+IDwvdGQ+DQo8L3RyPg0KDQo8L3RhYmxlPg0KPC9kaXY+ZBgGBTljdGwwMCRDb250ZW51dG8kdWNHZXN0aW9uZURvbWFuZGUkdWNTY2hlZGFEb21hbmRhJERvbWFuZGEPMsICAAEAAAD/////AQAAAAAAAAAEAQAAAH9TeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1N5c3RlbS5PYmplY3QsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAACAAAAAgAAAAQAgAAAAgAAAAKCAEABgMAAABMUVVBTlRPIEFQUFJPVkEgTEEgUE9MSVRJQ0EgU1VMTOKAmUlNTUlHUkFaSU9ORSBDSEUgU1RBIEFET1RUQU5ETyBJTCBHT1ZFUk5PPwoIAQEGBAAAAA1TeXN0ZW0uU3RyaW5nCAgAAAAACAEAC2QFPmN0bDAwJENvbnRlbnV0byR1Y0dlc3Rpb25lRG9tYW5kZSR1Y1NjaGVkYURvbWFuZGEkRGVsaW1pdGF0b3JlDzLlAQABAAAA/////wEAAAAAAAAABAEAAAB/U3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tTeXN0ZW0uT2JqZWN0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXQMAAAAGX2l0ZW1zBV9zaXplCF92ZXJzaW9uBQAACAgJAgAAAAgAAAAIAAAAEAIAAAAIAAAACggBAAYDAAAAAXwKCAEBCggIAAAAAAgBAQtkBTpjdGwwMCRDb250ZW51dG8kdWNHZXN0aW9uZURvbWFuZGUkdWNTY2hlZGFEb21hbmRhJFJpc3Bvc3RhDzL2AQABAAAA/////wEAAAAAAAAABAEAAAB/U3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tTeXN0ZW0uT2JqZWN0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXQMAAAAGX2l0ZW1zBV9zaXplCF92ZXJzaW9uBQAACAgJAgAAAAgAAAAIAAAAEAIAAAAIAAAACggBAAYDAAAAAAoIAQEGBAAAAA1TeXN0ZW0uU3RyaW5nCAgAAAAACAEBC2QFOGN0bDAwJENvbnRlbnV0byR1Y0dlc3Rpb25lRG9tYW5kZSR1Y1NjaGVkYURvbWFuZGEkdHh0Q1NWDzLKAwABAAAA/////wEAAAAAAAAABAEAAAB/U3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tTeXN0ZW0uT2JqZWN0LCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXQMAAAAGX2l0ZW1zBV9zaXplCF92ZXJzaW9uBQAACAgJAgAAAAgAAAAIAAAAEAIAAAAIAAAACggBAAYDAAAA5QEiICAgICAgICJ8IlRPVEFMRSBJVEFMSUEiDQoiTW9sdG8ifCIzMSUiDQoiQWJiYXN0YW56YSJ8IjMxJSINCiJUb3RhbGUgcG9zaXRpdmkgKEFQUFJPVkEpInwiNjIlIg0KIlBvY28ifCIxOCUiDQoiUGVyIG51bGxhInwiMTglIg0KIlRvdGFsZSBuZWdhdGl2aSAoTk9OIEFQUFJPVkEpInwiMzYlIg0KIm5vbiBzYS9zZW56YSBvcGluaW9uZSJ8IjIlIg0KIkJBU0U6IHRvdGFsZSBjYW1waW9uZSJ8IiAgIg0KCggBAQoICAAAAAAIAQELZAU6Y3RsMDAkQ29udGVudXRvJHVjR2VzdGlvbmVEb21hbmRlJHVjTGlzdGFEb21hbmRlJGRnRG9tYW5kZQ8y4Q0AAQAAAP////8BAAAAAAAAAAQBAAAAf1N5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbU3lzdGVtLk9iamVjdCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0DAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgUAAAgICQIAAAAFAAAABQAAABACAAAACAAAAAkDAAAABgQAAAAFMTgzMTkICAEAAAANBQwFAAAAXkVJRE9TLkZyYW1ld29yay5XZWIuQ29udHJvbHMuQWNjZXNzaWJsZSwgVmVyc2lvbj0xLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGwEAwAAAMABU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tFSURPUy5GcmFtZXdvcmsuV2ViLkNvbnRyb2xzLkFjY2Vzc2libGUuRGF0YUdyaWQrQnV0dG9uU2F2ZSwgRUlET1MuRnJhbWV3b3JrLldlYi5Db250cm9scy5BY2Nlc3NpYmxlLCBWZXJzaW9uPTEuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbF1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAA9RUlET1MuRnJhbWV3b3JrLldlYi5Db250cm9scy5BY2Nlc3NpYmxlLkRhdGFHcmlkK0J1dHRvblNhdmVbXQUAAAAICAkGAAAACAAAAAgAAAAHBgAAAAABAAAACAAAAAQ7RUlET1MuRnJhbWV3b3JrLldlYi5Db250cm9scy5BY2Nlc3NpYmxlLkRhdGFHcmlkK0J1dHRvblNhdmUFAAAACQcAAAAJCAAAAAkJAAAACQoAAAAJCwAAAAkMAAAACQ0AAAAJDgAAAAUHAAAAO0VJRE9TLkZyYW1ld29yay5XZWIuQ29udHJvbHMuQWNjZXNzaWJsZS5EYXRhR3JpZCtCdXR0b25TYXZlAwAAABk8VW5pcXVlSUQ+a19fQmFja2luZ0ZpZWxkFjxWYWx1ZT5rX19CYWNraW5nRmllbGQcPENvbW1hbmROYW1lPmtfX0JhY2tpbmdGaWVsZAEBAQUAAAAGDwAAAEdjdGwwMCRDb250ZW51dG8kdWNHZXN0aW9uZURvbWFuZGUkdWNMaXN0YURvbWFuZGUkU29ydGRnRG9tYW5kZVJvd051bWJlcgYQAAAAE1Jvd051bWJlcnxBc2NlbmRpbmcGEQAAAARTb3J0AQgAAAAHAAAABhIAAABFY3RsMDAkQ29udGVudXRvJHVjR2VzdGlvbmVEb21hbmRlJHVjTGlzdGFEb21hbmRlJFNvcnRkZ0RvbWFuZGVEb21hbmRhBhMAAAARRG9tYW5kYXxBc2NlbmRpbmcJEQAAAAEJAAAABwAAAAYVAAAASWN0bDAwJENvbnRlbnV0byR1Y0dlc3Rpb25lRG9tYW5kZSR1Y0xpc3RhRG9tYW5kZSRkZ0RvbWFuZGVfUm93MV9Sb3dOdW1iZXIGFgAAAAUxODMxNwYXAAAACFNlbGVjdGVkAQoAAAAHAAAABhgAAABHY3RsMDAkQ29udGVudXRvJHVjR2VzdGlvbmVEb21hbmRlJHVjTGlzdGFEb21hbmRlJGRnRG9tYW5kZV9Sb3cxX0RvbWFuZGEGGQAAAAUxODMxNwkXAAAAAQsAAAAHAAAABhsAAABJY3RsMDAkQ29udGVudXRvJHVjR2VzdGlvbmVEb21hbmRlJHVjTGlzdGFEb21hbmRlJGRnRG9tYW5kZV9Sb3cyX1Jvd051bWJlcgYcAAAABTE4MzE4CRcAAAABDAAAAAcAAAAGHgAAAEdjdGwwMCRDb250ZW51dG8kdWNHZXN0aW9uZURvbWFuZGUkdWNMaXN0YURvbWFuZGUkZGdEb21hbmRlX1JvdzJfRG9tYW5kYQYfAAAABTE4MzE4CRcAAAABDQAAAAcAAAAGIQAAAEljdGwwMCRDb250ZW51dG8kdWNHZXN0aW9uZURvbWFuZGUkdWNMaXN0YURvbWFuZGUkZGdEb21hbmRlX1JvdzNfUm93TnVtYmVyBiIAAAAFMTgzMTkJFwAAAAEOAAAABwAAAAYkAAAAR2N0bDAwJENvbnRlbnV0byR1Y0dlc3Rpb25lRG9tYW5kZSR1Y0xpc3RhRG9tYW5kZSRkZ0RvbWFuZGVfUm93M19Eb21hbmRhBiUAAAAFMTgzMTkJFwAAAAtkBT9jdGwwMCRDb250ZW51dG8kdWNHZXN0aW9uZURvbWFuZGUkdWNTY2hlZGFEb21hbmRhJFF1YWxpZmljYXRvcmUPMuUBAAEAAAD/////AQAAAAAAAAAEAQAAAH9TeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1N5c3RlbS5PYmplY3QsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAACAAAAAgAAAAQAgAAAAgAAAAKCAEABgMAAAABIgoIAQEKCAgAAAAACAEBC2QUZbDShjKNd8bj/CSV8F4qWPUooxv/XVuIFOIH1nYA2g==" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="04760EE1" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAytatR7j3rGLfY6+q1D/SMSg6md7a8I6oRs4WR7exNp70B/5fPvQwpAlOoTadnox1+DEF0mz2dvEp5mrUN3oIVJn5Wkg+DzdDRo5oJEQPzmZnDH3ndbijRkRO0viNetKH80EHpKEab8HujYaP1NISWDmMPuaoD+adwUnbwxPron/3qgDZEUv/mGkXEBPl0IYyJ5y5q/DLoEKyj3qq4JWjy2jB42mQeqda7JLuLahv43gwrzQ7UFetB1BVxlUX+Fj5491f/m8oNjbmy7Pfp4hpOAt6VcDBU8i2TsQT6uAiKP9g==" />
+</div>
+        <div id="content">
+          <a class="invisible" href="#MessaggiErrore">Vai ai messaggi presenti nella pagina</a>        
+          <a class="invisible" href="#AreaFiltro">Vai alla ricerca</a>        
+          <a class="invisible" href="#MenuSinistra">Vai al menù</a>        
+          <a class="invisible" href="#TabellaDati">Vai alla tabella dati</a>        
+          <a class="invisible" href="#BarraStrumenti">Vai alla Toolbar</a>
+          
+<div id="header">
+    <table class="width100">
+        <colgroup>
+            <col width="50%" />
+            <col width="50%" />
+
+        </colgroup>
+        <tr>
+            <td align="left">
+                <div id="titlesx">
+                    <img src="../Images/PCM.gif" alt="Sondaggi Politico Elettorali" />
+                </div>
+                
+            </td>
+            <td align="right">
+                <div id="titledx">
+                    <h1>
+                        <img src="../Images/Dipartimento.gif" alt="Presidenza del Consiglio dei Ministri" width="400px" /><img src="../Images/GraphDX.gif" alt="Presidenza del Consiglio dei Ministri" />
+                    </h1>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+            <div id="page">
+             <div class="width82 floatRight">
+               
+<div id="Toolbar"> 
+    <span id="utente"><span id="ctl00_Utente_NomeUtente" class="utente em">Utente Anonimo</span>
+    </span>
+</div>
+            
+                <div id="contenitore">
+                  
+<a name="MessaggiErrore" id="MessaggiErrore"></a>
+<div class="Errore">
+    <div id="ctl00_Messaggi_MessagesBox">
+
+</div>
+</div>
+
+                  
+<h2>SONDAGGIO - Domande e Risposte</h2>
+     
+<div id="tastiPrincipali">
+    <input type="submit" name="ctl00$Titolo$TabSondaggio$Sondaggio" value="Dati Sondaggio" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Titolo_TabSondaggio_Sondaggio" tabindex="1" title="Dati Sondaggio" class="btnPrincipali" />
+    <input type="submit" name="ctl00$Titolo$TabSondaggio$DomandeRisposte" value="Domande" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Titolo_TabSondaggio_DomandeRisposte" tabindex="2" title="Domande e Risposte Sondaggio" class="btnPrincipaliact" />
+    <input type="submit" name="ctl00$Titolo$TabSondaggio$Finale" value="Conclusioni" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Titolo_TabSondaggio_Finale" tabindex="3" title="Conclusioni Sondaggio" class="btnPrincipali" />
+</div>
+
+                </div>
+             </div>
+
+              <div class="width18 floatLeft">
+                <div class="leftColumn" >
+                  
+<div id="TitMenu">
+    <h3 class="TitArea">Menu</h3>
+</div> 
+<a name="MenuSinistra" id="MenuSinistra" ></a>
+
+<ul class="sideMenu"><li class="active"><a href="Home.aspx?st=HOME" title='Home' >Home</a></li><li class="active"><a href="HELP.aspx?st=HELP" title='HELP' >HELP</a></li><li class="active"><a href="ListaSondaggi.aspx?st=SONDAGGI" class="voceMenuGrassetto" title='Sondaggi' >Sondaggi</a><ul class="subMenu"><li><a href="ListaSondaggi.aspx" title='Elenco Sondaggi' >Elenco Sondaggi</a></li></ul></li><li class="active"><a href="LogIn.aspx?st=LOGIN" title='Log In' >Log In</a></li><li class="active"><a href="Registrazione.aspx?st=REGISTRAZIONE" title='Registrazione' >Registrazione</a></li><li class="active"><a href="http://www.archivio.sondaggipoliticoelettorali.it?st=VECCHIOSITO" title='Vai al vecchio sito Sondaggi Politico Elettorali (apre una nuova finestra del browser)' target="_blank">Vecchio sito</a></li><li class="active"><a href="Privacy.aspx?st=PRIVACY" title='Politica sulla privacy' >Privacy</a></li></ul>
+
+          
+            
+                  
+                </div>
+              </div>
+              <div class="width82 floatRight">
+              
+                <div id="contenuti">
+                  
+    <div id="ctl00_Contenuto_ucGestioneDomande_pnlDomande">
+	
+    <div id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_pnlLista">
+	
+    <div id="lista">
+        <a name="TabellaDati" id="TabellaDati"></a>
+        <div id="theader">
+            <h3 class="TitArea floatLeft"></h3>
+        </div>
+        <div id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande" class="lista"><div id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_PannelloDataGrid">
+		<table class="lista" summary="Lista Domande Sondaggio"><caption><span class="invisible">Lista Domande Sondaggio</span></caption><colgroup><col width="10%" /><col width="50%" /></colgroup><thead><tr class="theader"><th scope="col"><input type="submit" name="ctl00$Contenuto$ucGestioneDomande$ucListaDomande$SortdgDomandeRowNumber" value="N° Domanda" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_SortdgDomandeRowNumber" title="Ordina per N° Domanda in ordine ascendente (A-Z)" class="BottoneDatagrid" /></th><th scope="col"><input type="submit" name="ctl00$Contenuto$ucGestioneDomande$ucListaDomande$SortdgDomandeDomanda" value="Domanda" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_SortdgDomandeDomanda" title="Ordina per Domanda in ordine ascendente (A-Z)" class="BottoneDatagrid" /></th></tr></thead><tfoot><tr><td colspan="2"><span class="floatLeft">Pagina 1 di 1 (3 elementi)</span><span class="floatRight"></span></td></tr></tfoot><tbody><tr class="dispari"><td><div>
+			<input type="submit" name="ctl00$Contenuto$ucGestioneDomande$ucListaDomande$dgDomande_Row1_RowNumber" value="1" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row1_RowNumber" title="1" />
+		</div></td><td><div>
+			<input type="submit" name="ctl00$Contenuto$ucGestioneDomande$ucListaDomande$dgDomande_Row1_Domanda" value="QUANTO APPROVA LA POLITICA SULL’IMMIGRAZIONE CHE STA ADOTTANDO IL GOVERNO?" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row1_Domanda" title="QUANTO APPROVA LA POLITICA SULL’IMMIGRAZIONE CHE STA ADOTTANDO IL GOVERNO?" />
+		</div></td></tr><tr class="pari"><td><div>
+			<input type="submit" name="ctl00$Contenuto$ucGestioneDomande$ucListaDomande$dgDomande_Row2_RowNumber" value="2" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row2_RowNumber" title="2" />
+		</div></td><td><div>
+			<input type="submit" name="ctl00$Contenuto$ucGestioneDomande$ucListaDomande$dgDomande_Row2_Domanda" value="QUANTO APPROVA L’AZIONE DI MATTEO SALVINI COME MINISTRO DELL’INTERNO?" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row2_Domanda" title="QUANTO APPROVA L’AZIONE DI MATTEO SALVINI COME MINISTRO DELL’INTERNO?" />
+		</div></td></tr><tr class="selected"><td><div>
+			<input type="submit" name="ctl00$Contenuto$ucGestioneDomande$ucListaDomande$dgDomande_Row3_RowNumber" value="3" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row3_RowNumber" title="3" />
+		</div></td><td><div>
+			<input type="submit" name="ctl00$Contenuto$ucGestioneDomande$ucListaDomande$dgDomande_Row3_Domanda" value="INTENZIONI DI VOTO – CAMERA 2018 (VALORI %)" onclick="this.onclick=new Function(&#39;return false;&#39;);" id="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row3_Domanda" title="INTENZIONI DI VOTO – CAMERA 2018 (VALORI %)" />
+		</div></td></tr><tr class="pari"><td>&nbsp;</td><td>&nbsp;</td></tr><tr class="dispari"><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>
+	</div></div>
+    </div>
+
+</div>
+
+
+</div>
+<div id="ctl00_Contenuto_ucGestioneDomande_pnlDomanda">
+	
+    
+    <div id="ctl00_Contenuto_ucGestioneDomande_ucSchedaDomandaReadOnly_pnlScheda">
+	
+    <div id="Filtro">
+        <table class="width100">
+            <tr>
+                <td>
+                    <h3 class="TitArea">
+                        Area Scheda Domanda e Risposta</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span id="ctl00_Contenuto_ucGestioneDomande_ucSchedaDomandaReadOnly_lblDomanda" class="label100pRO">Testo Domanda</span>
+                    <p id="ctl00_Contenuto_ucGestioneDomande_ucSchedaDomandaReadOnly_Domanda" class="LabelRO">INTENZIONI DI VOTO – CAMERA 2018 (VALORI %)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span id="ctl00_Contenuto_ucGestioneDomande_ucSchedaDomandaReadOnly_lblRisposta" class="label100pRO">Testo Risposta</span>
+                    <p id="ctl00_Contenuto_ucGestioneDomande_ucSchedaDomandaReadOnly_Risposta" class="LabelRO">&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <div id='Filtro2'>
+
+<h3 class='TitArea'> Area Allegato </h3>
+<p class='label100pbold'> </p>
+<table border='1' class='lista' summary='Allegato Domanda'>
+<tr class='theader'>
+<td>PARTITO E COALIZIONE</td>
+<td>RISULTATI MINISTERO INTERNO (4 MARZO 2018)</td>
+<td>25-giu-18</td>
+<td>SCOSTAMENTO RISPETTO AI RISULTATI DEL 4 MARZO 2018</td>
+</tr>
+<tr class='theader'>
+<td>Forza Italia</td>
+<td>14</td>
+<td>12,5</td>
+<td>-1,5</td>
+</tr>
+<tr class='theader'>
+<td>Lega</td>
+<td>17,35</td>
+<td>28</td>
+<td>10,6</td>
+</tr>
+<tr class='theader'>
+<td>Fratelli d'Italia con Giorgia Meloni</td>
+<td>4,35</td>
+<td>3</td>
+<td>-1,3</td>
+</tr>
+<tr class='theader'>
+<td>Noi con l'Italia - UDC</td>
+<td>1,3</td>
+<td>0,5</td>
+<td>-0,8</td>
+</tr>
+<tr class='theader'>
+<td>TOTALE CENTRO DESTRA</td>
+<td>37</td>
+<td>44</td>
+<td>7</td>
+</tr>
+<tr class='theader'>
+<td>Partito Democratico</td>
+<td>18,76</td>
+<td>18</td>
+<td>-0,8</td>
+</tr>
+<tr class='theader'>
+<td>+Europa</td>
+<td>2,56</td>
+<td>2</td>
+<td>-0,5</td>
+</tr>
+<tr class='theader'>
+<td>Altri di Centro Sinistra</td>
+<td>1,53</td>
+<td>0,5</td>
+<td>-1</td>
+</tr>
+<tr class='theader'>
+<td>TOTALE CENTRO SINISTRA</td>
+<td>22,85</td>
+<td>20,5</td>
+<td>-2,3</td>
+</tr>
+<tr class='theader'>
+<td>MOVIMENTO 5 STELLE</td>
+<td>32,68</td>
+<td>29</td>
+<td>-3,6</td>
+</tr>
+<tr class='theader'>
+<td>Liberi e Uguali</td>
+<td>3,39</td>
+<td>2</td>
+<td>-1,3</td>
+</tr>
+<tr class='theader'>
+<td>Altri</td>
+<td>4,08</td>
+<td>4,5</td>
+<td>0,5</td>
+</tr>
+<tr class='theader'>
+<td>TOTALE</td>
+<td>100%</td>
+<td>100%</td>
+<td> </td>
+</tr>
+<tr class='theader'>
+<td> </td>
+<td>Indecisi</td>
+<td>20%</td>
+<td> </td>
+</tr>
+
+</table>
+</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+
+</div>
+
+
+</div>
+
+                </div>
+              </div>
+          </div>
+        </div>
+      <div><input type="hidden" name="_generation" value="3" /></div></form>
+  </body>
+</html>

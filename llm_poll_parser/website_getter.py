@@ -170,6 +170,7 @@ def parse_allegato_table(html_content):
     # Find the table
     table = soup.find('table', {'summary': 'Allegato Domanda'})
         
+    print(table)
     # Initialize dictionary to hold data
     table_data = {}
 
@@ -177,15 +178,18 @@ def parse_allegato_table(html_content):
     if len(table.find_all('tr')) == 0:
         return None
     
+    headers = [header.get_text(strip=True) for header in table.find('tr').find_all('td')]
     # Iterate over each row in the table
-    for row in table.find_all('tr'):
+    for row in table.find_all('tr')[1:]:
         cols = row.find_all('td')
-        # Ensure there are two columns
-        if len(cols) == 2:
+        if len(cols) >= len(headers):
             key = cols[0].get_text(strip=True)
-            value = cols[1].get_text(strip=True)
+            values = {}
+            for i, col in enumerate(cols[1:], 1):
+                values[headers[i]] = col.get_text(strip=True)
             # Add to the dictionary
-            table_data[key] = value
+            table_data[key] = values
+            
             
     return table_data
 
