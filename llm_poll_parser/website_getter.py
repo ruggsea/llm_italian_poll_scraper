@@ -143,7 +143,7 @@ def get_right_domanda(driver, domande):
     # we want to find the domanda that contains the word "intenzione di voto" or "sondaggio politico"
     for domanda in domande:
         titolo_domanda = domanda.get_attribute('title')
-        if 'elezioni nazionali' in titolo_domanda.lower() or 'intenzioni di voto' in titolo_domanda.lower() or "elezioni politiche" in titolo_domanda.lower() or "votasse oggi" in titolo_domanda.lower() or "borsino dei partiti" in titolo_domanda.lower():
+        if 'elezioni nazionali' in titolo_domanda.lower() or 'intenzioni di voto' in titolo_domanda.lower() or "elezioni politiche" in titolo_domanda.lower() or "votasse oggi" in titolo_domanda.lower() or "borsino dei partiti" in titolo_domanda.lower() or "peso dei partiti" in titolo_domanda.lower():
             # find the element again and click on it
             domanda_to_click = driver.find_element('id', domanda.get_attribute('id'))
             domanda_to_click.click()
