@@ -56,3 +56,29 @@ python3 llm_poll_parser/archiving_polls.py
 
 La media si basa sui sondaggi archiviati nel file `italian_polls.jsonl` e viene calcolata tramite media mobile a peso esponenziale (EWMA). Il grafico non riporta Azione, +Europa e Italia Viva poiché le loro unioni e divisioni rendono difficile rappresentarne una serie storica (sono tuttavia presenti nei dati raccolti).
 
+## Partiti considerati
+
+Sono considerati in maniera abbastanza esaustiva tutti i partiti sondati nei sondaggi archiviati sul sito (2013-presente). I partiti considerati sono:
+
+- Fratelli d'Italia
+- Partito Democratico
+- Movimento 5 Stelle
+- Forza Italia
+- Lega
+- Alleanza Verdi Sinistra
+- Azione
+- Italia Viva
+- +Europa
+- Pace Terra Dignità
+- Sud Chiama Nord
+- Stati Uniti d'Europa
+- Azione/+Europa
+- Azione - Italia Viva
+- Unione Popolare
+- Sinistra Ecologia Libertà
+- Unione di Centro
+- Scelta Civica
+
+Sono incoraggiati consigli e suggerimenti su partiti da aggiungere, altri miglioramenti e correzione dei dati: in caso aprire una issue. Grazie!
+
+Per domande, chiarificazione o contatti media contattemi su fu twitter at [ruggsea](https://twitter.com/ruggsea) o al seguente profilo [LinkedIn](https://www.linkedin.com/in/ruggsea/).
