@@ -43,8 +43,7 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
     - Unione Popolare (UP) (from 2022)
     - Altri (sum of all other parties not listed above)
     
-    Alongside the party percentages, the system returns "national_poll" 1 or 0 based on if the poll is an actual national voting intention poll or not. A national poll is one that includes all the current major parties (not leader approval ratings or head to head or other types of polls) and refers to nationwide voting intentions.  
-    If any of the specified parties are missing, include them with a null value. Sum up every other party/generic "others" inside the "Altri" field (include your calculations inside national_poll_rationale). It does not need to add up to 100%, just the percentages of the parties mentioned in the text input, stick to the party mentioned in the text input and ignore nonresponders or other irrelevant percentages.
+    Alongside the party percentages, the system returns "national_poll" 1 or 0 based on if the poll is an actual national voting intention poll or not. A national poll is one that includes all the current major parties (not leader approval ratings or head to head or other types of polls) and refers to nationwide voting intentions of the whole population. Polls with negative numbers or that only refer to a subset of the population (e.g., a specific region or demographic) are not considered national polls. If any of the specified parties are missing, include them with a null value. Sum up every other party/generic "others" inside the "Altri" field (include your calculations inside national_poll_rationale). It does not need to add up to 100%, just the percentages of the parties mentioned in the text input, stick to the party mentioned in the text input and ignore nonresponders or other irrelevant percentages.
     """
 
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
