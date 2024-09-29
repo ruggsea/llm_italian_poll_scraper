@@ -84,3 +84,10 @@ Sono considerati in maniera abbastanza esaustiva tutti i partiti sondati nei son
 Sono incoraggiati consigli e suggerimenti su partiti da aggiungere, altri miglioramenti e correzione dei dati: in caso aprire una issue. Grazie!
 
 Per domande, chiarificazione o contatti media contattemi su fu twitter at [ruggsea](https://twitter.com/ruggsea) o al seguente profilo [LinkedIn](https://www.linkedin.com/in/ruggsea/).
+
+## Se usi questi dati
+
+I dati sono rilasciati con licenza **CC BY 4.0**, quindi sei libero di utilizzarli per qualsiasi scopo, a patto di **citare questa fonte**. 
+
+Quando li usi includi per favore la dicitura "dati estratti da Ruggero Marino Lazzaroni (https://github.com/ruggsea/llm_italian_poll_scraper)", mettendo il link a questo repository (come qui nell'esempio).
+
