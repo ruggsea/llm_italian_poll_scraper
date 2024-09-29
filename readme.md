@@ -1,3 +1,5 @@
+<a href="https://datibenecomune.substack.com/about"><img src="https://img.shields.io/badge/%F0%9F%99%8F-%23datiBeneComune-%23cc3232"/></a>
+
 ## Media di oggi
 
 Fratelli d'Italia: 30.00%  
@@ -88,3 +90,4 @@ Per domande, chiarificazione o contatti media contattemi su fu twitter at [ruggs
 I dati sono rilasciati con licenza **CC BY 4.0**, quindi sei libero di utilizzarli per qualsiasi scopo, a patto di **citare questa fonte**. 
 
 Quando li usi includi per favore la dicitura "dati estratti da Ruggero Marino Lazzaroni (https://github.com/ruggsea/llm_italian_poll_scraper)", mettendo il link a questo repository (come qui nell'esempio).
+
