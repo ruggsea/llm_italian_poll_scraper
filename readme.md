@@ -60,6 +60,8 @@ python3 llm_poll_parser/archiving_polls.py
 
 La media si basa sui sondaggi archiviati nel file `italian_polls.jsonl` e viene calcolata tramite media mobile a peso esponenziale (EWMA). Il grafico non riporta Azione, +Europa e Italia Viva poiché le loro unioni e divisioni rendono difficile rappresentarne una serie storica (sono tuttavia presenti nei dati raccolti).
 
+Mentre il dataset è molto affidabile per i sondaggi odierni, potrebbero esserci errori nei sondaggi più vecchi. In particolare, alcuni sondaggi risultano sfasati o vuoti per via di errori di parsing o di mancato filtraggio. Varie correzioni nel parsing sono state apportate: per vederne i frutti, saltuariamente conduco uno scrape completo per ricostruire il dataset da zero usando la versione più aggiornata dello scraper.
+
 ## Partiti considerati
 
 Sono considerati in maniera abbastanza esaustiva tutti i partiti sondati nei sondaggi archiviati sul sito (2013-presente). I partiti considerati sono:
