@@ -1,3 +1,5 @@
+<a href="https://datibenecomune.substack.com/about"><img src="https://img.shields.io/badge/%F0%9F%99%8F-%23datiBeneComune-%23cc3232"/></a>
+
 ## Media di oggi
 
 Fratelli d'Italia: 30.00%  
