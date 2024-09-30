@@ -20,7 +20,7 @@ Italia Viva: 2.36%
 # Archiving Italian Political Polls
 
 Questo progetto si occupa di archiviare tutti i sondaggi mai caricati sul sito ufficiale [sondaggipoliticoelettorali.it](https://www.sondaggipoliticoelettorali.it/), cercando quelli che riguardano l'intenzione di voto nazionale utilizzando il confronto di stringhe e l'estrazione delle risposte al sondaggio utilizzando un Large Language Model (LLM).
-Per a chi interessano solo i dati dei sondaggi aggiornati giornalieramente, sono disponibili in formato JSONL nel file `italian_polls.jsonl` e in formato CSV nel file `italian_polls.csv`. Se invece si desiderano i dati in formato long e ulteriormente puliti, sono disponibili alla sequente repo di onData: [italian_polls](https://github.com/ondata/liberiamoli-tutti/tree/main/italian_poll)
+Per a chi interessano solo i dati dei sondaggi aggiornati giornalieramente, sono disponibili in formato JSONL nel file `italian_polls.jsonl` e in formato CSV nel file `italian_polls.csv`. Se invece si desiderano i dati in formato long e ulteriormente puliti, sono disponibili alla sequente repo di onData: [italian_polls](https://github.com/ondata/liberiamoli-tutti/tree/main/italian_polls)
 
 ## Requisiti
 
