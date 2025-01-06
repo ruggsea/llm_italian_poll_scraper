@@ -103,7 +103,9 @@ def rows_intenzioni_di_voto(driver, table):
             'osservatorio italia',
             'sondaggio su elezioni nazionali',
             'scenari politici',
-            "peso dei partiti",
+            'scenario politico',
+            'quadro politico',
+            'peso dei partiti',
         ]
         if any(keyword in row['Titolo'].lower() for keyword in keywords):
             # return the row number and data inserimento
