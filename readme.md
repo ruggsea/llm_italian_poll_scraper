@@ -1,19 +1,19 @@
 <a href="https://datibenecomune.substack.com/about"><img src="https://img.shields.io/badge/%F0%9F%99%8F-%23datiBeneComune-%23cc3232"/></a>
 
-Se vuoi più informazioni su questo progetto, ne ho parlato su [datiBeneComune](https://datibenecomune.substack.com/) in questo [numero]
+Se vuoi più informazioni su questo progetto, ne ho parlato su [datiBeneComune](https://datibenecomune.substack.com/) in [questo numero](https://datibenecomune.substack.com/p/liberiamoli-tutti-numero-8).
 
 ## Media di oggi
 
-Fratelli d'Italia: 29.88%  
-Partito Democratico: 23.46%  
-Movimento 5 Stelle: 11.28%  
-Forza Italia: 9.53%  
-Lega: 8.52%  
-Alleanza Verdi Sinistra: 6.64%  
-Altri: 3.40%  
-Azione: 3.12%  
-Italia Viva: 2.40%  
-+Europa: 1.75%  
+Fratelli d'Italia: 29.45%  
+Partito Democratico: 23.39%  
+Movimento 5 Stelle: 11.31%  
+Forza Italia: 9.54%  
+Lega: 8.88%  
+Alleanza Verdi Sinistra: 6.57%  
+Altri: 3.70%  
+Azione: 2.84%  
+Italia Viva: 2.37%  
++Europa: 1.93%  
 ## Grafico
 ![Latest Moving Average](latest_average_plot.png)
 
