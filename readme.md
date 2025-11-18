@@ -4,16 +4,16 @@ Se vuoi più informazioni su questo progetto, ne ho parlato su [datiBeneComune](
 
 ## Media di oggi
 
-Fratelli d'Italia: 30.94%  
-Partito Democratico: 22.17%  
-Movimento 5 Stelle: 12.54%  
-Forza Italia: 9.13%  
-Lega: 8.40%  
-Alleanza Verdi Sinistra: 6.55%  
-Azione: 3.23%  
-Altri: 3.05%  
-Italia Viva: 2.34%  
-+Europa: 1.65%  
+Fratelli d'Italia: 31.10%  
+Partito Democratico: 22.20%  
+Movimento 5 Stelle: 12.62%  
+Forza Italia: 8.94%  
+Lega: 8.31%  
+Alleanza Verdi Sinistra: 6.63%  
+Azione: 3.24%  
+Altri: 2.97%  
+Italia Viva: 2.38%  
++Europa: 1.62%  
 ## Grafico
 ![Latest Moving Average](latest_average_plot.png)
 
