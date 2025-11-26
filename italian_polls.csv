@@ -1,4 +1,16 @@
 Row,Data Inserimento,Realizzatore,Committente,Titolo,text,domanda,national_poll_rationale,national_poll,Partito Democratico,Forza Italia,Fratelli d'Italia,Alleanza Verdi Sinistra,Lega,Movimento 5 Stelle,+Europa,Azione,Italia Viva,Stati Uniti d'Europa,Pace Terra Dignità,Azione - Italia Viva,Azione/+Europa,Sinistra Ecologia Libertà,Scelta Civica,Unione di Centro,Sud Chiama Nord,Unione Popolare,Altri
+2,25/11/2025,SWG S.p.a.,La7,intenzioni di voto,"FRATELLI D'ITALIA 31,6
+PARTITO DEMOCRATICO 22,3
+MOVIMENTO 5 STELLE 12,5
+FORZA ITALIA 7,9
+LEGA 7,7
+VERDI E SINISTRA 7,0
+AZIONE 3,3
+ITALIA VIVA 2,5
++EUROPA 1,4
+NOI MODERATI 1,2
+ALTRE LISTE 2,6
+NON SI ESPRIME 30%","Se dovesse votare oggi alle elezioni nazionali, a quale dei seguenti partiti darebbe il suo voto più probabilmente?","The poll includes all major parties such as Fratelli d'Italia, Partito Democratico, Movimento 5 Stelle, Forza Italia, Lega, and others. It refers to nationwide voting intentions, making it a national voting intention poll. The percentages for the parties listed sum up to 100% when considering the relevant parties, and the presence of 'Altri' is calculated from the 'ALTRE LISTE' percentage. Therefore, this is a national poll.",1,22.3,7.9,31.6,7.0,7.7,12.5,1.4,3.3,2.5,,,,,,,,,,2.6
 5,21/11/2025,Termometro Politico,True Data,"Sondaggio su elezioni politiche, consenso","Partiti %
 Fratelli d'Italia 30,4%
 PD 22,0%
