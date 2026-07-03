@@ -14,8 +14,14 @@ parties_list = [
     "+Europa",
     "Azione",
     "Italia Viva",
+    "Futuro Nazionale",
     "Altri"
 ]
+
+# parties that have been around for the whole time series, used to decide
+# whether a poll has enough data to be kept (newer parties like Futuro
+# Nazionale are always missing in older polls and should not count)
+core_parties_list = [party for party in parties_list if party != "Futuro Nazionale"]
 
 party_colors = {
     "Partito Democratico": "red",
@@ -27,6 +33,7 @@ party_colors = {
     "+Europa": "gold",
     "Azione": "navy",
     "Italia Viva": "pink",
+    "Futuro Nazionale": "black",
     "Altri": "grey"
 }
 
@@ -50,8 +57,8 @@ def load_and_process_data(filepath):
                 df.at[i, party] = float(row[party])
             
         
-    # drop polls with more than 3 missing values in the party percentages
-    df = df.dropna(subset=parties_list, thresh=len(parties_list) - 4)
+    # drop polls with more than 3 missing values in the core party percentages
+    df = df.dropna(subset=core_parties_list, thresh=len(core_parties_list) - 4)
     
     # how many nas per party
     print(f"Missing values per party:")
