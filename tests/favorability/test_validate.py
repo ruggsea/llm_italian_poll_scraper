@@ -89,3 +89,28 @@ def test_small_scale_row_sets_are_untouched():
             {"entity": "Governo", "metric": "fiducia_pct", "value": 58.0}]
     accepted, review = guard_rows(rows)
     assert len(accepted) == 2 and not review
+
+
+def test_gradimento_index_on_full_sample_is_rejected_as_base_mismatch():
+    # the EMG "gradimento 43.4%" LLM mislabel: a full-sample number tagged as
+    # the expressers index would pool incommensurable scales -> review, not CSV
+    rows = [{"entity": "Governo", "metric": "gradimento_index", "value": 43.4,
+             "base": "full_sample"}]
+    accepted, review = guard_rows(rows)
+    assert accepted == []
+    assert "metric/base mismatch" in review[0]
+
+
+def test_gradimento_index_on_expressers_passes():
+    rows = [{"entity": "Giuseppe Conte", "metric": "gradimento_index", "value": 30.0,
+             "base": "expressers"}]
+    accepted, review = guard_rows(rows)
+    assert len(accepted) == 1 and not review
+
+
+def test_full_sample_metric_on_expressers_base_is_rejected():
+    rows = [{"entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 22.0,
+             "base": "expressers"}]
+    accepted, review = guard_rows(rows)
+    assert accepted == []
+    assert "metric/base mismatch" in review[0]

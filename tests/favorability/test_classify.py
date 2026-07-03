@@ -110,11 +110,14 @@ def test_ipsos_indice_tables(name):
 
 # --- rule 6: Ipsos leader battery (v1 defect: metric-scale mismatch) -------------
 
-def test_ipsos_leader_battery_is_raw_positives_never_index():
+def test_ipsos_leader_battery_is_the_expressers_index():
+    # the deposited per-leader number IS the "Indice gradimento 0-100 (% giudizi
+    # positivi esclusi i non sa)" — an expressers index — so it must land in the
+    # gradimento_index family, NOT be pooled with raw-over-full-sample giudizi.
     result = classify_fixture("ipsos_leader_battery")
     assert result.action == ACCEPT
-    assert result.metric == "giudizi_positivi_pct"   # hard override of the header claim
-    assert result.metric != "gradimento_index"
+    assert result.metric == "gradimento_index"
+    assert result.metric != "giudizi_positivi_pct"
 
 
 # --- rule 7: binary fiducia -------------------------------------------------------

@@ -9,7 +9,8 @@ matters; the first match wins. Every v1 defect is a rule here:
 
 - subgroup breakdowns (Piepoli "per orientamento politico", Meloni-88) -> REJECT
 - single-choice rankings (LAB21 TOP TEN, sums to 100) -> most_trusted_share
-- Ipsos leader battery raw positives -> giudizi_positivi_pct, NEVER the index
+- Ipsos leader battery ("Indice gradimento 0-100") -> gradimento_index
+  (expressers base), never pooled with raw full-sample giudizi_positivi_pct
 - subnational/local questions -> REJECT (population != national)
 """
 
@@ -267,14 +268,17 @@ def classify(pollster, domanda_title, text, document_title=None):  # noqa: C901 
                               reason="deposited INDICE row + raw positives row")
 
     # 6. Ipsos leader battery: >=8 'Name - PARTY' keys, one integer each, sum >> 100.
-    #    HARD OVERRIDE: raw positive judgments even though the header claims
-    #    "Indice gradimento 0-100" — the published index is computed on expressers
-    #    and sits 15-20 points higher (the v1 killer defect).
+    #    The deposited per-leader number IS the expressers index — the table
+    #    header reads verbatim "Indice gradimento 0-100 (% giudizi positivi
+    #    esclusi i 'non sa')" and Ipsos's own press quotes these exact figures
+    #    as the indice di gradimento. So it belongs to the gradimento_index
+    #    family (base=expressers), NOT the raw-over-full-sample giudizi_positivi
+    #    family: pooling the two is the v1 killer scale-mixing defect.
     if is_json and len(persons) >= 8 and persons_sum > 150 \
             and sum(1 for label, _ in persons if _NAME_PARTY_KEY.match(label)) >= len(persons) // 2:
-        return Classification(ACCEPT, "ipsos_leader_battery", METRIC_GIUDIZI_POSITIVI,
+        return Classification(ACCEPT, "ipsos_leader_battery", METRIC_GRADIMENTO_INDEX,
                               extractor="leader_battery",
-                              reason="per-leader raw positive judgments (never the index)")
+                              reason="per-leader indice di gradimento (positives over expressers)")
 
     # 6b. Demos&Pi two-column table ('giudizio uguale o superiore a 6') — must
     #     run BEFORE the generic battery rules or the >=6 raw-positive shares

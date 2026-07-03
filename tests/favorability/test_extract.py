@@ -123,17 +123,17 @@ def test_ipsos_indice_mismatch_goes_to_review():
 
 
 def test_ipsos_leader_battery_golden():
+    # header: "Indice gradimento 0-100 (% giudizi positivi esclusi i non sa)"
+    # -> the deposited per-leader number IS the expressers index
     result = extract_fixture("ipsos_leader_battery")
-    rows = by_entity(result, "giudizi_positivi_pct")
+    rows = by_entity(result, "gradimento_index")
     assert rows["Giuseppe Conte"]["value"] == 30.0
     assert rows["Antonio Tajani"]["value"] == 27.0
     assert rows["Elly Schlein"]["value"] == 24.0
-    # must NOT be anywhere near the published expressers index (48/46/45)
-    assert abs(rows["Giuseppe Conte"]["value"] - 48) > 5
-    assert abs(rows["Antonio Tajani"]["value"] - 46) > 5
-    assert abs(rows["Elly Schlein"]["value"] - 45) > 5
-    # and none of them may claim the index metric
-    assert not by_entity(result, "gradimento_index")
+    # every row is on the expressers base, and none leak into the raw
+    # full-sample giudizi_positivi_pct family (the scale-mixing defect)
+    assert all(row["base"] == "expressers" for row in result.rows)
+    assert not by_entity(result, "giudizi_positivi_pct")
 
 
 # --- golden: LAB21 24/06 TOP TEN sums to 100.0, Meloni 36.7, zero fiducia_pct rows ---

@@ -40,11 +40,12 @@ def test_lab21_top_ten_yields_only_most_trusted_share():
     assert not [row for row in rows if row["metric"] == "fiducia_pct"]
 
 
-def test_ipsos_battery_rows_are_raw_positives():
+def test_ipsos_battery_rows_are_the_expressers_index():
     record, rows, items = run_fixture("ipsos_leader_battery")
     values = {row["entity"]: row["value"] for row in rows}
     assert values["Giuseppe Conte"] == 30.0
-    assert all(row["metric"] == "giudizi_positivi_pct" for row in rows)
+    assert all(row["metric"] == "gradimento_index" for row in rows)
+    assert all(row["base"] == "expressers" for row in rows)
 
 
 def test_scale_question_emits_published_plus_derived_row():

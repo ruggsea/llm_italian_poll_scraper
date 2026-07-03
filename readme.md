@@ -117,6 +117,6 @@ uv run python -m llm_poll_parser.favorability.cli plot
 
 **Lacune note (documentate, non imputate):**
 
-- Ipsos pubblica un "indice di gradimento" per leader calcolato sui soli rispondenti che si esprimono (es. Conte ~48), ma deposita in archivio solo i giudizi positivi grezzi (es. Conte ~30): il non-response per leader non è depositato, quindi l'indice per leader NON è derivabile. Le due serie vivono sotto metriche diverse (`gradimento_index` vs `giudizi_positivi_pct`).
+- Ipsos deposita il suo "indice di gradimento" per leader (positivi sui soli rispondenti che si esprimono), ma nessun altro istituto lo fa: `gradimento_index` è quindi una serie **solo-Ipsos** per i leader e per Governo/Premier, pubblicata per-istituto e mai come media cross-istituto (n_pollsters < 2). È tenuta rigorosamente separata dai giudizi positivi grezzi sul campione totale (`giudizi_positivi_pct`, es. Demos&Pi/Eumetra "voto ≥ 6"): mescolare le due scale era il difetto della v1.
 - Le serie nazionali di fiducia nei leader di SWG e Noto non sono depositate in archivio.
 - I depositi ritardano fino a ~1 settimana rispetto alla pubblicazione; Mattarella è coperto solo da EMG (~bisettimanale); Calenda/Renzi sono serie sottili.

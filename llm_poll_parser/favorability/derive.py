@@ -9,9 +9,10 @@ Derived metrics with provenance (pure functions).
   base are possible — always tagged derived=true and kept out of the published
   averages.
 
+The Ipsos per-leader index IS deposited directly (the "Indice gradimento 0-100"
+battery), so it needs no recomputation — it is read as-is into gradimento_index.
+
 Explicitly NOT derivable from this archive (documented gaps, do not impute):
-- the Ipsos PUBLISHED per-leader index (Conte 48 etc.): per-leader non-response
-  is not deposited, only raw positives are;
 - SWG / Noto national leader fiducia: absent from the archive deposits.
 """
 

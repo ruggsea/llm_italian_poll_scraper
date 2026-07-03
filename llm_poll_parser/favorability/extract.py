@@ -153,7 +153,7 @@ def extract_ipsos_indice(classification, pollster, title, text, client=None):
 
 
 def extract_leader_battery(classification, pollster, title, text, client=None):
-    """Per-leader battery (Ipsos raw positives, EMG fiducia, 1-10 means)."""
+    """Per-leader battery (Ipsos expressers index, EMG fiducia, 1-10 means)."""
     pairs, is_json = get_pairs(text)
     # class None = a person name; 'extra'-classed labels are kept only when they
     # look like 'Name - PARTY' (e.g. "Riccardo Magi - + Europa"), never when they
@@ -174,7 +174,14 @@ def extract_leader_battery(classification, pollster, title, text, client=None):
             f"battery values sum to {total:g} (~100): looks like a single-choice "
             f"ranking, refusing per-leader percentages: {title!r}"
         ])
-    base = "unknown" if classification.metric == METRIC_VOTO_MEDIO else "full_sample"
+    # base follows the metric: the Ipsos leader battery is the expressers index,
+    # EMG/other batteries are full-sample fiducia, voto_medio has no base
+    if classification.metric == METRIC_VOTO_MEDIO:
+        base = "unknown"
+    elif classification.metric == METRIC_GRADIMENTO_INDEX:
+        base = "expressers"
+    else:
+        base = "full_sample"
     rows = []
     for label, value in persons:
         entity, in_roster = canonical_entity(label)

@@ -5,7 +5,24 @@ an invariant raises ValueError (LLM payloads) or is routed to the review
 queue (rows), and can therefore never reach favorability_polls.csv silently.
 """
 
-from .taxonomy import METRIC_MOST_TRUSTED, METRIC_VOTO_MEDIO, METRICS
+from .taxonomy import (
+    METRIC_FIDUCIA,
+    METRIC_GIUDIZI_POSITIVI,
+    METRIC_GRADIMENTO_INDEX,
+    METRIC_MOST_TRUSTED,
+    METRIC_VOTO_MEDIO,
+    METRICS,
+)
+
+# The metric taxonomy binds each family to the base its numbers live on. Pooling
+# an expressers-normalized value with a full-sample one (or vice versa) is the v1
+# killer scale-mixing defect, so a row whose base contradicts its metric — most
+# often an LLM-fallback mislabel — is routed to review, never averaged.
+_METRIC_REQUIRED_BASE = {
+    METRIC_GRADIMENTO_INDEX: "expressers",   # positives over those who express an opinion
+    METRIC_FIDUCIA: "full_sample",
+    METRIC_GIUDIZI_POSITIVI: "full_sample",
+}
 
 POPULATIONS = {"national", "subnational", "subgroup"}
 BASES = {"full_sample", "expressers", "unknown"}
@@ -92,6 +109,18 @@ def guard_rows(rows, context=""):
 
     accepted = []
     for metric, metric_rows in by_metric.items():
+        required_base = _METRIC_REQUIRED_BASE.get(metric)
+        if required_base is not None:
+            off_base = [row for row in metric_rows if row.get("base") not in (required_base, None)]
+            if off_base:
+                bases = sorted({str(row.get("base")) for row in off_base})
+                review.append(
+                    f"{len(off_base)} {metric} rows on base {bases} (expected "
+                    f"{required_base!r}): metric/base mismatch, scale not comparable ({context})"
+                )
+                metric_rows = [row for row in metric_rows if row not in off_base]
+                if not metric_rows:
+                    continue
         total = sum(row["value"] for row in metric_rows)
         if metric == METRIC_MOST_TRUSTED:
             if not 98 <= total <= 102:
