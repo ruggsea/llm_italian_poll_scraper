@@ -1,0 +1,8 @@
+{
+ "provenance": "spec/census-based Termometro Politico layout; golden: 38.7 = 25.3+13.4 (TP 22/06/2026)",
+ "pollster_raw": "Termometro Politico",
+ "deposit_date": "22/06/2026",
+ "titolo": "Sondaggio politico elettorale",
+ "domanda": "Ha fiducia nel Presidente del Consiglio Giorgia Meloni?",
+ "text": "Sì, molta 25,3%\nSì, abbastanza 13,4%\nPoca 14,8%\nPer niente 44,2%\nNon saprei 2,3%"
+}

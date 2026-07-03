@@ -1,0 +1,8 @@
+{
+ "provenance": "real, archive deposit 03/06/2026 - raw positives despite the 'Indice gradimento 0-100' header (metric-scale mismatch defect)",
+ "pollster_raw": "Ipsos Doxa",
+ "deposit_date": "03/06/2026",
+ "titolo": "Intenzioni di voto, gradimento Governo, gradimento leader",
+ "domanda": "Qual è il suo livello di gradimento per l'operato dei seguenti leader di partito... ?",
+ "text": "{\"Indice gradimento 0-100 (% giudizi positivi esclusi i \\\"\\\"non sa\\\"\\\")\": {\"\": \"\"}, \"Giuseppe Conte - M5S\": {\"\": \"30\"}, \"Antonio Tajani - FI\": {\"\": \"27\"}, \"Elly Schlein - PD\": {\"\": \"24\"}, \"Matteo Salvini - Lega\": {\"\": \"23\"}, \"Nicola Fratoianni - SI\": {\"\": \"21\"}, \"Angelo Bonelli - Verdi\": {\"\": \"21\"}, \"Roberto Vannacci - Futuro - Nazionale\": {\"\": \"21\"}, \"Carlo Calenda - Azione\": {\"\": \"19\"}, \"Maurizio Lupi - Noi Moderati\": {\"\": \"17\"}, \"Riccardo Magi - + Europa\": {\"\": \"16\"}, \"Matteo Renzi - IV\": {\"\": \"14\"}}"
+}

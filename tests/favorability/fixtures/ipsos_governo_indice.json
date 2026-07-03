@@ -1,0 +1,8 @@
+{
+ "provenance": "real, archive deposit 03/06/2026 - golden: index 40, recompute 36/(36+53)",
+ "pollster_raw": "Ipsos Doxa",
+ "deposit_date": "03/06/2026",
+ "titolo": "Intenzioni di voto, gradimento Governo, gradimento leader",
+ "domanda": "Qual è il suo livello di gradimento nei confronti del governo guidato da Giorgia Meloni?",
+ "text": "{\"voti positivi (6-10)\": {\"\": \"36%\"}, \"voti negativi (1-5)\": {\"\": \"53%\"}, \"(non sanno, non indicano)\": {\"\": \"11%\"}, \"TOTALE\": {\"\": \"100%\"}, \"INDICE DI GRADIMENTO (% voti positivi su voti espressi)\": {\"\": \"40\"}}"
+}

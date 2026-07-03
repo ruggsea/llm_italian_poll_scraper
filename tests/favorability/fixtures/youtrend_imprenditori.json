@@ -1,0 +1,8 @@
+{
+ "provenance": "real, archive deposit 16/01/2026 - multi-column table, LLM fallback",
+ "pollster_raw": "Youtrend",
+ "deposit_date": "16/01/2026",
+ "titolo": "Fiducia negli imprenditori",
+ "domanda": "Qui sotto sono elencate una serie di personalità di spicco dell'imprenditoria italiana. Puoi indicare se le conosci? E puoi indicare quanta fiducia hai in loro?",
+ "text": "Hanno fiducia Non hanno fiducia Non sanno/Non conoscono\nJohn Elkann 14 59 27\nLapo Elkann 11 68 21\nGiovanni Ferrero 55 12 33\nChiara Ferragni 8 80 12\nBrunello Cucinelli 28 8 64\nLeonardo Maria Del Vecchio 24 10 63\nMiuccia Prada 34 16 50\nGiuseppe Lavazza 42 11 47"
+}

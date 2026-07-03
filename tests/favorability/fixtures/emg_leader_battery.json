@@ -1,0 +1,8 @@
+{
+ "provenance": "spec/census-based EMG layout; golden: Mattarella 82 (Osservatorio EMG 25/06/2026)",
+ "pollster_raw": "Emg srl",
+ "deposit_date": "25/06/2026",
+ "titolo": "Monitor Italia",
+ "domanda": "Le elencherò ora i nomi di alcuni personaggi politici italiani. Mi dica per ciascuno quanta fiducia prova nei suoi confronti.",
+ "text": "Sergio Mattarella 82%\nGiorgia Meloni 41%\nGiuseppe Conte 33%\nElly Schlein 30%\nAntonio Tajani 29%\nMatteo Salvini 25%\nRoberto Vannacci 24%\nCarlo Calenda 19%\nMatteo Renzi 15%\nNicola Fratoianni 22%\nAngelo Bonelli 18%\nMaurizio Lupi 16%\nRiccardo Magi 14%"
+}

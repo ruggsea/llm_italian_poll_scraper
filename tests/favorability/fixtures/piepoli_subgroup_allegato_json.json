@@ -1,0 +1,8 @@
+{
+ "provenance": "real, archive deposit 13/02/2026 (allegato-table JSON variant)",
+ "pollster_raw": "Istituto Piepoli",
+ "deposit_date": "13/02/2026",
+ "titolo": "FIDUCIA IN GIORGIA MELONI",
+ "domanda": "QUANTO HA FIDUCIA IN GIORGIA MELONI, PRESIDENTE DEL CONSIGLIO?\n(per orientamento politico)",
+ "text": "{\"\": {\"CENTRO DESTRA\": \"88%\", \"CENTRO SINISTRA\": \"13%\", \"M5S\": \"10%\"}, \"FDI\": {\"CENTRO DESTRA\": \"97%\", \"CENTRO SINISTRA\": \"\", \"M5S\": \"\"}, \"FI\": {\"CENTRO DESTRA\": \"70%\", \"CENTRO SINISTRA\": \"\", \"M5S\": \"\"}, \"LEGA\": {\"CENTRO DESTRA\": \"75%\", \"CENTRO SINISTRA\": \"\", \"M5S\": \"\"}}"
+}

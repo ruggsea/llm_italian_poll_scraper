@@ -95,3 +95,28 @@ I dati sono rilasciati con licenza **CC BY 4.0**, quindi sei libero di utilizzar
 
 Quando li usi includi per favore la dicitura "dati estratti da [Ruggero Marino Lazzaroni](https://github.com/ruggsea/llm_italian_poll_scraper)", mettendo il link a questo repository (il link è <https://github.com/ruggsea/llm_italian_poll_scraper>).
 
+
+## Favorability polls (v2, experimental)
+
+Oltre alle intenzioni di voto, il branch `feat/favorability-v2` estrae i sondaggi di **gradimento/fiducia** (Governo e leader nazionali) dall'archivio ufficiale, con una pipeline separata in `llm_poll_parser/favorability/`:
+
+- Ogni documento dell'archivio viene aperto (nessun filtro sul titolo del documento) e le singole domande vengono selezionate con un filtro a livello di domanda.
+- Le tabelle vengono classificate da un albero di decisione deterministico (`classify.py`) PRIMA di qualsiasi chiamata LLM; l'LLM interviene solo come fallback su tabelle illeggibili meccanicamente, con output validato da schema. Il payload LLM viene salvato verbatim nel ledger (`favorability_raw.jsonl`), quindi `reprocess` è un replay deterministico e completamente offline: zero chiamate API, stesso output byte-per-byte a ogni esecuzione.
+- I numeri sono salvati in formato long (`favorability_polls.jsonl`/`.csv`, una riga per (sondaggio, entità, metrica)) sotto una tassonomia di metriche CHIUSA: `fiducia_pct`, `fiducia_binaria_pct`, `gradimento_index`, `giudizi_positivi_pct`, `most_trusted_share`, `voto_medio_1_10`. Metriche diverse non vengono MAI mediate insieme.
+- Breakdown per orientamento politico e sondaggi locali/regionali sono scartati come dati (population != national); le tabelle non classificabili finiscono in `favorability_review_queue.jsonl` per triage umano, mai nel CSV.
+- Le medie (`favorability_averages.csv`) sono per (entità, metrica) con dedup di un sondaggio per istituto per finestra di 14 giorni. La media cross-istituto decade nel **tempo di calendario** (peso `0.5 ** (età_giorni / 14)`, con peso zero oltre i 60 giorni), così l'onda vecchia di un istituto lento non pesa quanto quella della settimana corrente; è soppressa dove n_pollsters < 2.
+
+Comandi (dalla root del repo):
+
+```bash
+uv run python -m llm_poll_parser.favorability.cli crawl --min-date 01/07/2025   # riprendibile
+uv run python -m llm_poll_parser.favorability.cli reprocess                     # replay offline dal ledger (deterministico, nessuna chiamata API; --llm per ri-estrarre tabelle senza payload in cache)
+uv run python -m llm_poll_parser.favorability.cli average
+uv run python -m llm_poll_parser.favorability.cli plot
+```
+
+**Lacune note (documentate, non imputate):**
+
+- Ipsos pubblica un "indice di gradimento" per leader calcolato sui soli rispondenti che si esprimono (es. Conte ~48), ma deposita in archivio solo i giudizi positivi grezzi (es. Conte ~30): il non-response per leader non è depositato, quindi l'indice per leader NON è derivabile. Le due serie vivono sotto metriche diverse (`gradimento_index` vs `giudizi_positivi_pct`).
+- Le serie nazionali di fiducia nei leader di SWG e Noto non sono depositate in archivio.
+- I depositi ritardano fino a ~1 settimana rispetto alla pubblicazione; Mattarella è coperto solo da EMG (~bisettimanale); Calenda/Renzi sono serie sottili.
