@@ -220,3 +220,12 @@ def test_al_netto_series_is_expressers_base_not_fiducia_pct():
     assert result.action == ACCEPT
     assert result.extractor == "expressers_single"
     assert result.metric == "gradimento_index"
+
+
+def test_city_level_electoral_poll_is_subnational():
+    # "Orientamenti elettorali a Trani" (a municipal poll) must be rejected even
+    # though it lacks sindaco/comunali keywords; national phrasing stays national
+    from llm_poll_parser.favorability.classify import _CITY_ELECTORAL
+    assert _CITY_ELECTORAL.search("Orientamenti elettorali a Trani")
+    assert _CITY_ELECTORAL.search("Voto a Bologna")
+    assert not _CITY_ELECTORAL.search("elettorali a livello nazionale")

@@ -78,6 +78,14 @@ _SUBNATIONAL = re.compile(
     r"|pugliese|calabr|sardegn|liguri|alessandrin|comunali|regionali"
 )
 
+# "Orientamenti elettorali a Trani", "Voto a Bologna": a city-level electoral
+# poll (national polls never scope to a named town). Case-SENSITIVE on purpose —
+# it requires a Capitalized place name after "a", so lowercase national phrasing
+# like "a livello nazionale" is not matched (a case-insensitive [A-Z] would be).
+_CITY_ELECTORAL = re.compile(
+    r"(?i:elettoral[ei]|orientament[io]|voto|fiducia)\s+a\s+[A-Z][a-zà-ù]{2,}"
+)
+
 _RANKING_TITLE = re.compile(r"(?i)top\s+ten|classifica")
 _AL_NETTO = re.compile(r"(?i)al\s+netto\s+dell?e?\s+non\s+rispost|al\s+netto\s+dei\s+non\s+rispond")
 _BINARY_LABEL = re.compile(r"(?i)^(hanno\s+fiducia|non\s+hanno\s+fiducia|s[iì]|no)$")
@@ -239,7 +247,8 @@ def classify(pollster, domanda_title, text, document_title=None):  # noqa: C901 
     #    mensile del voto e delle problematiche toscane" carries a national-looking
     #    "fiducia nel Governo" question asked to a Tuscany-only sample)
     if _SUBNATIONAL.search(title) or _SUBNATIONAL.search(body[:400]) \
-            or _SUBNATIONAL.search(str(document_title or "")):
+            or _SUBNATIONAL.search(str(document_title or "")) \
+            or _CITY_ELECTORAL.search(title) or _CITY_ELECTORAL.search(str(document_title or "")):
         return Classification(REJECT, "subnational", population="subnational",
                               reason="local/regional entities or sample")
 
