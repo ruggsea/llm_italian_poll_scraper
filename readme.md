@@ -84,6 +84,7 @@ Sono considerati in maniera abbastanza esaustiva tutti i partiti sondati nei son
 - Sinistra Ecologia Libertà
 - Unione di Centro
 - Scelta Civica
+- Futuro Nazionale
 
 Sono incoraggiati consigli e suggerimenti su partiti da aggiungere, altri miglioramenti e correzione dei dati: in caso aprire una issue. Grazie!
 
