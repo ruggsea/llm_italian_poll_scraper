@@ -41,6 +41,7 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
     - Scelta Civica (SC, Con Monti per l'Italia alle elezioni 2013) (from 2013 to 2019)
     - Sud Chiama Nord (SCN) (from 2022)
     - Unione Popolare (UP) (from 2022)
+    - Futuro Nazionale (Vannacci's party, from 2026; also written "Futuro Nazionale - Vannacci" or "Futuro Nazionale Vannacci")
     - Altri (sum of all other parties not listed above)
     
     Alongside the party percentages, the system returns "national_poll" 1 or 0 based on if the poll is an actual national voting intention poll or not. A national poll is one that includes all the current major parties (not leader approval ratings or head to head or other types of polls) and refers to nationwide voting intentions of the whole population. Polls with negative numbers or that only refer to a subset of the population (e.g., a specific region or demographic) are not considered national polls. If any of the specified parties are missing, include them with a null value. Sum up every other party/generic "others" inside the "Altri" field (include your calculations inside national_poll_rationale). It does not need to add up to 100%, just the percentages of the parties mentioned in the text input, stick to the party mentioned in the text input and ignore nonresponders or other irrelevant percentages.
@@ -55,7 +56,7 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
         "Alleanza Verdi Sinistra", "Lega", "Movimento 5 Stelle",
         "+Europa", "Azione", "Italia Viva", "Stati Uniti d'Europa", "Pace Terra Dignità",
         "Azione - Italia Viva", "Azione/+Europa", "Sinistra Ecologia Libertà", "Scelta Civica",
-        "Unione di Centro", "Sud Chiama Nord", "Unione Popolare","Altri",
+        "Unione di Centro", "Sud Chiama Nord", "Unione Popolare", "Futuro Nazionale", "Altri",
     ]
     
     json_schema = {
@@ -81,9 +82,10 @@ def parse_poll_results(text_input: str) -> Dict[str, Optional[float]]:
             "Scelta Civica": {"type": ["number", "null"]},
             "Sud Chiama Nord": {"type": ["number", "null"]},
             "Unione Popolare": {"type": ["number", "null"]},
+            "Futuro Nazionale": {"type": ["number", "null"]},
             "Altri": {"type": ["number", "null"]},
         },
-        "required": ["national_poll_rationale", "national_poll", "Partito Democratico", "Forza Italia", "Fratelli d'Italia", "Alleanza Verdi Sinistra", "Lega", "Movimento 5 Stelle", "+Europa", "Azione", "Italia Viva", "Stati Uniti d'Europa", "Pace Terra Dignità", "Azione - Italia Viva", "Azione/+Europa", "Sinistra Ecologia Libertà","Unione di Centro", "Sud Chiama Nord", "Unione Popolare","Altri"]
+        "required": ["national_poll_rationale", "national_poll", "Partito Democratico", "Forza Italia", "Fratelli d'Italia", "Alleanza Verdi Sinistra", "Lega", "Movimento 5 Stelle", "+Europa", "Azione", "Italia Viva", "Stati Uniti d'Europa", "Pace Terra Dignità", "Azione - Italia Viva", "Azione/+Europa", "Sinistra Ecologia Libertà","Unione di Centro", "Sud Chiama Nord", "Unione Popolare", "Futuro Nazionale", "Altri"]
     }
         
         
