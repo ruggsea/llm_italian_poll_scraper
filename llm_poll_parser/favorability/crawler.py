@@ -18,11 +18,11 @@ import logging
 import os
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from .classify import ACCEPT, LLM, REJECT, REVIEW, classify  # noqa: E402
+from .classify import LLM, REJECT, REVIEW, classify  # noqa: E402
 from .derive import expressers_rate_row  # noqa: E402
 from .extract import run_extractor  # noqa: E402
 from .ledger import (  # noqa: E402
@@ -287,6 +287,51 @@ def crawl(min_date, max_pages=200, headless=True, client=None, llm_enabled=True,
     finally:
         driver.quit()
         logger.info("Driver quit")
+    return state
+
+
+# --- forever-automation: depth-bounded daily update ----------------------------------
+
+# Steady-state floor for the daily job; a full historical backfill stays the
+# manual `crawl --min-date` path. The daily job never rescans the whole archive.
+DEFAULT_FLOOR = "01/07/2025"
+# Re-scan a short window before the newest deposit so late/backdated
+# "Data Inserimento" values are still picked up; already-seen documents are
+# skipped by document_key, so the only cost is a few extra seen-skips.
+DAILY_LOOKBACK_DAYS = 7
+
+
+def latest_seen_date(state, default_floor=DEFAULT_FLOOR):
+    """Newest deposit date already in the raw ledger, or DEFAULT_FLOOR on an
+    empty ledger (first run). Never scans the network."""
+    parsed = [datetime.strptime(record["Data Inserimento"], "%d/%m/%Y")
+              for record in state.raw if record.get("Data Inserimento")]
+    return max(parsed) if parsed else datetime.strptime(default_floor, "%d/%m/%Y")
+
+
+def daily_update(max_pages=10, headless=True, client=None, llm_enabled=True):
+    """Crawl ONLY new deposits since the last run, then rewrite averages+plot.
+
+    Idempotent, resumable and depth-bounded: the crawl floor is the newest
+    already-seen deposit minus DAILY_LOOKBACK_DAYS, so a no-new-deposit run
+    reads only the newest one to three archive pages, adds nothing, and leaves
+    both CSVs byte-identical (EWMA decays per-anchor, not wall-clock). Live LLM
+    stays confined to genuinely-new fallback tables inside crawl; replay is
+    offline. This is the CI/cron entrypoint.
+    """
+    state = LedgerState()
+    floor = latest_seen_date(state) - timedelta(days=DAILY_LOOKBACK_DAYS)
+    logger.info("Daily update: crawling new deposits back to %s (%d already seen)",
+                floor.strftime("%d/%m/%Y"), len(state.raw))
+    state = crawl(floor, max_pages=max_pages, headless=headless,
+                  client=client, llm_enabled=llm_enabled, state=state)
+
+    from .averaging import load_rows, make_plot, summarize, write_summary
+    rows = load_rows()
+    write_summary(summarize(rows))
+    make_plot(rows)
+    logger.info("Daily update done: %d rows, %d review items",
+                len(state.rows), len(state.review))
     return state
 
 

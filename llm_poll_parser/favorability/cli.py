@@ -38,12 +38,17 @@ def main(argv=None):
         help="ALSO call the LLM live for fallback tables that have no cached "
              "payload in the raw ledger (default: they go to the review queue)")
 
-    average_parser = subparsers.add_parser(
+    subparsers.add_parser(
         "average", help="write favorability_averages.csv from the rows ledger")
-    average_parser.add_argument("--halflife", type=float, default=14.0,
-                                help="calendar-time decay half-life in days")
 
     subparsers.add_parser("plot", help="write favorability_plot.png")
+
+    daily_parser = subparsers.add_parser(
+        "daily", help="crawl only NEW deposits since last run, then rewrite "
+                      "averages+plot (idempotent, depth-bounded; for CI/cron)")
+    daily_parser.add_argument("--max-pages", type=int, default=10)
+    daily_parser.add_argument("--no-headless", action="store_true")
+    _add_common(daily_parser)   # --no-llm
 
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -67,7 +72,7 @@ def main(argv=None):
     elif args.command == "average":
         from .averaging import load_rows, summarize, write_summary
 
-        summary = summarize(load_rows(), halflife_days=args.halflife)
+        summary = summarize(load_rows())
         write_summary(summary)
         with_average = summary[summary["cross_pollster_average"].notna()] if not summary.empty else summary
         print(summary.to_string(index=False, max_colwidth=40))
@@ -79,6 +84,13 @@ def main(argv=None):
 
         make_plot(load_rows())
         print("wrote favorability_plot.png")
+
+    elif args.command == "daily":
+        from .crawler import daily_update
+
+        state = daily_update(max_pages=args.max_pages, headless=not args.no_headless,
+                             llm_enabled=not args.no_llm)
+        print(f"rows: {len(state.rows)}, review queue: {len(state.review)}")
 
 
 if __name__ == "__main__":

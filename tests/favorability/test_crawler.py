@@ -2,15 +2,22 @@
 # Includes the INVERSION of v1's title-gate test: a document titled
 # "Monitor Italia" IS opened and its favorability question is parsed.
 import json
-from datetime import datetime
+import os
+import subprocess
+from datetime import datetime, timedelta
 from types import SimpleNamespace
 
 import pytest
 
+import llm_poll_parser.favorability.averaging as averaging_module
 import llm_poll_parser.favorability.crawler as crawler_module
 from llm_poll_parser.favorability.crawler import (
+    DAILY_LOOKBACK_DAYS,
+    DEFAULT_FLOOR,
     LedgerState,
     crawl,
+    daily_update,
+    latest_seen_date,
     process_question,
     reprocess,
 )
@@ -264,6 +271,84 @@ def test_reprocess_routes_uncached_llm_tables_to_review_not_api(tmp_path):
                           llm_enabled=True, state=state_in(tmp_path))
     assert len(refetched.rows) == 1
     assert refetched.raw[0]["llm_payload"] == canned_llm_payload()
+
+
+# --- daily_update: depth-bounded, idempotent automation entrypoint --------------------
+# Offline: selenium is short-circuited by monkeypatching crawl, and the LLM is
+# never reached. Exercises the new floor/lookback logic and the no-op contract.
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
+def test_latest_seen_date_uses_newest_deposit():
+    state = SimpleNamespace(raw=[
+        {"Data Inserimento": "10/06/2025"},
+        {"Data Inserimento": "25/06/2025"},
+        {"Data Inserimento": "01/06/2025"},
+        {"no_date": True},                       # rows without a date are ignored
+    ])
+    assert latest_seen_date(state) == datetime(2025, 6, 25)
+
+
+def test_latest_seen_date_empty_ledger_falls_back_to_default_floor():
+    state = SimpleNamespace(raw=[])
+    assert latest_seen_date(state) == datetime.strptime(DEFAULT_FLOOR, "%d/%m/%Y")
+
+
+def test_daily_update_floor_is_lookback_before_latest_seen(monkeypatch):
+    # fake ledger with a known newest deposit; no real files touched
+    fake_state = SimpleNamespace(
+        raw=[{"Data Inserimento": "25/06/2026"}], rows=[], review=[])
+    monkeypatch.setattr(crawler_module, "LedgerState", lambda: fake_state)
+
+    captured = {}
+
+    def fake_crawl(min_date, **kwargs):
+        captured["min_date"] = min_date
+        captured["kwargs"] = kwargs
+        return fake_state
+
+    monkeypatch.setattr(crawler_module, "crawl", fake_crawl)
+
+    invoked = []
+    monkeypatch.setattr(averaging_module, "load_rows", lambda: "ROWS")
+    monkeypatch.setattr(averaging_module, "summarize",
+                        lambda rows: invoked.append(("summarize", rows)) or "SUMMARY")
+    monkeypatch.setattr(averaging_module, "write_summary",
+                        lambda summary: invoked.append(("write_summary", summary)))
+    monkeypatch.setattr(averaging_module, "make_plot",
+                        lambda rows: invoked.append(("make_plot", rows)))
+
+    daily_update(max_pages=10)
+
+    assert captured["min_date"] == datetime(2026, 6, 25) - timedelta(days=DAILY_LOOKBACK_DAYS)
+    # depth-bounded: does not rescan the whole archive (max_pages forwarded)
+    assert captured["kwargs"]["max_pages"] == 10
+    # averages + plot rebuilt from load_rows() output
+    assert ("summarize", "ROWS") in invoked
+    assert ("write_summary", "SUMMARY") in invoked
+    assert ("make_plot", "ROWS") in invoked
+
+
+def test_daily_update_noop_leaves_csvs_byte_identical(monkeypatch):
+    # a no-new-deposit run: crawl adds nothing, so re-deriving averages from the
+    # unchanged rows ledger must leave the committed CSV/JSONL byte-identical.
+    golden = ["favorability_polls.csv", "favorability_polls.jsonl",
+              "favorability_raw.jsonl", "favorability_averages.csv"]
+    if not all(os.path.exists(os.path.join(REPO_ROOT, f)) for f in golden):
+        pytest.skip("committed golden files not present in this checkout")
+
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.chdir(REPO_ROOT)
+    # crawl is a no-op that returns the ledger untouched (simulates no new deposits)
+    monkeypatch.setattr(crawler_module, "crawl",
+                        lambda min_date, state=None, **kwargs: state)
+
+    daily_update(max_pages=1)
+
+    diff = subprocess.run(["git", "diff", "--", *golden],
+                          cwd=REPO_ROOT, capture_output=True, text=True).stdout
+    assert diff == "", "no-op daily_update perturbed the golden files:\n" + diff[:4000]
 
 
 def test_replayed_entity_casing_is_normalized_code_side(tmp_path):

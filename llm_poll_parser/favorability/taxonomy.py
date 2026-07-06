@@ -72,6 +72,23 @@ def _normalize_case(cleaned):
     return cleaned
 
 
+def _resolve_roster(lowered):
+    """Resolve a lowercased label to (roster_name, True) or None if it matches
+    no roster entity. Shared verbatim by canonical_entity() and
+    entity_from_question_title() so the two never drift on how "Governo",
+    a surname, or a presidential title maps onto the roster."""
+    if re.search(r"\bgoverno\b", lowered) and "presidente del consiglio" not in lowered:
+        return "Governo", True
+    for surname, roster_name in _SURNAME_TO_ENTITY.items():
+        if re.search(rf"\b{surname}\b", lowered):
+            return roster_name, True
+    if "presidente della repubblica" in lowered:
+        return "Sergio Mattarella", True
+    if "presidente del consiglio" in lowered:
+        return "Giorgia Meloni", True
+    return None
+
+
 def canonical_entity(name):
     """Normalize an entity label to (canonical_name, in_roster).
 
@@ -83,15 +100,9 @@ def canonical_entity(name):
     """
     cleaned = _PARTY_SUFFIX.sub("", _PARENTHETICAL.sub(" ", str(name))).strip(" .:-–")
     lowered = cleaned.lower()
-    if re.search(r"\bgoverno\b", lowered) and "presidente del consiglio" not in lowered:
-        return "Governo", True
-    for surname, roster_name in _SURNAME_TO_ENTITY.items():
-        if re.search(rf"\b{surname}\b", lowered):
-            return roster_name, True
-    if "presidente della repubblica" in lowered:
-        return "Sergio Mattarella", True
-    if "presidente del consiglio" in lowered:
-        return "Giorgia Meloni", True
+    resolved = _resolve_roster(lowered)
+    if resolved is not None:
+        return resolved
     return _normalize_case(cleaned), False
 
 
@@ -111,15 +122,9 @@ def entity_from_question_title(title):
     """
     text = str(title or "")
     lowered = text.lower()
-    if re.search(r"\bgoverno\b", lowered) and "presidente del consiglio" not in lowered:
-        return "Governo", True
-    for surname, roster_name in _SURNAME_TO_ENTITY.items():
-        if re.search(rf"\b{surname}\b", lowered):
-            return roster_name, True
-    if "presidente della repubblica" in lowered:
-        return "Sergio Mattarella", True
-    if "presidente del consiglio" in lowered:
-        return "Giorgia Meloni", True
+    resolved = _resolve_roster(lowered)
+    if resolved is not None:
+        return resolved
     match = _FIDUCIA_IN_X.search(text)
     if match:
         return canonical_entity(match.group(1).title())

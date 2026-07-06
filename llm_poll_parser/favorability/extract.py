@@ -20,7 +20,6 @@ from .classify import (
 )
 from .derive import ipsos_index_matches, recompute_gradimento_index
 from .taxonomy import (
-    METRIC_FIDUCIA,
     METRIC_GIUDIZI_POSITIVI,
     METRIC_GRADIMENTO_INDEX,
     METRIC_VOTO_MEDIO,
