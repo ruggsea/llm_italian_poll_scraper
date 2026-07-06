@@ -41,7 +41,7 @@ jobs:
       continue-on-error: true
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      run: python -m llm_poll_parser.favorability.cli daily
+      run: python -m llm_poll_parser.favorability.crawler daily
 
     - name: Commit changes
       run: |

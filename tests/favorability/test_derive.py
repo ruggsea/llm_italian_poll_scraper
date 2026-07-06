@@ -1,6 +1,6 @@
 # Derived-metric tests: Ipsos index recompute (half-up rounding!) and the
 # derived expressers-rate rows.
-from llm_poll_parser.favorability.derive import (
+from llm_poll_parser.favorability.extract import (
     expressers_rate_row,
     half_up,
     ipsos_index_matches,

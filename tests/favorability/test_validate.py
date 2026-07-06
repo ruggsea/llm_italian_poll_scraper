@@ -1,7 +1,7 @@
 # Validation-contract tests: strict LLM payload schema + structural row guards.
 import pytest
 
-from llm_poll_parser.favorability.validate import guard_rows, validate_llm_payload
+from llm_poll_parser.favorability.extract import guard_rows, validate_llm_payload
 
 
 def payload(rows=None, favorability=1, **overrides):

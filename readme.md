@@ -109,10 +109,10 @@ Oltre alle intenzioni di voto, il branch `feat/favorability-v2` estrae i sondagg
 Comandi (dalla root del repo):
 
 ```bash
-uv run python -m llm_poll_parser.favorability.cli crawl --min-date 01/07/2025   # riprendibile
-uv run python -m llm_poll_parser.favorability.cli reprocess                     # replay offline dal ledger (deterministico, nessuna chiamata API; --llm per ri-estrarre tabelle senza payload in cache)
-uv run python -m llm_poll_parser.favorability.cli average
-uv run python -m llm_poll_parser.favorability.cli plot
+uv run python -m llm_poll_parser.favorability.crawler crawl --min-date 01/07/2025   # riprendibile
+uv run python -m llm_poll_parser.favorability.crawler reprocess                     # replay offline dal ledger (deterministico, nessuna chiamata API; --llm per ri-estrarre tabelle senza payload in cache)
+uv run python -m llm_poll_parser.favorability.crawler average
+uv run python -m llm_poll_parser.favorability.crawler plot
 ```
 
 **Lacune note (documentate, non imputate):**
