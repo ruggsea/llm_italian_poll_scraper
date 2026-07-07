@@ -69,14 +69,15 @@ def crawl(full=False, max_pages=300):
         for doc in find_sondaggi_table(driver):
             if (doc["Data Inserimento"], doc["Titolo"]) in seen:
                 continue
-            seen.add((doc["Data Inserimento"], doc["Titolo"]))  # don't reprocess a doc twice
-            new_this_page += 1
             pollster = normalize_pollster(doc.get("Realizzatore"))
             try:
                 questions = favorability_questions(driver, doc["Row"])
             except Exception as exc:
+                # don't mark seen: a transient blip shouldn't permanently skip this doc
                 logging.error(f"{doc['Titolo']}: {exc}")
                 continue
+            seen.add((doc["Data Inserimento"], doc["Titolo"]))  # parsed OK, don't reprocess
+            new_this_page += 1
             for title, text in questions:
                 for r in parse_favorability(f"{title}\n{text}"):
                     new_rows.append({"pollster": pollster, "deposit_date": doc["Data Inserimento"],
