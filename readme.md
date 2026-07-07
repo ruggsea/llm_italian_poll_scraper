@@ -8,12 +8,13 @@ Fratelli d'Italia: 28.82%
 Partito Democratico: 22.27%  
 Movimento 5 Stelle: 13.24%  
 Forza Italia: 8.17%  
-Altri: 7.69%  
 Alleanza Verdi Sinistra: 6.67%  
 Lega: 6.08%  
 Azione: 3.21%  
 Italia Viva: 2.41%  
 +Europa: 1.44%  
+Futuro Nazionale: nan%  
+Altri: 7.69%  
 ## Grafico
 ![Latest Moving Average](latest_average_plot.png)
 
