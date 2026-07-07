@@ -14,6 +14,7 @@ parties_list = [
     "+Europa",
     "Azione",
     "Italia Viva",
+    "Futuro Nazionale",
     "Altri"
 ]
 
@@ -27,6 +28,7 @@ party_colors = {
     "+Europa": "gold",
     "Azione": "navy",
     "Italia Viva": "pink",
+    "Futuro Nazionale": "black",
     "Altri": "grey"
 }
 
@@ -37,7 +39,13 @@ def load_and_process_data(filepath):
     df= pd.read_json(filepath, lines=True)
     df['date'] = pd.to_datetime(df['Data Inserimento'], format='%d/%m/%Y')
     df = df.sort_values('date')
-    
+
+    # a newly-added party has no column until a poll reports it; treat it as
+    # all-empty so adding a party never needs a backfill of old rows
+    for party in parties_list:
+        if party not in df.columns:
+            df[party] = None
+
     for party in parties_list:
         # each party percentages is either a string or a float, make sure it's a float
         for i, row in df.iterrows():
@@ -51,7 +59,9 @@ def load_and_process_data(filepath):
             
         
     # drop polls with more than 3 missing values in the party percentages
-    df = df.dropna(subset=parties_list, thresh=len(parties_list) - 4)
+    # (Futuro Nazionale is null for all pre-2026 rows, so keep the threshold at
+    # the historical 10-party level: len - 5 instead of len - 4)
+    df = df.dropna(subset=parties_list, thresh=len(parties_list) - 5)
     
     # how many nas per party
     print(f"Missing values per party:")

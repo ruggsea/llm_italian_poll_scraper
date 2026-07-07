@@ -26,6 +26,7 @@ def test_parse_poll_data():
         "Unione di Centro": None,
         "Sud Chiama Nord": None,
         "Unione Popolare": None,
+        "Futuro Nazionale": None,
         "Altri": 3,
         "national_poll":1
     }
