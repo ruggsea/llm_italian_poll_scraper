@@ -1,0 +1,51 @@
+name: Reparse historical polls (manual)
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Reparse polls from this date (DD/MM/YYYY). Leave empty to reparse all history."
+        required: false
+        default: ""
+
+jobs:
+  reparse_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Reparse stored poll text with the current parser
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: python llm_poll_parser/daily_update.py reparse "${{ github.event.inputs.since }}"
+
+    - name: Commit changes
+      run: |
+        git config --global user.name "GitHub Actions Bot"
+        git config --global user.email "actions@github.com"
+        git add .
+        if git diff-index --quiet HEAD; then
+          echo "No changes to commit"
+        else
+          git commit -m "Reparse historical polls: $(date +'%Y-%m-%d')"
+        fi
+      shell: bash
+
+    - name: Rebase and push changes
+      run: |
+        git fetch origin main
+        git rebase origin/main
+        git push origin main
+      shell: bash

@@ -1,11 +1,13 @@
 import json
 import logging
 import time
+from datetime import datetime
 from typing import Union
 import pandas as pd
 from website_getter import get_poll_data, get_prossima_pagina, start_driver, find_sondaggi_table
 from archiving_polls import handle_one_pagina
 from calculating_average import load_and_process_data, make_temporal_plot, calculate_moving_average, parties_list, party_colors
+from poll_parser import parse_poll_results
 import pandas as pd
 
 def add_beginning_of_file(filename: str, poll_data: Union[dict, list[dict]]) -> None:
@@ -65,6 +67,31 @@ def convert_jsonl_to_csv():
     polls = pd.read_json("italian_polls.jsonl", lines=True)
     polls.to_csv("italian_polls.csv", index=False)
 
+def reparse(since=None):
+    # Re-run the parser over the raw text already stored for each poll, so
+    # parser/prompt changes (e.g. a newly added party) get applied to history
+    # without re-scraping the site. `since` is a DD/MM/YYYY floor; empty = all.
+    # This is what fixes a new party in old rows AND recomputes "Altri" for them.
+    filename = "italian_polls.jsonl"
+    logging.basicConfig(level=logging.INFO)
+    polls = [json.loads(line) for line in open(filename) if line.strip()]
+    since_date = datetime.strptime(since, "%d/%m/%Y") if since else None
+
+    for poll in polls:
+        if since_date and datetime.strptime(poll["Data Inserimento"], "%d/%m/%Y") < since_date:
+            continue
+        logging.info(f"Reparsing {poll['Data Inserimento']} - {poll['Titolo']}")
+        poll.update(parse_poll_results(poll["text"]))
+
+    with open(filename, "w") as file:
+        file.write("\n".join(json.dumps(poll) for poll in polls) + "\n")
+
+    polls = load_and_process_data(filename)
+    moving_averages = calculate_moving_average(polls)
+    update_readme_with_moving_averages(moving_averages)
+    make_temporal_plot(moving_averages, polls)
+    convert_jsonl_to_csv()
+
 def main():
     filename = "italian_polls.jsonl"
     logging.basicConfig(level=logging.INFO)
@@ -102,4 +129,8 @@ def main():
     logging.info("Quitted the driver")
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "reparse":
+        reparse(sys.argv[2] if len(sys.argv) > 2 else None)
+    else:
+        main()
