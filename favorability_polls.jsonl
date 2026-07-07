@@ -1,0 +1,541 @@
+{"pollster": "BiDiMedia", "deposit_date": "25/06/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 36.0}
+{"pollster": "BiDiMedia", "deposit_date": "25/06/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 35.0}
+{"pollster": "LAB21", "deposit_date": "24/06/2026", "entity": "Matteo Renzi", "metric": "most_trusted_share", "value": 2.1}
+{"pollster": "LAB21", "deposit_date": "24/06/2026", "entity": "Cateno De Luca", "metric": "most_trusted_share", "value": 2.8}
+{"pollster": "LAB21", "deposit_date": "24/06/2026", "entity": "Carlo Calenda", "metric": "most_trusted_share", "value": 3.3}
+{"pollster": "LAB21", "deposit_date": "24/06/2026", "entity": "Nicola Fratoianni", "metric": "most_trusted_share", "value": 5.4}
+{"pollster": "LAB21", "deposit_date": "24/06/2026", "entity": "Matteo Salvini", "metric": "most_trusted_share", "value": 5.9}
+{"pollster": "LAB21", "deposit_date": "24/06/2026", "entity": "Antonio Tajani", "metric": "most_trusted_share", "value": 6.1}
+{"pollster": "LAB21", "deposit_date": "24/06/2026", "entity": "Roberto Vannacci", "metric": "most_trusted_share", "value": 10.2}
+{"pollster": "LAB21", "deposit_date": "24/06/2026", "entity": "Giuseppe Conte", "metric": "most_trusted_share", "value": 12.4}
+{"pollster": "LAB21", "deposit_date": "24/06/2026", "entity": "Elly Schlein", "metric": "most_trusted_share", "value": 15.1}
+{"pollster": "LAB21", "deposit_date": "24/06/2026", "entity": "Giorgia Meloni", "metric": "most_trusted_share", "value": 36.7}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 82.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 41.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 41.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 27.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 27.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 27.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Luigi Marattin", "metric": "fiducia_pct", "value": 25.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Roberto Vannacci", "metric": "fiducia_pct", "value": 23.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 19.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 18.0}
+{"pollster": "EMG", "deposit_date": "22/06/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 37.0}
+{"pollster": "Only Numbers", "deposit_date": "22/06/2026", "entity": "Roberto Vannacci", "metric": "giudizi_positivi_pct", "value": 19.0}
+{"pollster": "Termometro Politico", "deposit_date": "22/06/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.7}
+{"pollster": "Youtrend", "deposit_date": "19/06/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 35.0}
+{"pollster": "LAB21", "deposit_date": "15/06/2026", "entity": "Roberto Vannacci", "metric": "fiducia_pct", "value": 34.1}
+{"pollster": "Termometro Politico", "deposit_date": "15/06/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 37.9}
+{"pollster": "Piepoli", "deposit_date": "15/06/2026", "entity": "Donald Trump", "metric": "fiducia_pct", "value": 13.0}
+{"pollster": "EMG", "deposit_date": "12/06/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 36.0}
+{"pollster": "Termometro Politico", "deposit_date": "08/06/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.1}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 82.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 42.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 40.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 27.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Luigi Marattin", "metric": "fiducia_pct", "value": 25.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Roberto Vannacci", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 19.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 17.0}
+{"pollster": "EMG", "deposit_date": "05/06/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 37.0}
+{"pollster": "Piepoli", "deposit_date": "05/06/2026", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 26.0}
+{"pollster": "Piepoli", "deposit_date": "05/06/2026", "entity": "Europa", "metric": "fiducia_pct", "value": 42.0}
+{"pollster": "Piepoli", "deposit_date": "04/06/2026", "entity": "Repubblica Italiana e Istituzioni", "metric": "fiducia_pct", "value": 50.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 36.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Governo", "metric": "gradimento_index", "value": 40.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 37.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Giorgia Meloni", "metric": "gradimento_index", "value": 42.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Giuseppe Conte", "metric": "gradimento_index", "value": 30.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Antonio Tajani", "metric": "gradimento_index", "value": 27.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Elly Schlein", "metric": "gradimento_index", "value": 24.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Matteo Salvini", "metric": "gradimento_index", "value": 23.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Nicola Fratoianni", "metric": "gradimento_index", "value": 21.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Angelo Bonelli", "metric": "gradimento_index", "value": 21.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Roberto Vannacci", "metric": "gradimento_index", "value": 21.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Carlo Calenda", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Maurizio Lupi", "metric": "gradimento_index", "value": 17.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Riccardo Magi", "metric": "gradimento_index", "value": 16.0}
+{"pollster": "Ipsos", "deposit_date": "03/06/2026", "entity": "Matteo Renzi", "metric": "gradimento_index", "value": 14.0}
+{"pollster": "EMG", "deposit_date": "03/06/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "Demos&Pi", "deposit_date": "01/06/2026", "entity": "Sergio Mattarella", "metric": "gradimento_index", "value": 61.0}
+{"pollster": "Youtrend", "deposit_date": "01/06/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 36.0}
+{"pollster": "Termometro Politico", "deposit_date": "01/06/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 39.2}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 81.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 40.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 40.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 29.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Luigi Marattin", "metric": "fiducia_pct", "value": 26.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 23.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 23.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 19.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Roberto Vannacci", "metric": "fiducia_pct", "value": 19.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 17.0}
+{"pollster": "EMG", "deposit_date": "25/05/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 36.0}
+{"pollster": "Termometro Politico", "deposit_date": "25/05/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.9}
+{"pollster": "Piepoli", "deposit_date": "21/05/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "Termometro Politico", "deposit_date": "18/05/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.3}
+{"pollster": "EMG", "deposit_date": "15/05/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 36.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 81.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 41.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 40.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Luigi Marattin", "metric": "fiducia_pct", "value": 27.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 23.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 19.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Roberto Vannacci", "metric": "fiducia_pct", "value": 18.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 17.0}
+{"pollster": "EMG", "deposit_date": "12/05/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 37.0}
+{"pollster": "Piepoli", "deposit_date": "11/05/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "Termometro Politico", "deposit_date": "11/05/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 37.1}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Beppe Grillo", "metric": "giudizi_positivi_pct", "value": 10.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Angelo Bonelli", "metric": "giudizi_positivi_pct", "value": 14.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Matteo Renzi", "metric": "giudizi_positivi_pct", "value": 12.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Nicola Fratoianni", "metric": "giudizi_positivi_pct", "value": 20.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Matteo Salvini", "metric": "giudizi_positivi_pct", "value": 17.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Carlo Calenda", "metric": "giudizi_positivi_pct", "value": 19.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Roberto Vannacci", "metric": "giudizi_positivi_pct", "value": 20.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Elly Schlein", "metric": "giudizi_positivi_pct", "value": 20.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Antonio Tajani", "metric": "giudizi_positivi_pct", "value": 25.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Emma Bonino", "metric": "giudizi_positivi_pct", "value": 24.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Giuseppe Conte", "metric": "giudizi_positivi_pct", "value": 35.0}
+{"pollster": "Demos&Pi", "deposit_date": "08/05/2026", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 39.0}
+{"pollster": "Eumetra", "deposit_date": "08/05/2026", "entity": "Giuseppe Conte", "metric": "giudizi_positivi_pct", "value": 36.8}
+{"pollster": "Eumetra", "deposit_date": "08/05/2026", "entity": "Elly Schlein", "metric": "giudizi_positivi_pct", "value": 28.2}
+{"pollster": "Eumetra", "deposit_date": "08/05/2026", "entity": "Antonio Tajani", "metric": "giudizi_positivi_pct", "value": 28.1}
+{"pollster": "Eumetra", "deposit_date": "08/05/2026", "entity": "Emma Bonino", "metric": "giudizi_positivi_pct", "value": 24.6}
+{"pollster": "Eumetra", "deposit_date": "08/05/2026", "entity": "Matteo Salvini", "metric": "giudizi_positivi_pct", "value": 23.7}
+{"pollster": "Eumetra", "deposit_date": "08/05/2026", "entity": "Carlo Calenda", "metric": "giudizi_positivi_pct", "value": 22.8}
+{"pollster": "Eumetra", "deposit_date": "08/05/2026", "entity": "Roberto Vannacci", "metric": "giudizi_positivi_pct", "value": 21.4}
+{"pollster": "Eumetra", "deposit_date": "08/05/2026", "entity": "Nicola Fratoianni", "metric": "giudizi_positivi_pct", "value": 19.1}
+{"pollster": "Eumetra", "deposit_date": "08/05/2026", "entity": "Angelo Bonelli", "metric": "giudizi_positivi_pct", "value": 18.0}
+{"pollster": "Eumetra", "deposit_date": "08/05/2026", "entity": "Matteo Renzi", "metric": "giudizi_positivi_pct", "value": 16.2}
+{"pollster": "EMG", "deposit_date": "05/05/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 37.0}
+{"pollster": "Piepoli", "deposit_date": "04/05/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 36.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Governo", "metric": "gradimento_index", "value": 41.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 37.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Giorgia Meloni", "metric": "gradimento_index", "value": 42.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Giuseppe Conte", "metric": "gradimento_index", "value": 30.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Antonio Tajani", "metric": "gradimento_index", "value": 27.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Elly Schlein", "metric": "gradimento_index", "value": 27.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Nicola Fratoianni", "metric": "gradimento_index", "value": 23.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Matteo Salvini", "metric": "gradimento_index", "value": 22.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Angelo Bonelli", "metric": "gradimento_index", "value": 22.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Roberto Vannacci", "metric": "gradimento_index", "value": 20.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Maurizio Lupi", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Carlo Calenda", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Riccardo Magi", "metric": "gradimento_index", "value": 17.0}
+{"pollster": "Ipsos", "deposit_date": "04/05/2026", "entity": "Matteo Renzi", "metric": "gradimento_index", "value": 15.0}
+{"pollster": "Youtrend", "deposit_date": "30/04/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 33.0}
+{"pollster": "Piepoli", "deposit_date": "29/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "Ixè", "deposit_date": "27/04/2026", "entity": "Unione Europea", "metric": "fiducia_pct", "value": 48.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 82.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 42.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 39.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 29.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 27.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Luigi Marattin", "metric": "fiducia_pct", "value": 26.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Roberto Vannacci", "metric": "fiducia_pct", "value": 19.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 19.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 17.0}
+{"pollster": "EMG", "deposit_date": "27/04/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 37.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 35.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 36.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 32.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 27.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 24.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 23.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Bonelli", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Fratoianni", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Magi", "metric": "fiducia_pct", "value": 18.0}
+{"pollster": "BiDiMedia", "deposit_date": "27/04/2026", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 17.0}
+{"pollster": "Termometro Politico", "deposit_date": "27/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 36.5}
+{"pollster": "Demopolis", "deposit_date": "26/04/2026", "entity": "Donald Trump", "metric": "giudizi_positivi_pct", "value": 12.0}
+{"pollster": "Piepoli", "deposit_date": "24/04/2026", "entity": "Donald Trump", "metric": "fiducia_pct", "value": 11.0}
+{"pollster": "Piepoli", "deposit_date": "24/04/2026", "entity": "Vladimir Putin", "metric": "fiducia_pct", "value": 16.0}
+{"pollster": "Piepoli", "deposit_date": "24/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "EMG", "deposit_date": "20/04/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "Termometro Politico", "deposit_date": "20/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.1}
+{"pollster": "Piepoli", "deposit_date": "17/04/2026", "entity": "Donald Trump", "metric": "fiducia_pct", "value": 13.0}
+{"pollster": "Piepoli", "deposit_date": "17/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 44.0}
+{"pollster": "Youtrend", "deposit_date": "15/04/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 34.0}
+{"pollster": "SWG", "deposit_date": "14/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 40.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 80.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 42.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 37.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 31.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 29.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 29.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Luigi Marattin", "metric": "fiducia_pct", "value": 25.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Roberto Vannacci", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 18.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 17.0}
+{"pollster": "EMG", "deposit_date": "14/04/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "Termometro Politico", "deposit_date": "13/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 39.1}
+{"pollster": "Piepoli", "deposit_date": "10/04/2026", "entity": "Donald Trump", "metric": "fiducia_pct", "value": 15.0}
+{"pollster": "EMG", "deposit_date": "08/04/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "Termometro Politico", "deposit_date": "06/04/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.7}
+{"pollster": "Demopolis", "deposit_date": "02/04/2026", "entity": "Donald Trump", "metric": "giudizi_positivi_pct", "value": 18.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 39.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Sergio Mattarella", "metric": "giudizi_positivi_pct", "value": 79.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 42.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Giuseppe Conte", "metric": "giudizi_positivi_pct", "value": 36.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Elly Schlein", "metric": "giudizi_positivi_pct", "value": 31.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Antonio Tajani", "metric": "giudizi_positivi_pct", "value": 30.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Matteo Salvini", "metric": "giudizi_positivi_pct", "value": 29.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Luigi Marattin", "metric": "giudizi_positivi_pct", "value": 24.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Maurizio Lupi", "metric": "giudizi_positivi_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Nicola Fratoianni", "metric": "giudizi_positivi_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Angelo Bonelli", "metric": "giudizi_positivi_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Carlo Calenda", "metric": "giudizi_positivi_pct", "value": 18.0}
+{"pollster": "EMG", "deposit_date": "31/03/2026", "entity": "Matteo Renzi", "metric": "giudizi_positivi_pct", "value": 17.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 36.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Governo", "metric": "gradimento_index", "value": 40.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 36.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Giorgia Meloni", "metric": "gradimento_index", "value": 40.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Giuseppe Conte", "metric": "gradimento_index", "value": 30.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Antonio Tajani", "metric": "gradimento_index", "value": 27.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Elly Schlein", "metric": "gradimento_index", "value": 26.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Nicola Fratoianni", "metric": "gradimento_index", "value": 22.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Matteo Salvini", "metric": "gradimento_index", "value": 21.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Angelo Bonelli", "metric": "gradimento_index", "value": 21.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Maurizio Lupi", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Carlo Calenda", "metric": "gradimento_index", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Roberto Vannacci", "metric": "gradimento_index", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Riccardo Magi", "metric": "gradimento_index", "value": 17.0}
+{"pollster": "Ipsos", "deposit_date": "30/03/2026", "entity": "Matteo Renzi", "metric": "gradimento_index", "value": 14.0}
+{"pollster": "Piepoli", "deposit_date": "30/03/2026", "entity": "Donald Trump", "metric": "fiducia_pct", "value": 16.0}
+{"pollster": "Termometro Politico", "deposit_date": "30/03/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.7}
+{"pollster": "EMG", "deposit_date": "09/03/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 39.0}
+{"pollster": "EMG", "deposit_date": "09/03/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 39.0}
+{"pollster": "Termometro Politico", "deposit_date": "09/03/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.4}
+{"pollster": "Youtrend", "deposit_date": "06/03/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 32.0}
+{"pollster": "Piepoli", "deposit_date": "06/03/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "Youtrend", "deposit_date": "02/03/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 34.0}
+{"pollster": "Piepoli", "deposit_date": "02/03/2026", "entity": "Donald Trump", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 37.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Governo", "metric": "gradimento_index", "value": 43.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 38.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Giorgia Meloni", "metric": "gradimento_index", "value": 44.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Antonio Tajani", "metric": "gradimento_index", "value": 30.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Giuseppe Conte", "metric": "gradimento_index", "value": 28.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Elly Schlein", "metric": "gradimento_index", "value": 25.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Matteo Salvini", "metric": "gradimento_index", "value": 23.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Nicola Fratoianni", "metric": "gradimento_index", "value": 22.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Angelo Bonelli", "metric": "gradimento_index", "value": 20.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Maurizio Lupi", "metric": "gradimento_index", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Carlo Calenda", "metric": "gradimento_index", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Riccardo Magi", "metric": "gradimento_index", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Roberto Vannacci", "metric": "gradimento_index", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "02/03/2026", "entity": "Matteo Renzi", "metric": "gradimento_index", "value": 14.0}
+{"pollster": "Termometro Politico", "deposit_date": "02/03/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.9}
+{"pollster": "EMG", "deposit_date": "27/02/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 39.0}
+{"pollster": "Only Numbers", "deposit_date": "26/02/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 25.8}
+{"pollster": "Termometro Politico", "deposit_date": "23/02/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 40.0}
+{"pollster": "EMG", "deposit_date": "20/02/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 39.0}
+{"pollster": "BiDiMedia", "deposit_date": "20/02/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 37.0}
+{"pollster": "Youtrend", "deposit_date": "20/02/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 32.0}
+{"pollster": "EMG", "deposit_date": "16/02/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "Tecnè", "deposit_date": "16/02/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 43.3}
+{"pollster": "Termometro Politico", "deposit_date": "16/02/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 37.9}
+{"pollster": "Piepoli", "deposit_date": "13/02/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 45.0}
+{"pollster": "Piepoli", "deposit_date": "13/02/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 44.0}
+{"pollster": "Piepoli", "deposit_date": "13/02/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 44.0}
+{"pollster": "Youtrend", "deposit_date": "11/02/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 32.0}
+{"pollster": "Tecnè", "deposit_date": "09/02/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 43.4}
+{"pollster": "LAB21", "deposit_date": "09/02/2026", "entity": "Roberto Vannacci", "metric": "fiducia_pct", "value": 26.8}
+{"pollster": "Termometro Politico", "deposit_date": "09/02/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 39.2}
+{"pollster": "EMG", "deposit_date": "06/02/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 40.0}
+{"pollster": "Youtrend", "deposit_date": "04/02/2026", "entity": "Roberto Vannacci", "metric": "fiducia_pct", "value": 14.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 38.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Governo", "metric": "gradimento_index", "value": 43.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 38.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Giorgia Meloni", "metric": "gradimento_index", "value": 44.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Antonio Tajani", "metric": "gradimento_index", "value": 29.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Giuseppe Conte", "metric": "gradimento_index", "value": 27.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Elly Schlein", "metric": "gradimento_index", "value": 24.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Matteo Salvini", "metric": "gradimento_index", "value": 24.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Nicola Fratoianni", "metric": "gradimento_index", "value": 20.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Angelo Bonelli", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Maurizio Lupi", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Carlo Calenda", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Riccardo Magi", "metric": "gradimento_index", "value": 17.0}
+{"pollster": "Ipsos", "deposit_date": "02/02/2026", "entity": "Matteo Renzi", "metric": "gradimento_index", "value": 15.0}
+{"pollster": "Termometro Politico", "deposit_date": "02/02/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 39.2}
+{"pollster": "EMG", "deposit_date": "30/01/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 39.0}
+{"pollster": "EMG", "deposit_date": "26/01/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 40.0}
+{"pollster": "Termometro Politico", "deposit_date": "26/01/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "Youtrend", "deposit_date": "23/01/2026", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 33.0}
+{"pollster": "Tecnè", "deposit_date": "23/01/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 43.2}
+{"pollster": "Demopolis", "deposit_date": "21/01/2026", "entity": "Donald Trump", "metric": "giudizi_positivi_pct", "value": 22.0}
+{"pollster": "Termometro Politico", "deposit_date": "19/01/2026", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 39.5}
+{"pollster": "Tecnè", "deposit_date": "16/01/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 43.4}
+{"pollster": "EMG", "deposit_date": "16/01/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 39.0}
+{"pollster": "Tecnè", "deposit_date": "12/01/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 43.5}
+{"pollster": "EMG", "deposit_date": "09/01/2026", "entity": "Governo", "metric": "fiducia_pct", "value": 40.0}
+{"pollster": "Youtrend", "deposit_date": "24/12/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 30.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 36.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Governo", "metric": "gradimento_index", "value": 42.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 37.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Giorgia Meloni", "metric": "gradimento_index", "value": 43.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Antonio Tajani", "metric": "gradimento_index", "value": 28.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Giuseppe Conte", "metric": "gradimento_index", "value": 24.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Elly Schlein", "metric": "gradimento_index", "value": 24.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Matteo Salvini", "metric": "gradimento_index", "value": 22.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Nicola Fratoianni", "metric": "gradimento_index", "value": 20.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Angelo Bonelli", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Maurizio Lupi", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Carlo Calenda", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Riccardo Magi", "metric": "gradimento_index", "value": 17.0}
+{"pollster": "Ipsos", "deposit_date": "22/12/2025", "entity": "Matteo Renzi", "metric": "gradimento_index", "value": 14.0}
+{"pollster": "Tecnè", "deposit_date": "22/12/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 40.3}
+{"pollster": "Tecnè", "deposit_date": "22/12/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 43.5}
+{"pollster": "EMG", "deposit_date": "22/12/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 42.0}
+{"pollster": "Demos&Pi", "deposit_date": "22/12/2025", "entity": "Sergio Mattarella", "metric": "gradimento_index", "value": 60.0}
+{"pollster": "Only Numbers", "deposit_date": "19/12/2025", "entity": "Forze Armate", "metric": "fiducia_pct", "value": 61.3}
+{"pollster": "Tecnè", "deposit_date": "19/12/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.5}
+{"pollster": "Termometro Politico", "deposit_date": "19/12/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 40.1}
+{"pollster": "Termometro Politico", "deposit_date": "15/12/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.5}
+{"pollster": "EMG", "deposit_date": "12/12/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 42.0}
+{"pollster": "Tecnè", "deposit_date": "12/12/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.6}
+{"pollster": "Youtrend", "deposit_date": "11/12/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 29.0}
+{"pollster": "EMG", "deposit_date": "09/12/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 44.0}
+{"pollster": "BiDiMedia", "deposit_date": "08/12/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "BiDiMedia", "deposit_date": "08/12/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 36.0}
+{"pollster": "Termometro Politico", "deposit_date": "08/12/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.6}
+{"pollster": "Tecnè", "deposit_date": "05/12/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.5}
+{"pollster": "Termometro Politico", "deposit_date": "03/12/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 40.1}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 36.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Governo", "metric": "gradimento_index", "value": 40.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 37.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Giorgia Meloni", "metric": "gradimento_index", "value": 42.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Antonio Tajani", "metric": "gradimento_index", "value": 30.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Giuseppe Conte", "metric": "gradimento_index", "value": 27.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Elly Schlein", "metric": "gradimento_index", "value": 25.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Matteo Salvini", "metric": "gradimento_index", "value": 24.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Nicola Fratoianni", "metric": "gradimento_index", "value": 21.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Angelo Bonelli", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Maurizio Lupi", "metric": "gradimento_index", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Riccardo Magi", "metric": "gradimento_index", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Carlo Calenda", "metric": "gradimento_index", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "01/12/2025", "entity": "Matteo Renzi", "metric": "gradimento_index", "value": 14.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 78.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 44.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 31.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 31.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 30.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 27.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Luigi Marattin", "metric": "fiducia_pct", "value": 24.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Emma Bonino", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 20.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 16.0}
+{"pollster": "EMG", "deposit_date": "01/12/2025", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 14.0}
+{"pollster": "Tecnè", "deposit_date": "29/11/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.5}
+{"pollster": "Youtrend", "deposit_date": "28/11/2025", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "Youtrend", "deposit_date": "28/11/2025", "entity": "Roberto Vannacci", "metric": "fiducia_pct", "value": 16.0}
+{"pollster": "Ixè", "deposit_date": "27/11/2025", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 70.0}
+{"pollster": "Ixè", "deposit_date": "27/11/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 37.0}
+{"pollster": "Piepoli", "deposit_date": "21/11/2025", "entity": "Donald Trump", "metric": "fiducia_pct", "value": 32.0}
+{"pollster": "Piepoli", "deposit_date": "21/11/2025", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 61.0}
+{"pollster": "Termometro Politico", "deposit_date": "21/11/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 39.8}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 75.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 45.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 33.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 30.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 29.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 27.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Emma Bonino", "metric": "fiducia_pct", "value": 23.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Luigi Marattin", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 20.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 20.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 16.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 15.0}
+{"pollster": "EMG", "deposit_date": "19/11/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "SWG", "deposit_date": "18/11/2025", "entity": "Governo", "metric": "voto_medio_1_10", "value": 5.2}
+{"pollster": "Termometro Politico", "deposit_date": "17/11/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 41.1}
+{"pollster": "Termometro Politico", "deposit_date": "10/11/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 40.3}
+{"pollster": "Tecnè", "deposit_date": "07/11/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.8}
+{"pollster": "Youtrend", "deposit_date": "04/11/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 32.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 73.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 46.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 35.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 30.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 30.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 27.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Emma Bonino", "metric": "fiducia_pct", "value": 24.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Luigi Marattin", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 16.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 16.0}
+{"pollster": "EMG", "deposit_date": "03/11/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 44.0}
+{"pollster": "Ipsos", "deposit_date": "03/11/2025", "entity": "Giuseppe Conte", "metric": "giudizi_positivi_pct", "value": 28.0}
+{"pollster": "Ipsos", "deposit_date": "03/11/2025", "entity": "Matteo Salvini", "metric": "giudizi_positivi_pct", "value": 24.0}
+{"pollster": "Ipsos", "deposit_date": "03/11/2025", "entity": "Elly Schlein", "metric": "giudizi_positivi_pct", "value": 23.0}
+{"pollster": "Ipsos", "deposit_date": "03/11/2025", "entity": "Nicola Fratoianni", "metric": "giudizi_positivi_pct", "value": 20.0}
+{"pollster": "Ipsos", "deposit_date": "03/11/2025", "entity": "Angelo Bonelli", "metric": "giudizi_positivi_pct", "value": 20.0}
+{"pollster": "Ipsos", "deposit_date": "03/11/2025", "entity": "Maurizio Lupi", "metric": "giudizi_positivi_pct", "value": 19.0}
+{"pollster": "Ipsos", "deposit_date": "03/11/2025", "entity": "Riccardo Magi", "metric": "giudizi_positivi_pct", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "03/11/2025", "entity": "Carlo Calenda", "metric": "giudizi_positivi_pct", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "03/11/2025", "entity": "Matteo Renzi", "metric": "giudizi_positivi_pct", "value": 14.0}
+{"pollster": "Termometro Politico", "deposit_date": "03/11/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 40.1}
+{"pollster": "BiDiMedia", "deposit_date": "01/11/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 37.0}
+{"pollster": "BiDiMedia", "deposit_date": "01/11/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 35.0}
+{"pollster": "Tecnè", "deposit_date": "31/10/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.5}
+{"pollster": "IZI", "deposit_date": "31/10/2025", "entity": "Magistratura italiana", "metric": "gradimento_index", "value": 58.7}
+{"pollster": "SWG", "deposit_date": "28/10/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "Termometro Politico", "deposit_date": "27/10/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.7}
+{"pollster": "Tecnè", "deposit_date": "24/10/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 43.3}
+{"pollster": "Termometro Politico", "deposit_date": "20/10/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 40.5}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 73.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 46.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 34.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 30.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 30.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Emma Bonino", "metric": "fiducia_pct", "value": 25.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 23.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Luigi Marattin", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 17.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 17.0}
+{"pollster": "EMG", "deposit_date": "17/10/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "Tecnè", "deposit_date": "17/10/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 43.0}
+{"pollster": "Termometro Politico", "deposit_date": "13/10/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 40.6}
+{"pollster": "Tecnè", "deposit_date": "10/10/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 42.8}
+{"pollster": "BiDiMedia", "deposit_date": "10/10/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 37.0}
+{"pollster": "BiDiMedia", "deposit_date": "10/10/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 35.0}
+{"pollster": "Tecnè", "deposit_date": "08/10/2025", "entity": "Global Sumud Flotilla", "metric": "giudizi_positivi_pct", "value": 52.0}
+{"pollster": "Termometro Politico", "deposit_date": "06/10/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 39.6}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Sergio Mattarella", "metric": "fiducia_pct", "value": 70.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 45.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Antonio Tajani", "metric": "fiducia_pct", "value": 35.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Giuseppe Conte", "metric": "fiducia_pct", "value": 30.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Elly Schlein", "metric": "fiducia_pct", "value": 29.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Matteo Salvini", "metric": "fiducia_pct", "value": 28.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Emma Bonino", "metric": "fiducia_pct", "value": 25.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Maurizio Lupi", "metric": "fiducia_pct", "value": 22.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Angelo Bonelli", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Nicola Fratoianni", "metric": "fiducia_pct", "value": 21.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Carlo Calenda", "metric": "fiducia_pct", "value": 17.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Matteo Renzi", "metric": "fiducia_pct", "value": 16.0}
+{"pollster": "EMG", "deposit_date": "03/10/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 44.0}
+{"pollster": "Tecnè", "deposit_date": "03/10/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 42.5}
+{"pollster": "Eumetra", "deposit_date": "03/10/2025", "entity": "Giuseppe Conte", "metric": "voto_medio_1_10", "value": 4.08}
+{"pollster": "Eumetra", "deposit_date": "03/10/2025", "entity": "Antonio Tajani", "metric": "voto_medio_1_10", "value": 3.5}
+{"pollster": "Eumetra", "deposit_date": "03/10/2025", "entity": "Matteo Salvini", "metric": "voto_medio_1_10", "value": 3.02}
+{"pollster": "Eumetra", "deposit_date": "03/10/2025", "entity": "Giorgia Meloni", "metric": "voto_medio_1_10", "value": 4.56}
+{"pollster": "Eumetra", "deposit_date": "03/10/2025", "entity": "Matteo Renzi", "metric": "voto_medio_1_10", "value": 2.42}
+{"pollster": "Eumetra", "deposit_date": "03/10/2025", "entity": "Carlo Calenda", "metric": "voto_medio_1_10", "value": 2.49}
+{"pollster": "Eumetra", "deposit_date": "03/10/2025", "entity": "Emma Bonino", "metric": "voto_medio_1_10", "value": 2.77}
+{"pollster": "Eumetra", "deposit_date": "03/10/2025", "entity": "Nicola Fratoianni", "metric": "voto_medio_1_10", "value": 2.14}
+{"pollster": "Eumetra", "deposit_date": "03/10/2025", "entity": "Roberto Vannacci", "metric": "voto_medio_1_10", "value": 2.57}
+{"pollster": "Eumetra", "deposit_date": "03/10/2025", "entity": "Angelo Bonelli", "metric": "voto_medio_1_10", "value": 2.23}
+{"pollster": "Termometro Politico", "deposit_date": "29/09/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 39.5}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Beppe Grillo", "metric": "giudizi_positivi_pct", "value": 17.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Matteo Renzi", "metric": "giudizi_positivi_pct", "value": 21.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Carlo Calenda", "metric": "giudizi_positivi_pct", "value": 22.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Angelo Bonelli", "metric": "giudizi_positivi_pct", "value": 23.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Nicola Fratoianni", "metric": "giudizi_positivi_pct", "value": 23.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Matteo Salvini", "metric": "giudizi_positivi_pct", "value": 25.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Elly Schlein", "metric": "giudizi_positivi_pct", "value": 26.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Emma Bonino", "metric": "giudizi_positivi_pct", "value": 28.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Antonio Tajani", "metric": "giudizi_positivi_pct", "value": 32.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Giuseppe Conte", "metric": "giudizi_positivi_pct", "value": 35.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 37.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Benjamin Netanyahu", "metric": "giudizi_positivi_pct", "value": 12.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Vladimir Putin", "metric": "giudizi_positivi_pct", "value": 20.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Donald Trump", "metric": "giudizi_positivi_pct", "value": 22.0}
+{"pollster": "Demos&Pi", "deposit_date": "29/09/2025", "entity": "Volodymyr Zelenskyy", "metric": "giudizi_positivi_pct", "value": 29.0}
+{"pollster": "Ixè", "deposit_date": "26/09/2025", "entity": "Unione Europea", "metric": "fiducia_pct", "value": 42.0}
+{"pollster": "Tecnè", "deposit_date": "26/09/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 42.5}
+{"pollster": "Tecnè", "deposit_date": "19/09/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 42.6}
+{"pollster": "Termometro Politico", "deposit_date": "19/09/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 37.9}
+{"pollster": "BiDiMedia", "deposit_date": "18/09/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "BiDiMedia", "deposit_date": "18/09/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 36.0}
+{"pollster": "Tecnè", "deposit_date": "18/09/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 42.6}
+{"pollster": "Tecnè", "deposit_date": "18/09/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 45.8}
+{"pollster": "Tecnè", "deposit_date": "12/09/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 42.7}
+{"pollster": "Termometro Politico", "deposit_date": "12/09/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "Youtrend", "deposit_date": "09/09/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 34.0}
+{"pollster": "SWG", "deposit_date": "09/09/2025", "entity": "Donald Trump", "metric": "fiducia_pct", "value": 17.0}
+{"pollster": "Termometro Politico", "deposit_date": "08/09/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 36.3}
+{"pollster": "BiDiMedia", "deposit_date": "29/08/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 38.0}
+{"pollster": "BiDiMedia", "deposit_date": "29/08/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 36.0}
+{"pollster": "Termometro Politico", "deposit_date": "07/08/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 36.9}
+{"pollster": "Termometro Politico", "deposit_date": "04/08/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 36.3}
+{"pollster": "Only Numbers", "deposit_date": "29/07/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 36.0}
+{"pollster": "Termometro Politico", "deposit_date": "28/07/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 37.4}
+{"pollster": "Ipsos", "deposit_date": "26/07/2025", "entity": "Giuseppe Conte", "metric": "giudizi_positivi_pct", "value": 26.0}
+{"pollster": "Ipsos", "deposit_date": "26/07/2025", "entity": "Elly Schlein", "metric": "giudizi_positivi_pct", "value": 24.0}
+{"pollster": "Ipsos", "deposit_date": "26/07/2025", "entity": "Matteo Salvini", "metric": "giudizi_positivi_pct", "value": 23.0}
+{"pollster": "Ipsos", "deposit_date": "26/07/2025", "entity": "Nicola Fratoianni", "metric": "giudizi_positivi_pct", "value": 20.0}
+{"pollster": "Ipsos", "deposit_date": "26/07/2025", "entity": "Angelo Bonelli", "metric": "giudizi_positivi_pct", "value": 20.0}
+{"pollster": "Ipsos", "deposit_date": "26/07/2025", "entity": "Maurizio Lupi", "metric": "giudizi_positivi_pct", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "26/07/2025", "entity": "Riccardo Magi", "metric": "giudizi_positivi_pct", "value": 18.0}
+{"pollster": "Ipsos", "deposit_date": "26/07/2025", "entity": "Carlo Calenda", "metric": "giudizi_positivi_pct", "value": 16.0}
+{"pollster": "Ipsos", "deposit_date": "26/07/2025", "entity": "Matteo Renzi", "metric": "giudizi_positivi_pct", "value": 13.0}
+{"pollster": "Tecnè", "deposit_date": "25/07/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "Termometro Politico", "deposit_date": "21/07/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 36.2}
+{"pollster": "Tecnè", "deposit_date": "18/07/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.1}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Governo", "metric": "giudizi_positivi_pct", "value": 34.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Giorgia Meloni", "metric": "giudizi_positivi_pct", "value": 34.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Matteo Salvini", "metric": "giudizi_positivi_pct", "value": 23.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Antonio Tajani", "metric": "giudizi_positivi_pct", "value": 20.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Matteo Piantedosi", "metric": "giudizi_positivi_pct", "value": 25.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Guido Crosetto", "metric": "giudizi_positivi_pct", "value": 33.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Giancarlo Giorgetti", "metric": "giudizi_positivi_pct", "value": 33.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Carlo Nordio", "metric": "giudizi_positivi_pct", "value": 25.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Francesco Lollobrigida", "metric": "giudizi_positivi_pct", "value": 19.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Giuseppe Valditara", "metric": "giudizi_positivi_pct", "value": 23.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Anna Maria Bernini", "metric": "giudizi_positivi_pct", "value": 20.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Alessandro Giuli", "metric": "giudizi_positivi_pct", "value": 19.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Daniela Santanchè", "metric": "giudizi_positivi_pct", "value": 11.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Eugenia Roccella", "metric": "giudizi_positivi_pct", "value": 15.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Maria Elisabetta Alberti Casellati", "metric": "giudizi_positivi_pct", "value": 19.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Adolfo Urso", "metric": "giudizi_positivi_pct", "value": 17.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Roberto Calderoli", "metric": "giudizi_positivi_pct", "value": 19.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Nello Musumeci", "metric": "giudizi_positivi_pct", "value": 21.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Gilberto Pichetto Fratin", "metric": "giudizi_positivi_pct", "value": 16.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Marina Elvira Calderone", "metric": "giudizi_positivi_pct", "value": 17.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Orazio Schillaci", "metric": "giudizi_positivi_pct", "value": 18.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Tommaso Foti", "metric": "giudizi_positivi_pct", "value": 19.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Luca Ciriani", "metric": "giudizi_positivi_pct", "value": 14.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Paolo Zangrillo", "metric": "giudizi_positivi_pct", "value": 19.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Andrea Abodi", "metric": "giudizi_positivi_pct", "value": 16.0}
+{"pollster": "Youtrend", "deposit_date": "16/07/2025", "entity": "Alessandra Locatelli", "metric": "giudizi_positivi_pct", "value": 15.0}
+{"pollster": "Termometro Politico", "deposit_date": "14/07/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 36.9}
+{"pollster": "Tecnè", "deposit_date": "11/07/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "Youtrend", "deposit_date": "09/07/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 34.0}
+{"pollster": "Termometro Politico", "deposit_date": "07/07/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 36.6}
+{"pollster": "Tecnè", "deposit_date": "04/07/2025", "entity": "Governo", "metric": "fiducia_pct", "value": 43.0}
+{"pollster": "Winpoll", "deposit_date": "02/07/2025", "entity": "Leone XIV", "metric": "fiducia_pct", "value": 70.0}
+{"pollster": "Termometro Politico", "deposit_date": "01/07/2025", "entity": "Giorgia Meloni", "metric": "fiducia_pct", "value": 40.5}

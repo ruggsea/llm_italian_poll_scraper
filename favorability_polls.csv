@@ -1,0 +1,542 @@
+pollster,deposit_date,entity,metric,value
+BiDiMedia,25/06/2026,Giorgia Meloni,fiducia_pct,36.0
+BiDiMedia,25/06/2026,Governo,fiducia_pct,35.0
+LAB21,24/06/2026,Matteo Renzi,most_trusted_share,2.1
+LAB21,24/06/2026,Cateno De Luca,most_trusted_share,2.8
+LAB21,24/06/2026,Carlo Calenda,most_trusted_share,3.3
+LAB21,24/06/2026,Nicola Fratoianni,most_trusted_share,5.4
+LAB21,24/06/2026,Matteo Salvini,most_trusted_share,5.9
+LAB21,24/06/2026,Antonio Tajani,most_trusted_share,6.1
+LAB21,24/06/2026,Roberto Vannacci,most_trusted_share,10.2
+LAB21,24/06/2026,Giuseppe Conte,most_trusted_share,12.4
+LAB21,24/06/2026,Elly Schlein,most_trusted_share,15.1
+LAB21,24/06/2026,Giorgia Meloni,most_trusted_share,36.7
+EMG,22/06/2026,Sergio Mattarella,fiducia_pct,82.0
+EMG,22/06/2026,Giorgia Meloni,fiducia_pct,41.0
+EMG,22/06/2026,Giuseppe Conte,fiducia_pct,41.0
+EMG,22/06/2026,Antonio Tajani,fiducia_pct,27.0
+EMG,22/06/2026,Elly Schlein,fiducia_pct,27.0
+EMG,22/06/2026,Matteo Salvini,fiducia_pct,27.0
+EMG,22/06/2026,Luigi Marattin,fiducia_pct,25.0
+EMG,22/06/2026,Roberto Vannacci,fiducia_pct,23.0
+EMG,22/06/2026,Maurizio Lupi,fiducia_pct,22.0
+EMG,22/06/2026,Nicola Fratoianni,fiducia_pct,21.0
+EMG,22/06/2026,Angelo Bonelli,fiducia_pct,21.0
+EMG,22/06/2026,Matteo Renzi,fiducia_pct,19.0
+EMG,22/06/2026,Carlo Calenda,fiducia_pct,18.0
+EMG,22/06/2026,Governo,fiducia_pct,37.0
+Only Numbers,22/06/2026,Roberto Vannacci,giudizi_positivi_pct,19.0
+Termometro Politico,22/06/2026,Giorgia Meloni,fiducia_pct,38.7
+Youtrend,19/06/2026,Governo,giudizi_positivi_pct,35.0
+LAB21,15/06/2026,Roberto Vannacci,fiducia_pct,34.1
+Termometro Politico,15/06/2026,Giorgia Meloni,fiducia_pct,37.9
+Piepoli,15/06/2026,Donald Trump,fiducia_pct,13.0
+EMG,12/06/2026,Governo,fiducia_pct,36.0
+Termometro Politico,08/06/2026,Giorgia Meloni,fiducia_pct,38.1
+EMG,05/06/2026,Sergio Mattarella,fiducia_pct,82.0
+EMG,05/06/2026,Giorgia Meloni,fiducia_pct,42.0
+EMG,05/06/2026,Giuseppe Conte,fiducia_pct,40.0
+EMG,05/06/2026,Elly Schlein,fiducia_pct,28.0
+EMG,05/06/2026,Matteo Salvini,fiducia_pct,28.0
+EMG,05/06/2026,Antonio Tajani,fiducia_pct,27.0
+EMG,05/06/2026,Luigi Marattin,fiducia_pct,25.0
+EMG,05/06/2026,Nicola Fratoianni,fiducia_pct,22.0
+EMG,05/06/2026,Angelo Bonelli,fiducia_pct,22.0
+EMG,05/06/2026,Maurizio Lupi,fiducia_pct,22.0
+EMG,05/06/2026,Roberto Vannacci,fiducia_pct,21.0
+EMG,05/06/2026,Matteo Renzi,fiducia_pct,19.0
+EMG,05/06/2026,Carlo Calenda,fiducia_pct,17.0
+EMG,05/06/2026,Governo,fiducia_pct,37.0
+Piepoli,05/06/2026,Elly Schlein,fiducia_pct,26.0
+Piepoli,05/06/2026,Europa,fiducia_pct,42.0
+Piepoli,04/06/2026,Repubblica Italiana e Istituzioni,fiducia_pct,50.0
+Ipsos,03/06/2026,Governo,giudizi_positivi_pct,36.0
+Ipsos,03/06/2026,Governo,gradimento_index,40.0
+Ipsos,03/06/2026,Giorgia Meloni,giudizi_positivi_pct,37.0
+Ipsos,03/06/2026,Giorgia Meloni,gradimento_index,42.0
+Ipsos,03/06/2026,Giuseppe Conte,gradimento_index,30.0
+Ipsos,03/06/2026,Antonio Tajani,gradimento_index,27.0
+Ipsos,03/06/2026,Elly Schlein,gradimento_index,24.0
+Ipsos,03/06/2026,Matteo Salvini,gradimento_index,23.0
+Ipsos,03/06/2026,Nicola Fratoianni,gradimento_index,21.0
+Ipsos,03/06/2026,Angelo Bonelli,gradimento_index,21.0
+Ipsos,03/06/2026,Roberto Vannacci,gradimento_index,21.0
+Ipsos,03/06/2026,Carlo Calenda,gradimento_index,19.0
+Ipsos,03/06/2026,Maurizio Lupi,gradimento_index,17.0
+Ipsos,03/06/2026,Riccardo Magi,gradimento_index,16.0
+Ipsos,03/06/2026,Matteo Renzi,gradimento_index,14.0
+EMG,03/06/2026,Governo,fiducia_pct,38.0
+Demos&Pi,01/06/2026,Sergio Mattarella,gradimento_index,61.0
+Youtrend,01/06/2026,Governo,giudizi_positivi_pct,36.0
+Termometro Politico,01/06/2026,Giorgia Meloni,fiducia_pct,39.2
+EMG,25/05/2026,Sergio Mattarella,fiducia_pct,81.0
+EMG,25/05/2026,Giorgia Meloni,fiducia_pct,40.0
+EMG,25/05/2026,Giuseppe Conte,fiducia_pct,40.0
+EMG,25/05/2026,Elly Schlein,fiducia_pct,29.0
+EMG,25/05/2026,Antonio Tajani,fiducia_pct,28.0
+EMG,25/05/2026,Matteo Salvini,fiducia_pct,28.0
+EMG,25/05/2026,Luigi Marattin,fiducia_pct,26.0
+EMG,25/05/2026,Nicola Fratoianni,fiducia_pct,23.0
+EMG,25/05/2026,Angelo Bonelli,fiducia_pct,23.0
+EMG,25/05/2026,Maurizio Lupi,fiducia_pct,22.0
+EMG,25/05/2026,Matteo Renzi,fiducia_pct,19.0
+EMG,25/05/2026,Roberto Vannacci,fiducia_pct,19.0
+EMG,25/05/2026,Carlo Calenda,fiducia_pct,17.0
+EMG,25/05/2026,Governo,fiducia_pct,36.0
+Termometro Politico,25/05/2026,Giorgia Meloni,fiducia_pct,38.9
+Piepoli,21/05/2026,Giorgia Meloni,fiducia_pct,43.0
+Termometro Politico,18/05/2026,Giorgia Meloni,fiducia_pct,38.3
+EMG,15/05/2026,Governo,fiducia_pct,36.0
+EMG,12/05/2026,Sergio Mattarella,fiducia_pct,81.0
+EMG,12/05/2026,Giorgia Meloni,fiducia_pct,41.0
+EMG,12/05/2026,Giuseppe Conte,fiducia_pct,40.0
+EMG,12/05/2026,Elly Schlein,fiducia_pct,28.0
+EMG,12/05/2026,Matteo Salvini,fiducia_pct,28.0
+EMG,12/05/2026,Antonio Tajani,fiducia_pct,28.0
+EMG,12/05/2026,Luigi Marattin,fiducia_pct,27.0
+EMG,12/05/2026,Nicola Fratoianni,fiducia_pct,23.0
+EMG,12/05/2026,Maurizio Lupi,fiducia_pct,22.0
+EMG,12/05/2026,Angelo Bonelli,fiducia_pct,22.0
+EMG,12/05/2026,Matteo Renzi,fiducia_pct,19.0
+EMG,12/05/2026,Roberto Vannacci,fiducia_pct,18.0
+EMG,12/05/2026,Carlo Calenda,fiducia_pct,17.0
+EMG,12/05/2026,Governo,fiducia_pct,37.0
+Piepoli,11/05/2026,Giorgia Meloni,fiducia_pct,43.0
+Termometro Politico,11/05/2026,Giorgia Meloni,fiducia_pct,37.1
+Demos&Pi,08/05/2026,Beppe Grillo,giudizi_positivi_pct,10.0
+Demos&Pi,08/05/2026,Angelo Bonelli,giudizi_positivi_pct,14.0
+Demos&Pi,08/05/2026,Matteo Renzi,giudizi_positivi_pct,12.0
+Demos&Pi,08/05/2026,Nicola Fratoianni,giudizi_positivi_pct,20.0
+Demos&Pi,08/05/2026,Matteo Salvini,giudizi_positivi_pct,17.0
+Demos&Pi,08/05/2026,Carlo Calenda,giudizi_positivi_pct,19.0
+Demos&Pi,08/05/2026,Roberto Vannacci,giudizi_positivi_pct,20.0
+Demos&Pi,08/05/2026,Elly Schlein,giudizi_positivi_pct,20.0
+Demos&Pi,08/05/2026,Antonio Tajani,giudizi_positivi_pct,25.0
+Demos&Pi,08/05/2026,Emma Bonino,giudizi_positivi_pct,24.0
+Demos&Pi,08/05/2026,Giuseppe Conte,giudizi_positivi_pct,35.0
+Demos&Pi,08/05/2026,Giorgia Meloni,giudizi_positivi_pct,39.0
+Eumetra,08/05/2026,Giuseppe Conte,giudizi_positivi_pct,36.8
+Eumetra,08/05/2026,Elly Schlein,giudizi_positivi_pct,28.2
+Eumetra,08/05/2026,Antonio Tajani,giudizi_positivi_pct,28.1
+Eumetra,08/05/2026,Emma Bonino,giudizi_positivi_pct,24.6
+Eumetra,08/05/2026,Matteo Salvini,giudizi_positivi_pct,23.7
+Eumetra,08/05/2026,Carlo Calenda,giudizi_positivi_pct,22.8
+Eumetra,08/05/2026,Roberto Vannacci,giudizi_positivi_pct,21.4
+Eumetra,08/05/2026,Nicola Fratoianni,giudizi_positivi_pct,19.1
+Eumetra,08/05/2026,Angelo Bonelli,giudizi_positivi_pct,18.0
+Eumetra,08/05/2026,Matteo Renzi,giudizi_positivi_pct,16.2
+EMG,05/05/2026,Governo,fiducia_pct,37.0
+Piepoli,04/05/2026,Giorgia Meloni,fiducia_pct,43.0
+Ipsos,04/05/2026,Governo,giudizi_positivi_pct,36.0
+Ipsos,04/05/2026,Governo,gradimento_index,41.0
+Ipsos,04/05/2026,Giorgia Meloni,giudizi_positivi_pct,37.0
+Ipsos,04/05/2026,Giorgia Meloni,gradimento_index,42.0
+Ipsos,04/05/2026,Giuseppe Conte,gradimento_index,30.0
+Ipsos,04/05/2026,Antonio Tajani,gradimento_index,27.0
+Ipsos,04/05/2026,Elly Schlein,gradimento_index,27.0
+Ipsos,04/05/2026,Nicola Fratoianni,gradimento_index,23.0
+Ipsos,04/05/2026,Matteo Salvini,gradimento_index,22.0
+Ipsos,04/05/2026,Angelo Bonelli,gradimento_index,22.0
+Ipsos,04/05/2026,Roberto Vannacci,gradimento_index,20.0
+Ipsos,04/05/2026,Maurizio Lupi,gradimento_index,19.0
+Ipsos,04/05/2026,Carlo Calenda,gradimento_index,19.0
+Ipsos,04/05/2026,Riccardo Magi,gradimento_index,17.0
+Ipsos,04/05/2026,Matteo Renzi,gradimento_index,15.0
+Youtrend,30/04/2026,Governo,giudizi_positivi_pct,33.0
+Piepoli,29/04/2026,Giorgia Meloni,fiducia_pct,43.0
+Ixè,27/04/2026,Unione Europea,fiducia_pct,48.0
+EMG,27/04/2026,Sergio Mattarella,fiducia_pct,82.0
+EMG,27/04/2026,Giorgia Meloni,fiducia_pct,42.0
+EMG,27/04/2026,Giuseppe Conte,fiducia_pct,39.0
+EMG,27/04/2026,Elly Schlein,fiducia_pct,29.0
+EMG,27/04/2026,Matteo Salvini,fiducia_pct,28.0
+EMG,27/04/2026,Antonio Tajani,fiducia_pct,27.0
+EMG,27/04/2026,Luigi Marattin,fiducia_pct,26.0
+EMG,27/04/2026,Maurizio Lupi,fiducia_pct,22.0
+EMG,27/04/2026,Nicola Fratoianni,fiducia_pct,22.0
+EMG,27/04/2026,Angelo Bonelli,fiducia_pct,21.0
+EMG,27/04/2026,Roberto Vannacci,fiducia_pct,19.0
+EMG,27/04/2026,Matteo Renzi,fiducia_pct,19.0
+EMG,27/04/2026,Carlo Calenda,fiducia_pct,17.0
+EMG,27/04/2026,Governo,fiducia_pct,37.0
+BiDiMedia,27/04/2026,Governo,fiducia_pct,35.0
+BiDiMedia,27/04/2026,Giorgia Meloni,fiducia_pct,36.0
+BiDiMedia,27/04/2026,Giuseppe Conte,fiducia_pct,32.0
+BiDiMedia,27/04/2026,Antonio Tajani,fiducia_pct,28.0
+BiDiMedia,27/04/2026,Elly Schlein,fiducia_pct,27.0
+BiDiMedia,27/04/2026,Matteo Salvini,fiducia_pct,24.0
+BiDiMedia,27/04/2026,Carlo Calenda,fiducia_pct,23.0
+BiDiMedia,27/04/2026,Bonelli,fiducia_pct,21.0
+BiDiMedia,27/04/2026,Fratoianni,fiducia_pct,21.0
+BiDiMedia,27/04/2026,Magi,fiducia_pct,18.0
+BiDiMedia,27/04/2026,Matteo Renzi,fiducia_pct,17.0
+Termometro Politico,27/04/2026,Giorgia Meloni,fiducia_pct,36.5
+Demopolis,26/04/2026,Donald Trump,giudizi_positivi_pct,12.0
+Piepoli,24/04/2026,Donald Trump,fiducia_pct,11.0
+Piepoli,24/04/2026,Vladimir Putin,fiducia_pct,16.0
+Piepoli,24/04/2026,Giorgia Meloni,fiducia_pct,43.0
+EMG,20/04/2026,Governo,fiducia_pct,38.0
+Termometro Politico,20/04/2026,Giorgia Meloni,fiducia_pct,38.1
+Piepoli,17/04/2026,Donald Trump,fiducia_pct,13.0
+Piepoli,17/04/2026,Giorgia Meloni,fiducia_pct,44.0
+Youtrend,15/04/2026,Governo,giudizi_positivi_pct,34.0
+SWG,14/04/2026,Giorgia Meloni,fiducia_pct,40.0
+EMG,14/04/2026,Sergio Mattarella,fiducia_pct,80.0
+EMG,14/04/2026,Giorgia Meloni,fiducia_pct,42.0
+EMG,14/04/2026,Giuseppe Conte,fiducia_pct,37.0
+EMG,14/04/2026,Elly Schlein,fiducia_pct,31.0
+EMG,14/04/2026,Antonio Tajani,fiducia_pct,29.0
+EMG,14/04/2026,Matteo Salvini,fiducia_pct,29.0
+EMG,14/04/2026,Luigi Marattin,fiducia_pct,25.0
+EMG,14/04/2026,Maurizio Lupi,fiducia_pct,22.0
+EMG,14/04/2026,Nicola Fratoianni,fiducia_pct,22.0
+EMG,14/04/2026,Angelo Bonelli,fiducia_pct,22.0
+EMG,14/04/2026,Roberto Vannacci,fiducia_pct,21.0
+EMG,14/04/2026,Matteo Renzi,fiducia_pct,18.0
+EMG,14/04/2026,Carlo Calenda,fiducia_pct,17.0
+EMG,14/04/2026,Governo,fiducia_pct,38.0
+Termometro Politico,13/04/2026,Giorgia Meloni,fiducia_pct,39.1
+Piepoli,10/04/2026,Donald Trump,fiducia_pct,15.0
+EMG,08/04/2026,Governo,fiducia_pct,38.0
+Termometro Politico,06/04/2026,Giorgia Meloni,fiducia_pct,38.7
+Demopolis,02/04/2026,Donald Trump,giudizi_positivi_pct,18.0
+EMG,31/03/2026,Governo,fiducia_pct,39.0
+EMG,31/03/2026,Sergio Mattarella,giudizi_positivi_pct,79.0
+EMG,31/03/2026,Giorgia Meloni,giudizi_positivi_pct,42.0
+EMG,31/03/2026,Giuseppe Conte,giudizi_positivi_pct,36.0
+EMG,31/03/2026,Elly Schlein,giudizi_positivi_pct,31.0
+EMG,31/03/2026,Antonio Tajani,giudizi_positivi_pct,30.0
+EMG,31/03/2026,Matteo Salvini,giudizi_positivi_pct,29.0
+EMG,31/03/2026,Luigi Marattin,giudizi_positivi_pct,24.0
+EMG,31/03/2026,Maurizio Lupi,giudizi_positivi_pct,22.0
+EMG,31/03/2026,Nicola Fratoianni,giudizi_positivi_pct,22.0
+EMG,31/03/2026,Angelo Bonelli,giudizi_positivi_pct,22.0
+EMG,31/03/2026,Carlo Calenda,giudizi_positivi_pct,18.0
+EMG,31/03/2026,Matteo Renzi,giudizi_positivi_pct,17.0
+Ipsos,30/03/2026,Governo,giudizi_positivi_pct,36.0
+Ipsos,30/03/2026,Governo,gradimento_index,40.0
+Ipsos,30/03/2026,Giorgia Meloni,giudizi_positivi_pct,36.0
+Ipsos,30/03/2026,Giorgia Meloni,gradimento_index,40.0
+Ipsos,30/03/2026,Giuseppe Conte,gradimento_index,30.0
+Ipsos,30/03/2026,Antonio Tajani,gradimento_index,27.0
+Ipsos,30/03/2026,Elly Schlein,gradimento_index,26.0
+Ipsos,30/03/2026,Nicola Fratoianni,gradimento_index,22.0
+Ipsos,30/03/2026,Matteo Salvini,gradimento_index,21.0
+Ipsos,30/03/2026,Angelo Bonelli,gradimento_index,21.0
+Ipsos,30/03/2026,Maurizio Lupi,gradimento_index,19.0
+Ipsos,30/03/2026,Carlo Calenda,gradimento_index,18.0
+Ipsos,30/03/2026,Roberto Vannacci,gradimento_index,18.0
+Ipsos,30/03/2026,Riccardo Magi,gradimento_index,17.0
+Ipsos,30/03/2026,Matteo Renzi,gradimento_index,14.0
+Piepoli,30/03/2026,Donald Trump,fiducia_pct,16.0
+Termometro Politico,30/03/2026,Giorgia Meloni,fiducia_pct,38.7
+EMG,09/03/2026,Governo,fiducia_pct,39.0
+EMG,09/03/2026,Governo,fiducia_pct,39.0
+Termometro Politico,09/03/2026,Giorgia Meloni,fiducia_pct,38.4
+Youtrend,06/03/2026,Governo,giudizi_positivi_pct,32.0
+Piepoli,06/03/2026,Giorgia Meloni,fiducia_pct,43.0
+Youtrend,02/03/2026,Governo,giudizi_positivi_pct,34.0
+Piepoli,02/03/2026,Donald Trump,fiducia_pct,21.0
+Ipsos,02/03/2026,Governo,giudizi_positivi_pct,37.0
+Ipsos,02/03/2026,Governo,gradimento_index,43.0
+Ipsos,02/03/2026,Giorgia Meloni,giudizi_positivi_pct,38.0
+Ipsos,02/03/2026,Giorgia Meloni,gradimento_index,44.0
+Ipsos,02/03/2026,Antonio Tajani,gradimento_index,30.0
+Ipsos,02/03/2026,Giuseppe Conte,gradimento_index,28.0
+Ipsos,02/03/2026,Elly Schlein,gradimento_index,25.0
+Ipsos,02/03/2026,Matteo Salvini,gradimento_index,23.0
+Ipsos,02/03/2026,Nicola Fratoianni,gradimento_index,22.0
+Ipsos,02/03/2026,Angelo Bonelli,gradimento_index,20.0
+Ipsos,02/03/2026,Maurizio Lupi,gradimento_index,18.0
+Ipsos,02/03/2026,Carlo Calenda,gradimento_index,18.0
+Ipsos,02/03/2026,Riccardo Magi,gradimento_index,18.0
+Ipsos,02/03/2026,Roberto Vannacci,gradimento_index,18.0
+Ipsos,02/03/2026,Matteo Renzi,gradimento_index,14.0
+Termometro Politico,02/03/2026,Giorgia Meloni,fiducia_pct,38.9
+EMG,27/02/2026,Governo,fiducia_pct,39.0
+Only Numbers,26/02/2026,Governo,giudizi_positivi_pct,25.8
+Termometro Politico,23/02/2026,Giorgia Meloni,fiducia_pct,40.0
+EMG,20/02/2026,Governo,fiducia_pct,39.0
+BiDiMedia,20/02/2026,Giorgia Meloni,fiducia_pct,37.0
+Youtrend,20/02/2026,Governo,giudizi_positivi_pct,32.0
+EMG,16/02/2026,Governo,fiducia_pct,38.0
+Tecnè,16/02/2026,Governo,fiducia_pct,43.3
+Termometro Politico,16/02/2026,Giorgia Meloni,fiducia_pct,37.9
+Piepoli,13/02/2026,Giorgia Meloni,fiducia_pct,45.0
+Piepoli,13/02/2026,Giorgia Meloni,fiducia_pct,44.0
+Piepoli,13/02/2026,Giorgia Meloni,fiducia_pct,44.0
+Youtrend,11/02/2026,Governo,giudizi_positivi_pct,32.0
+Tecnè,09/02/2026,Governo,fiducia_pct,43.4
+LAB21,09/02/2026,Roberto Vannacci,fiducia_pct,26.8
+Termometro Politico,09/02/2026,Giorgia Meloni,fiducia_pct,39.2
+EMG,06/02/2026,Governo,fiducia_pct,40.0
+Youtrend,04/02/2026,Roberto Vannacci,fiducia_pct,14.0
+Ipsos,02/02/2026,Governo,giudizi_positivi_pct,38.0
+Ipsos,02/02/2026,Governo,gradimento_index,43.0
+Ipsos,02/02/2026,Giorgia Meloni,giudizi_positivi_pct,38.0
+Ipsos,02/02/2026,Giorgia Meloni,gradimento_index,44.0
+Ipsos,02/02/2026,Antonio Tajani,gradimento_index,29.0
+Ipsos,02/02/2026,Giuseppe Conte,gradimento_index,27.0
+Ipsos,02/02/2026,Elly Schlein,gradimento_index,24.0
+Ipsos,02/02/2026,Matteo Salvini,gradimento_index,24.0
+Ipsos,02/02/2026,Nicola Fratoianni,gradimento_index,20.0
+Ipsos,02/02/2026,Angelo Bonelli,gradimento_index,19.0
+Ipsos,02/02/2026,Maurizio Lupi,gradimento_index,19.0
+Ipsos,02/02/2026,Carlo Calenda,gradimento_index,19.0
+Ipsos,02/02/2026,Riccardo Magi,gradimento_index,17.0
+Ipsos,02/02/2026,Matteo Renzi,gradimento_index,15.0
+Termometro Politico,02/02/2026,Giorgia Meloni,fiducia_pct,39.2
+EMG,30/01/2026,Governo,fiducia_pct,39.0
+EMG,26/01/2026,Governo,fiducia_pct,40.0
+Termometro Politico,26/01/2026,Giorgia Meloni,fiducia_pct,38.0
+Youtrend,23/01/2026,Governo,giudizi_positivi_pct,33.0
+Tecnè,23/01/2026,Governo,fiducia_pct,43.2
+Demopolis,21/01/2026,Donald Trump,giudizi_positivi_pct,22.0
+Termometro Politico,19/01/2026,Giorgia Meloni,fiducia_pct,39.5
+Tecnè,16/01/2026,Governo,fiducia_pct,43.4
+EMG,16/01/2026,Governo,fiducia_pct,39.0
+Tecnè,12/01/2026,Governo,fiducia_pct,43.5
+EMG,09/01/2026,Governo,fiducia_pct,40.0
+Youtrend,24/12/2025,Governo,giudizi_positivi_pct,30.0
+Ipsos,22/12/2025,Governo,giudizi_positivi_pct,36.0
+Ipsos,22/12/2025,Governo,gradimento_index,42.0
+Ipsos,22/12/2025,Giorgia Meloni,giudizi_positivi_pct,37.0
+Ipsos,22/12/2025,Giorgia Meloni,gradimento_index,43.0
+Ipsos,22/12/2025,Antonio Tajani,gradimento_index,28.0
+Ipsos,22/12/2025,Giuseppe Conte,gradimento_index,24.0
+Ipsos,22/12/2025,Elly Schlein,gradimento_index,24.0
+Ipsos,22/12/2025,Matteo Salvini,gradimento_index,22.0
+Ipsos,22/12/2025,Nicola Fratoianni,gradimento_index,20.0
+Ipsos,22/12/2025,Angelo Bonelli,gradimento_index,19.0
+Ipsos,22/12/2025,Maurizio Lupi,gradimento_index,19.0
+Ipsos,22/12/2025,Carlo Calenda,gradimento_index,19.0
+Ipsos,22/12/2025,Riccardo Magi,gradimento_index,17.0
+Ipsos,22/12/2025,Matteo Renzi,gradimento_index,14.0
+Tecnè,22/12/2025,Governo,giudizi_positivi_pct,40.3
+Tecnè,22/12/2025,Governo,giudizi_positivi_pct,43.5
+EMG,22/12/2025,Governo,fiducia_pct,42.0
+Demos&Pi,22/12/2025,Sergio Mattarella,gradimento_index,60.0
+Only Numbers,19/12/2025,Forze Armate,fiducia_pct,61.3
+Tecnè,19/12/2025,Governo,fiducia_pct,43.5
+Termometro Politico,19/12/2025,Giorgia Meloni,fiducia_pct,40.1
+Termometro Politico,15/12/2025,Giorgia Meloni,fiducia_pct,38.5
+EMG,12/12/2025,Governo,fiducia_pct,42.0
+Tecnè,12/12/2025,Governo,fiducia_pct,43.6
+Youtrend,11/12/2025,Governo,giudizi_positivi_pct,29.0
+EMG,09/12/2025,Governo,fiducia_pct,44.0
+BiDiMedia,08/12/2025,Giorgia Meloni,fiducia_pct,38.0
+BiDiMedia,08/12/2025,Governo,fiducia_pct,36.0
+Termometro Politico,08/12/2025,Giorgia Meloni,fiducia_pct,38.6
+Tecnè,05/12/2025,Governo,fiducia_pct,43.5
+Termometro Politico,03/12/2025,Giorgia Meloni,fiducia_pct,40.1
+Ipsos,01/12/2025,Governo,giudizi_positivi_pct,36.0
+Ipsos,01/12/2025,Governo,gradimento_index,40.0
+Ipsos,01/12/2025,Giorgia Meloni,giudizi_positivi_pct,37.0
+Ipsos,01/12/2025,Giorgia Meloni,gradimento_index,42.0
+Ipsos,01/12/2025,Antonio Tajani,gradimento_index,30.0
+Ipsos,01/12/2025,Giuseppe Conte,gradimento_index,27.0
+Ipsos,01/12/2025,Elly Schlein,gradimento_index,25.0
+Ipsos,01/12/2025,Matteo Salvini,gradimento_index,24.0
+Ipsos,01/12/2025,Nicola Fratoianni,gradimento_index,21.0
+Ipsos,01/12/2025,Angelo Bonelli,gradimento_index,19.0
+Ipsos,01/12/2025,Maurizio Lupi,gradimento_index,19.0
+Ipsos,01/12/2025,Riccardo Magi,gradimento_index,18.0
+Ipsos,01/12/2025,Carlo Calenda,gradimento_index,18.0
+Ipsos,01/12/2025,Matteo Renzi,gradimento_index,14.0
+EMG,01/12/2025,Sergio Mattarella,fiducia_pct,78.0
+EMG,01/12/2025,Giorgia Meloni,fiducia_pct,44.0
+EMG,01/12/2025,Antonio Tajani,fiducia_pct,31.0
+EMG,01/12/2025,Giuseppe Conte,fiducia_pct,31.0
+EMG,01/12/2025,Elly Schlein,fiducia_pct,30.0
+EMG,01/12/2025,Matteo Salvini,fiducia_pct,27.0
+EMG,01/12/2025,Luigi Marattin,fiducia_pct,24.0
+EMG,01/12/2025,Emma Bonino,fiducia_pct,22.0
+EMG,01/12/2025,Maurizio Lupi,fiducia_pct,21.0
+EMG,01/12/2025,Nicola Fratoianni,fiducia_pct,21.0
+EMG,01/12/2025,Angelo Bonelli,fiducia_pct,20.0
+EMG,01/12/2025,Matteo Renzi,fiducia_pct,16.0
+EMG,01/12/2025,Carlo Calenda,fiducia_pct,14.0
+Tecnè,29/11/2025,Governo,fiducia_pct,43.5
+Youtrend,28/11/2025,Matteo Salvini,fiducia_pct,22.0
+Youtrend,28/11/2025,Roberto Vannacci,fiducia_pct,16.0
+Ixè,27/11/2025,Sergio Mattarella,fiducia_pct,70.0
+Ixè,27/11/2025,Governo,fiducia_pct,37.0
+Piepoli,21/11/2025,Donald Trump,fiducia_pct,32.0
+Piepoli,21/11/2025,Sergio Mattarella,fiducia_pct,61.0
+Termometro Politico,21/11/2025,Giorgia Meloni,fiducia_pct,39.8
+EMG,19/11/2025,Sergio Mattarella,fiducia_pct,75.0
+EMG,19/11/2025,Giorgia Meloni,fiducia_pct,45.0
+EMG,19/11/2025,Antonio Tajani,fiducia_pct,33.0
+EMG,19/11/2025,Giuseppe Conte,fiducia_pct,30.0
+EMG,19/11/2025,Elly Schlein,fiducia_pct,29.0
+EMG,19/11/2025,Matteo Salvini,fiducia_pct,27.0
+EMG,19/11/2025,Emma Bonino,fiducia_pct,23.0
+EMG,19/11/2025,Luigi Marattin,fiducia_pct,22.0
+EMG,19/11/2025,Maurizio Lupi,fiducia_pct,21.0
+EMG,19/11/2025,Nicola Fratoianni,fiducia_pct,20.0
+EMG,19/11/2025,Angelo Bonelli,fiducia_pct,20.0
+EMG,19/11/2025,Matteo Renzi,fiducia_pct,16.0
+EMG,19/11/2025,Carlo Calenda,fiducia_pct,15.0
+EMG,19/11/2025,Governo,fiducia_pct,43.0
+SWG,18/11/2025,Governo,voto_medio_1_10,5.2
+Termometro Politico,17/11/2025,Giorgia Meloni,fiducia_pct,41.1
+Termometro Politico,10/11/2025,Giorgia Meloni,fiducia_pct,40.3
+Tecnè,07/11/2025,Governo,fiducia_pct,43.8
+Youtrend,04/11/2025,Governo,giudizi_positivi_pct,32.0
+EMG,03/11/2025,Sergio Mattarella,fiducia_pct,73.0
+EMG,03/11/2025,Giorgia Meloni,fiducia_pct,46.0
+EMG,03/11/2025,Antonio Tajani,fiducia_pct,35.0
+EMG,03/11/2025,Giuseppe Conte,fiducia_pct,30.0
+EMG,03/11/2025,Elly Schlein,fiducia_pct,30.0
+EMG,03/11/2025,Matteo Salvini,fiducia_pct,27.0
+EMG,03/11/2025,Emma Bonino,fiducia_pct,24.0
+EMG,03/11/2025,Maurizio Lupi,fiducia_pct,22.0
+EMG,03/11/2025,Nicola Fratoianni,fiducia_pct,22.0
+EMG,03/11/2025,Angelo Bonelli,fiducia_pct,21.0
+EMG,03/11/2025,Luigi Marattin,fiducia_pct,21.0
+EMG,03/11/2025,Carlo Calenda,fiducia_pct,16.0
+EMG,03/11/2025,Matteo Renzi,fiducia_pct,16.0
+EMG,03/11/2025,Governo,fiducia_pct,44.0
+Ipsos,03/11/2025,Giuseppe Conte,giudizi_positivi_pct,28.0
+Ipsos,03/11/2025,Matteo Salvini,giudizi_positivi_pct,24.0
+Ipsos,03/11/2025,Elly Schlein,giudizi_positivi_pct,23.0
+Ipsos,03/11/2025,Nicola Fratoianni,giudizi_positivi_pct,20.0
+Ipsos,03/11/2025,Angelo Bonelli,giudizi_positivi_pct,20.0
+Ipsos,03/11/2025,Maurizio Lupi,giudizi_positivi_pct,19.0
+Ipsos,03/11/2025,Riccardo Magi,giudizi_positivi_pct,18.0
+Ipsos,03/11/2025,Carlo Calenda,giudizi_positivi_pct,18.0
+Ipsos,03/11/2025,Matteo Renzi,giudizi_positivi_pct,14.0
+Termometro Politico,03/11/2025,Giorgia Meloni,fiducia_pct,40.1
+BiDiMedia,01/11/2025,Giorgia Meloni,fiducia_pct,37.0
+BiDiMedia,01/11/2025,Governo,fiducia_pct,35.0
+Tecnè,31/10/2025,Governo,fiducia_pct,43.5
+IZI,31/10/2025,Magistratura italiana,gradimento_index,58.7
+SWG,28/10/2025,Giorgia Meloni,fiducia_pct,38.0
+Termometro Politico,27/10/2025,Giorgia Meloni,fiducia_pct,38.7
+Tecnè,24/10/2025,Governo,giudizi_positivi_pct,43.3
+Termometro Politico,20/10/2025,Giorgia Meloni,fiducia_pct,40.5
+EMG,17/10/2025,Sergio Mattarella,fiducia_pct,73.0
+EMG,17/10/2025,Giorgia Meloni,fiducia_pct,46.0
+EMG,17/10/2025,Antonio Tajani,fiducia_pct,34.0
+EMG,17/10/2025,Giuseppe Conte,fiducia_pct,30.0
+EMG,17/10/2025,Elly Schlein,fiducia_pct,30.0
+EMG,17/10/2025,Matteo Salvini,fiducia_pct,28.0
+EMG,17/10/2025,Emma Bonino,fiducia_pct,25.0
+EMG,17/10/2025,Maurizio Lupi,fiducia_pct,23.0
+EMG,17/10/2025,Nicola Fratoianni,fiducia_pct,22.0
+EMG,17/10/2025,Angelo Bonelli,fiducia_pct,21.0
+EMG,17/10/2025,Luigi Marattin,fiducia_pct,21.0
+EMG,17/10/2025,Carlo Calenda,fiducia_pct,17.0
+EMG,17/10/2025,Matteo Renzi,fiducia_pct,17.0
+EMG,17/10/2025,Governo,fiducia_pct,43.0
+Tecnè,17/10/2025,Governo,giudizi_positivi_pct,43.0
+Termometro Politico,13/10/2025,Giorgia Meloni,fiducia_pct,40.6
+Tecnè,10/10/2025,Governo,giudizi_positivi_pct,42.8
+BiDiMedia,10/10/2025,Giorgia Meloni,fiducia_pct,37.0
+BiDiMedia,10/10/2025,Governo,fiducia_pct,35.0
+Tecnè,08/10/2025,Global Sumud Flotilla,giudizi_positivi_pct,52.0
+Termometro Politico,06/10/2025,Giorgia Meloni,fiducia_pct,39.6
+EMG,03/10/2025,Sergio Mattarella,fiducia_pct,70.0
+EMG,03/10/2025,Giorgia Meloni,fiducia_pct,45.0
+EMG,03/10/2025,Antonio Tajani,fiducia_pct,35.0
+EMG,03/10/2025,Giuseppe Conte,fiducia_pct,30.0
+EMG,03/10/2025,Elly Schlein,fiducia_pct,29.0
+EMG,03/10/2025,Matteo Salvini,fiducia_pct,28.0
+EMG,03/10/2025,Emma Bonino,fiducia_pct,25.0
+EMG,03/10/2025,Maurizio Lupi,fiducia_pct,22.0
+EMG,03/10/2025,Angelo Bonelli,fiducia_pct,21.0
+EMG,03/10/2025,Nicola Fratoianni,fiducia_pct,21.0
+EMG,03/10/2025,Carlo Calenda,fiducia_pct,17.0
+EMG,03/10/2025,Matteo Renzi,fiducia_pct,16.0
+EMG,03/10/2025,Governo,fiducia_pct,44.0
+Tecnè,03/10/2025,Governo,fiducia_pct,42.5
+Eumetra,03/10/2025,Giuseppe Conte,voto_medio_1_10,4.08
+Eumetra,03/10/2025,Antonio Tajani,voto_medio_1_10,3.5
+Eumetra,03/10/2025,Matteo Salvini,voto_medio_1_10,3.02
+Eumetra,03/10/2025,Giorgia Meloni,voto_medio_1_10,4.56
+Eumetra,03/10/2025,Matteo Renzi,voto_medio_1_10,2.42
+Eumetra,03/10/2025,Carlo Calenda,voto_medio_1_10,2.49
+Eumetra,03/10/2025,Emma Bonino,voto_medio_1_10,2.77
+Eumetra,03/10/2025,Nicola Fratoianni,voto_medio_1_10,2.14
+Eumetra,03/10/2025,Roberto Vannacci,voto_medio_1_10,2.57
+Eumetra,03/10/2025,Angelo Bonelli,voto_medio_1_10,2.23
+Termometro Politico,29/09/2025,Giorgia Meloni,fiducia_pct,39.5
+Demos&Pi,29/09/2025,Beppe Grillo,giudizi_positivi_pct,17.0
+Demos&Pi,29/09/2025,Matteo Renzi,giudizi_positivi_pct,21.0
+Demos&Pi,29/09/2025,Carlo Calenda,giudizi_positivi_pct,22.0
+Demos&Pi,29/09/2025,Angelo Bonelli,giudizi_positivi_pct,23.0
+Demos&Pi,29/09/2025,Nicola Fratoianni,giudizi_positivi_pct,23.0
+Demos&Pi,29/09/2025,Matteo Salvini,giudizi_positivi_pct,25.0
+Demos&Pi,29/09/2025,Elly Schlein,giudizi_positivi_pct,26.0
+Demos&Pi,29/09/2025,Emma Bonino,giudizi_positivi_pct,28.0
+Demos&Pi,29/09/2025,Antonio Tajani,giudizi_positivi_pct,32.0
+Demos&Pi,29/09/2025,Giuseppe Conte,giudizi_positivi_pct,35.0
+Demos&Pi,29/09/2025,Giorgia Meloni,giudizi_positivi_pct,37.0
+Demos&Pi,29/09/2025,Benjamin Netanyahu,giudizi_positivi_pct,12.0
+Demos&Pi,29/09/2025,Vladimir Putin,giudizi_positivi_pct,20.0
+Demos&Pi,29/09/2025,Donald Trump,giudizi_positivi_pct,22.0
+Demos&Pi,29/09/2025,Volodymyr Zelenskyy,giudizi_positivi_pct,29.0
+Ixè,26/09/2025,Unione Europea,fiducia_pct,42.0
+Tecnè,26/09/2025,Governo,giudizi_positivi_pct,42.5
+Tecnè,19/09/2025,Governo,giudizi_positivi_pct,42.6
+Termometro Politico,19/09/2025,Giorgia Meloni,fiducia_pct,37.9
+BiDiMedia,18/09/2025,Giorgia Meloni,fiducia_pct,38.0
+BiDiMedia,18/09/2025,Governo,fiducia_pct,36.0
+Tecnè,18/09/2025,Governo,fiducia_pct,42.6
+Tecnè,18/09/2025,Giorgia Meloni,fiducia_pct,45.8
+Tecnè,12/09/2025,Governo,giudizi_positivi_pct,42.7
+Termometro Politico,12/09/2025,Giorgia Meloni,fiducia_pct,38.0
+Youtrend,09/09/2025,Governo,giudizi_positivi_pct,34.0
+SWG,09/09/2025,Donald Trump,fiducia_pct,17.0
+Termometro Politico,08/09/2025,Giorgia Meloni,fiducia_pct,36.3
+BiDiMedia,29/08/2025,Giorgia Meloni,fiducia_pct,38.0
+BiDiMedia,29/08/2025,Governo,fiducia_pct,36.0
+Termometro Politico,07/08/2025,Giorgia Meloni,fiducia_pct,36.9
+Termometro Politico,04/08/2025,Giorgia Meloni,fiducia_pct,36.3
+Only Numbers,29/07/2025,Giorgia Meloni,fiducia_pct,36.0
+Termometro Politico,28/07/2025,Giorgia Meloni,fiducia_pct,37.4
+Ipsos,26/07/2025,Giuseppe Conte,giudizi_positivi_pct,26.0
+Ipsos,26/07/2025,Elly Schlein,giudizi_positivi_pct,24.0
+Ipsos,26/07/2025,Matteo Salvini,giudizi_positivi_pct,23.0
+Ipsos,26/07/2025,Nicola Fratoianni,giudizi_positivi_pct,20.0
+Ipsos,26/07/2025,Angelo Bonelli,giudizi_positivi_pct,20.0
+Ipsos,26/07/2025,Maurizio Lupi,giudizi_positivi_pct,18.0
+Ipsos,26/07/2025,Riccardo Magi,giudizi_positivi_pct,18.0
+Ipsos,26/07/2025,Carlo Calenda,giudizi_positivi_pct,16.0
+Ipsos,26/07/2025,Matteo Renzi,giudizi_positivi_pct,13.0
+Tecnè,25/07/2025,Governo,fiducia_pct,43.0
+Termometro Politico,21/07/2025,Giorgia Meloni,fiducia_pct,36.2
+Tecnè,18/07/2025,Governo,fiducia_pct,43.1
+Youtrend,16/07/2025,Governo,giudizi_positivi_pct,34.0
+Youtrend,16/07/2025,Giorgia Meloni,giudizi_positivi_pct,34.0
+Youtrend,16/07/2025,Matteo Salvini,giudizi_positivi_pct,23.0
+Youtrend,16/07/2025,Antonio Tajani,giudizi_positivi_pct,20.0
+Youtrend,16/07/2025,Matteo Piantedosi,giudizi_positivi_pct,25.0
+Youtrend,16/07/2025,Guido Crosetto,giudizi_positivi_pct,33.0
+Youtrend,16/07/2025,Giancarlo Giorgetti,giudizi_positivi_pct,33.0
+Youtrend,16/07/2025,Carlo Nordio,giudizi_positivi_pct,25.0
+Youtrend,16/07/2025,Francesco Lollobrigida,giudizi_positivi_pct,19.0
+Youtrend,16/07/2025,Giuseppe Valditara,giudizi_positivi_pct,23.0
+Youtrend,16/07/2025,Anna Maria Bernini,giudizi_positivi_pct,20.0
+Youtrend,16/07/2025,Alessandro Giuli,giudizi_positivi_pct,19.0
+Youtrend,16/07/2025,Daniela Santanchè,giudizi_positivi_pct,11.0
+Youtrend,16/07/2025,Eugenia Roccella,giudizi_positivi_pct,15.0
+Youtrend,16/07/2025,Maria Elisabetta Alberti Casellati,giudizi_positivi_pct,19.0
+Youtrend,16/07/2025,Adolfo Urso,giudizi_positivi_pct,17.0
+Youtrend,16/07/2025,Roberto Calderoli,giudizi_positivi_pct,19.0
+Youtrend,16/07/2025,Nello Musumeci,giudizi_positivi_pct,21.0
+Youtrend,16/07/2025,Gilberto Pichetto Fratin,giudizi_positivi_pct,16.0
+Youtrend,16/07/2025,Marina Elvira Calderone,giudizi_positivi_pct,17.0
+Youtrend,16/07/2025,Orazio Schillaci,giudizi_positivi_pct,18.0
+Youtrend,16/07/2025,Tommaso Foti,giudizi_positivi_pct,19.0
+Youtrend,16/07/2025,Luca Ciriani,giudizi_positivi_pct,14.0
+Youtrend,16/07/2025,Paolo Zangrillo,giudizi_positivi_pct,19.0
+Youtrend,16/07/2025,Andrea Abodi,giudizi_positivi_pct,16.0
+Youtrend,16/07/2025,Alessandra Locatelli,giudizi_positivi_pct,15.0
+Termometro Politico,14/07/2025,Giorgia Meloni,fiducia_pct,36.9
+Tecnè,11/07/2025,Governo,fiducia_pct,43.0
+Youtrend,09/07/2025,Governo,fiducia_pct,34.0
+Termometro Politico,07/07/2025,Giorgia Meloni,fiducia_pct,36.6
+Tecnè,04/07/2025,Governo,fiducia_pct,43.0
+Winpoll,02/07/2025,Leone XIV,fiducia_pct,70.0
+Termometro Politico,01/07/2025,Giorgia Meloni,fiducia_pct,40.5

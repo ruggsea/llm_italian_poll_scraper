@@ -1,0 +1,65 @@
+import pandas as pd
+
+# Per-(entity, metric) average. Never pools across metrics (different scales).
+# One poll per pollster per 14-day window; the cross-pollster average decays in
+# calendar time (a slow pollster's old wave should not weigh like this week's)
+# and is left blank when fewer than 2 pollsters cover the series.
+HALFLIFE_DAYS = 14.0
+CUTOFF_DAYS = 60
+DEDUP_DAYS = 14
+
+
+def load_rows(filename="favorability_polls.jsonl"):
+    df = pd.read_json(filename, lines=True)
+    df["date"] = pd.to_datetime(df["deposit_date"], format="%d/%m/%Y")
+    return df.sort_values("date").reset_index(drop=True)
+
+
+def dedup_waves(df):
+    # per (pollster, entity, metric), keep the newest wave in each 14-day window
+    keep = []
+    for _, group in df.groupby(["pollster", "entity", "metric"], sort=False):
+        last = None
+        for i, row in group.sort_values("date", ascending=False).iterrows():
+            if last is None or (last - row["date"]).days >= DEDUP_DAYS:
+                keep.append(i)
+                last = row["date"]
+    return df.loc[sorted(keep)].sort_values("date").reset_index(drop=True)
+
+
+def decayed_average(dates, values):
+    # weighted mean at the latest date; weight 0.5**(age/halflife), 0 past cutoff
+    anchor = dates.max()
+    age = (anchor - dates).dt.days
+    weight = (0.5 ** (age / HALFLIFE_DAYS)).where((age >= 0) & (age <= CUTOFF_DAYS), 0.0)
+    return (values * weight).sum() / weight.sum()
+
+
+def summarize(df):
+    df = dedup_waves(df)
+    rows = []
+    for (entity, metric), group in df.groupby(["entity", "metric"]):
+        pollsters = sorted(group["pollster"].unique())
+        latest = {p: f"{sub.sort_values('date').iloc[-1]['value']:g} "
+                     f"({sub.sort_values('date').iloc[-1]['date']:%d/%m/%Y})"
+                  for p, sub in group.groupby("pollster")}
+        rows.append({
+            "entity": entity,
+            "metric": metric,
+            "n_polls": len(group),
+            "n_pollsters": len(pollsters),
+            "pollsters": "; ".join(pollsters),
+            "last_date": f"{group['date'].max():%d/%m/%Y}",
+            "cross_pollster_average": (round(decayed_average(group["date"], group["value"]), 1)
+                                       if len(pollsters) >= 2 else None),
+            "latest_per_pollster": "; ".join(f"{p} {v}" for p, v in sorted(latest.items())),
+        })
+    return pd.DataFrame(rows).sort_values(["n_polls"], ascending=False).reset_index(drop=True)
+
+
+def write_averages(filename="favorability_polls.jsonl", out="favorability_averages.csv"):
+    summarize(load_rows(filename)).to_csv(out, index=False)
+
+
+if __name__ == "__main__":
+    write_averages()
