@@ -40,8 +40,10 @@ def summarize(df):
     rows = []
     for (entity, metric), group in df.groupby(["entity", "metric"]):
         pollsters = sorted(group["pollster"].unique())
-        latest = {p: f"{sub.sort_values('date').iloc[-1]['value']:g} "
-                     f"({sub.sort_values('date').iloc[-1]['date']:%d/%m/%Y})"
+        # each pollster's most-recent value -> the aggregator-style (Youtrend) average
+        latest_val = {p: sub.sort_values("date").iloc[-1]["value"]
+                      for p, sub in group.groupby("pollster")}
+        latest = {p: f"{latest_val[p]:g} ({sub.sort_values('date').iloc[-1]['date']:%d/%m/%Y})"
                   for p, sub in group.groupby("pollster")}
         rows.append({
             "entity": entity,
@@ -50,11 +52,18 @@ def summarize(df):
             "n_pollsters": len(pollsters),
             "pollsters": "; ".join(pollsters),
             "last_date": f"{group['date'].max():%d/%m/%Y}",
+            # headline number: mean of each pollster's latest (how Youtrend/TP publish it)
+            "latest_average": (round(sum(latest_val.values()) / len(latest_val), 1)
+                               if len(latest_val) >= 2 else None),
             "cross_pollster_average": (round(decayed_average(group["date"], group["value"]), 1)
                                        if len(pollsters) >= 2 else None),
             "latest_per_pollster": "; ".join(f"{p} {v}" for p, v in sorted(latest.items())),
         })
-    return pd.DataFrame(rows).sort_values(["n_polls"], ascending=False).reset_index(drop=True)
+    out = pd.DataFrame(rows)
+    # headline first: Governo + PM (Meloni) on fiducia_pct, then everything else by coverage
+    headline = out["entity"].isin(["Governo", "Giorgia Meloni"]) & (out["metric"] == "fiducia_pct")
+    out["_hl"] = headline.astype(int)
+    return out.sort_values(["_hl", "n_polls"], ascending=[False, False]).drop(columns="_hl").reset_index(drop=True)
 
 
 def write_averages(filename="favorability_polls.jsonl", out="favorability_averages.csv"):
