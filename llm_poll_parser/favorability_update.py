@@ -56,17 +56,20 @@ def load_seen():
     return rows, seen
 
 
-def daily_update(max_pages=200):
+def crawl(full=False, max_pages=300):
+    # full=False: daily incremental, stop after 2 pages of only-already-seen docs.
+    # full=True: backfill, ignore what's saved and crawl the whole archive from
+    # scratch until pagination ends. Both share this one loop.
     logging.basicConfig(level=logging.INFO)
-    old_rows, seen = load_seen()
+    old_rows, seen = ([], set()) if full else load_seen()
     driver = start_driver(headless=True)
     new_rows, pages_all_seen = [], 0
     for _ in range(max_pages):
-        table = find_sondaggi_table(driver)
         new_this_page = 0
-        for doc in table:
+        for doc in find_sondaggi_table(driver):
             if (doc["Data Inserimento"], doc["Titolo"]) in seen:
                 continue
+            seen.add((doc["Data Inserimento"], doc["Titolo"]))  # don't reprocess a doc twice
             new_this_page += 1
             pollster = normalize_pollster(doc.get("Realizzatore"))
             try:
@@ -79,11 +82,15 @@ def daily_update(max_pages=200):
                     new_rows.append({"pollster": pollster, "deposit_date": doc["Data Inserimento"],
                                     "source_title": doc["Titolo"], **r})
             logging.info(f"{doc['Data Inserimento']} {pollster} - {doc['Titolo']}")
-        # stop once we reach pages that are entirely already-seen documents
-        pages_all_seen = pages_all_seen + 1 if new_this_page == 0 else 0
-        if pages_all_seen >= 2:
-            break
-        get_prossima_pagina(driver)
+        if not full:
+            # incremental: stop once recent pages are entirely already-seen
+            pages_all_seen = pages_all_seen + 1 if new_this_page == 0 else 0
+            if pages_all_seen >= 2:
+                break
+        try:
+            get_prossima_pagina(driver)
+        except Exception:
+            break  # reached the last archive page
     driver.quit()
 
     with open(FILENAME, "w") as file:
@@ -92,5 +99,17 @@ def daily_update(max_pages=200):
     logging.info(f"Added {len(new_rows)} rows, {len(new_rows) + len(old_rows)} total")
 
 
+def daily_update():
+    crawl(full=False)
+
+
+def backfill():
+    crawl(full=True)
+
+
 if __name__ == "__main__":
-    daily_update()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "backfill":
+        backfill()
+    else:
+        daily_update()

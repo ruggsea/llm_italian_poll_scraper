@@ -1,0 +1,52 @@
+name: Favorability backfill (manual)
+on:
+  workflow_dispatch:  # run by hand from the Actions tab to rebuild the whole favorability dataset
+
+jobs:
+  backfill_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Set up Geckodriver
+      uses: browser-actions/setup-geckodriver@latest
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        geckodriver-version: 'latest'
+
+    - name: Backfill the whole favorability archive
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: python llm_poll_parser/favorability_update.py backfill
+
+    - name: Commit changes
+      run: |
+        git config --global user.name "GitHub Actions Bot"
+        git config --global user.email "actions@github.com"
+        git add favorability_polls.jsonl favorability_polls.csv favorability_averages.csv
+        if git diff-index --quiet HEAD; then
+          echo "No changes to commit"
+        else
+          git commit -m "Favorability backfill: $(date +'%Y-%m-%d')"
+        fi
+      shell: bash
+
+    - name: Rebase and push changes
+      run: |
+        git fetch origin main
+        git rebase origin/main
+        git push origin main
+      shell: bash
