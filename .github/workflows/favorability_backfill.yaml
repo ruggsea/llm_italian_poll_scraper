@@ -1,20 +1,15 @@
-name: Daily, Push, and Manual Triggered Update
+name: Favorability backfill (manual)
 on:
-  schedule:
-    - cron: '0 12 * * *'  # Runs every day at 12:00 PM (UTC)
-  push:
-    branches:
-      - main  # Triggers the workflow on every push to the 'main' branch
-  workflow_dispatch:  # Allows manual triggering of the workflow
+  workflow_dispatch:  # run by hand from the Actions tab to rebuild the whole favorability dataset
 
 jobs:
-  update_job:
+  backfill_job:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # Fetch all history for all branches and tags
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -32,32 +27,26 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         geckodriver-version: 'latest'
 
-    - name: Run daily update script
+    - name: Backfill the whole favorability archive
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      run: python llm_poll_parser/daily_update.py
-
-    - name: Run favorability daily update
-      continue-on-error: true
-      env:
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      run: python llm_poll_parser/favorability_update.py
+      run: python llm_poll_parser/favorability_update.py backfill
 
     - name: Commit changes
       run: |
         git config --global user.name "GitHub Actions Bot"
         git config --global user.email "actions@github.com"
-        git add .
+        git add favorability_polls.jsonl favorability_polls.csv favorability_averages.csv
         if git diff-index --quiet HEAD; then
           echo "No changes to commit"
         else
-          git commit -m "Daily update: $(date +'%Y-%m-%d')"
+          git commit -m "Favorability backfill: $(date +'%Y-%m-%d')"
         fi
       shell: bash
 
-    - name: Rebase and force push changes
+    - name: Rebase and push changes
       run: |
         git fetch origin main
         git rebase origin/main
-        git push origin main --force
+        git push origin main
       shell: bash

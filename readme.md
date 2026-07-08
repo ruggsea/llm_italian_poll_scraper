@@ -18,6 +18,17 @@ Italia Viva: 2.38%
 ## Grafico
 ![Latest Moving Average](latest_average_plot.png)
 
+## Gradimento del Governo e del Presidente del Consiglio
+
+Oltre all'intenzione di voto, l'archivio contiene i sondaggi di fiducia/gradimento. Per il Governo e i leader si pubblica il **consenso tra gli istituti**: la media dell'ultimo valore di ciascun sondaggista (lo stesso metodo usato da Youtrend e Termometro Politico). Scale incompatibili — fiducia (`molta+abbastanza`), indice di gradimento, giudizi positivi, `most-trusted`, voto medio 1-10 — vengono tenute separate e mai mediate insieme.
+
+- **Giorgia Meloni**: 40.1% (7 istituti)
+- **Governo**: 37.3% (5 istituti)
+
+![Gradimento del Governo e del Presidente del Consiglio](favorability_plot.png)
+
+I dati grezzi sono in `favorability_polls.jsonl` / `favorability_polls.csv`; le medie per entità e metrica in `favorability_averages.csv`.
+
 # Archiving Italian Political Polls
 
 Questo progetto si occupa di archiviare tutti i sondaggi mai caricati sul sito ufficiale [sondaggipoliticoelettorali.it](https://www.sondaggipoliticoelettorali.it/), cercando quelli che riguardano l'intenzione di voto nazionale utilizzando il confronto di stringhe e l'estrazione delle risposte al sondaggio utilizzando un Large Language Model (LLM).

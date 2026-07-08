@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import matplotlib.dates as mdates
 
+# graphs start from the last general election (25 Sept 2022)
+SINCE_ELECTION = pd.Timestamp("2022-09-25")
+
 parties_list = [
     "Partito Democratico",
     "Forza Italia",
@@ -63,6 +66,9 @@ def load_and_process_data(filepath):
     # the historical 10-party level: len - 5 instead of len - 4)
     df = df.dropna(subset=parties_list, thresh=len(parties_list) - 5)
     
+    # only polls since the last general election (25 Sept 2022)
+    df = df[df['date'] >= SINCE_ELECTION].reset_index(drop=True)
+    
     # how many nas per party
     print(f"Missing values per party:")
     print(df[parties_list].isna().sum())
@@ -94,7 +100,14 @@ def make_temporal_plot(moving_averages, df, gaps=None):
     for party in parties_list:
         if party in ["Azione", "+Europa", "Italia Viva", "Altri"]:
             continue
-        plt.plot(df['date'], moving_averages[party], label=party, color=party_colors[party])
+        ma = moving_averages[party]
+        # a party's line starts from its first polled value (its founding in this
+        # data), not flat-zero before — e.g. Futuro Nazionale only appears once
+        # founded. NaN before that -> nothing drawn.
+        first = df[party].first_valid_index()
+        if first is not None:
+            ma = ma.where(df.index >= first)
+        plt.plot(df['date'], ma, label=party, color=party_colors[party])
         
     plt.legend()
     plt.ylim(0, 50)

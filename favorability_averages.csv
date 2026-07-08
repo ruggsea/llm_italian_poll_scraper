@@ -1,0 +1,10 @@
+entity,metric,n_polls,n_pollsters,pollsters,last_date,latest_average,cross_pollster_average,latest_per_pollster
+Giorgia Meloni,fiducia_pct,46,7,BiDiMedia; EMG; Only Numbers; Piepoli; SWG; Tecnè; Termometro Politico,25/06/2026,39.4,38.8,BiDiMedia 38.7141 (25/06/2026); EMG 37.4641 (22/06/2026); Only Numbers 39.8391 (29/07/2025); Piepoli 39.4391 (21/05/2026); SWG 40.8391 (14/04/2026); Tecnè 39.8391 (18/09/2025); Termometro Politico 39.882 (22/06/2026)
+Governo,fiducia_pct,32,5,BiDiMedia; EMG; Ixè; Tecnè; Youtrend,25/06/2026,38.9,37.7,BiDiMedia 39.1152 (25/06/2026); EMG 36.6866 (22/06/2026); Ixè 39.5438 (27/11/2025); Tecnè 39.6882 (16/02/2026); Youtrend 39.5438 (09/07/2025)
+Governo,giudizi_positivi_pct,24,4,Ipsos; Only Numbers; Tecnè; Youtrend,19/06/2026,36.3,37.2,Ipsos 35.4298 (03/06/2026); Only Numbers 35.8583 (26/02/2026); Tecnè 36.3983 (22/12/2025); Youtrend 37.6765 (19/06/2026)
+Giorgia Meloni,giudizi_positivi_pct,11,4,Demos&Pi; EMG; Ipsos; Youtrend,03/06/2026,37.7,37.5,Demos&Pi 38.4545 (08/05/2026); EMG 37.4545 (31/03/2026); Ipsos 37.3117 (03/06/2026); Youtrend 37.4545 (16/07/2025)
+Giorgia Meloni,gradimento_index,7,1,Ipsos,03/06/2026,,,Ipsos 42 (03/06/2026)
+Governo,gradimento_index,7,1,Ipsos,03/06/2026,,,Ipsos 40 (03/06/2026)
+Giorgia Meloni,most_trusted_share,1,1,LAB21,24/06/2026,,,LAB21 36.7 (24/06/2026)
+Giorgia Meloni,voto_medio_1_10,1,1,Eumetra,03/10/2025,,,Eumetra 4.56 (03/10/2025)
+Governo,voto_medio_1_10,1,1,SWG,18/11/2025,,,SWG 5.2 (18/11/2025)
