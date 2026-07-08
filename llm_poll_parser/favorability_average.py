@@ -35,8 +35,28 @@ def decayed_average(dates, values):
     return (values * weight).sum() / weight.sum()
 
 
+def correct_house_effects(df):
+    # Subtract each pollster's persistent bias vs the (entity, metric) consensus.
+    # Spartan version (one pass, no weighting/shrinkage): bias = pollster mean −
+    # overall mean, computed per (entity, metric); corrected_value = value − bias.
+    # This is how aggregators stop "Tecnè always reads high" / "BiDiMedia always
+    # low" from biasing the cross-pollster average. Returns a copy with a
+    # corrected 'value' column; rows for a single-poll pollster collapse to the
+    # consensus (no information to estimate a real bias).
+    out = df.copy()
+    out["value_corr"] = out["value"]
+    for (entity, metric), idx in df.groupby(["entity", "metric"]).groups.items():
+        g = df.loc[idx]
+        consensus = g["value"].mean()
+        bias = g.groupby("pollster")["value"].mean() - consensus
+        out.loc[idx, "value_corr"] = g["value"].values - bias[g["pollster"]].values
+    out["value"] = out["value_corr"]
+    return out.drop(columns="value_corr")
+
+
 def summarize(df):
     df = dedup_waves(df)
+    df = correct_house_effects(df)
     rows = []
     for (entity, metric), group in df.groupby(["entity", "metric"]):
         pollsters = sorted(group["pollster"].unique())

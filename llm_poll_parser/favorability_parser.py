@@ -33,9 +33,9 @@ def canonical_entity(name):
     return clean.title() if (clean.isupper() or clean.islower()) else clean
 
 
-system_prompt = """You extract Italian LEADER and GOVERNMENT approval numbers (gradimento/fiducia) from ONE poll table. These are all NATIONAL by nature (a leader-approval battery IS national).
+system_prompt = """You extract Italian GOVERNMENT and PRIME-MINISTER (Giorgia Meloni) approval numbers (gradimento/fiducia) from ONE poll table. These are all NATIONAL by nature (a leader-approval battery IS national).
 
-Set national=0 with rows=[] ONLY if the table is a SUBGROUP breakdown (values split by CENTRO DESTRA / CENTRO SINISTRA / a party electorate, "per schieramento/orientamento politico") or an explicitly local/regional poll. Otherwise national=1 and extract EVERY leader/government row.
+Set national=0 with rows=[] ONLY if the table is a SUBGROUP breakdown (values split by CENTRO DESTRA / CENTRO SINISTRA / a party electorate, "per schieramento/orientamento politico") or an explicitly local/regional poll. Otherwise national=1 and extract ONLY the row(s) for the GOVERNMENT ("Governo") and for GIORGIA MELONI (the PM; also emitted as "Presidente del Consiglio"). Drop every other leader — this dataset tracks only those two.
 
 metric MUST be exactly one of:
 - "most_trusted_share": a ranking where respondents pick ONE most-trusted leader; many leaders each with a % that TOGETHER sum to ~100. Emit every leader.
@@ -92,6 +92,9 @@ def parse_favorability(text_input):
         value = row["value"]
         if value is None or not (0 <= value <= 100):
             continue
-        rows.append({"entity": canonical_entity(row["entity"]),
-                     "metric": row["metric"], "value": float(value)})
+        entity = canonical_entity(row["entity"])
+        # this dataset tracks only the Government and the PM (Giorgia Meloni)
+        if entity not in ("Governo", "Giorgia Meloni"):
+            continue
+        rows.append({"entity": entity, "metric": row["metric"], "value": float(value)})
     return rows
