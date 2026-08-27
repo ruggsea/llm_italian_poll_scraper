@@ -14,9 +14,19 @@ def start_driver(headless=False):
         driver = webdriver.Firefox(options=options)
     else:
         driver = webdriver.Firefox()
-        
-    # Open the website
-    driver.get('https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME')
+
+    driver.set_page_load_timeout(60)
+
+    # Open the website, retrying on timeout (the site can be slow to answer)
+    for attempt in range(4):
+        try:
+            driver.get('https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME')
+            break
+        except Exception as e:
+            print(f'Attempt {attempt + 1} to open homepage failed: {e}')
+            if attempt == 3:
+                raise
+            time.sleep(30 * (attempt + 1))
 
     # Find the "sondaggi" link by its text and click on it
     sondaggi_link = driver.find_element('link text', 'Sondaggi')
