@@ -9,7 +9,7 @@ on:
 
 jobs:
   update_job:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -25,6 +25,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+
+    - name: Set up Firefox
+      uses: browser-actions/setup-firefox@latest
 
     - name: Set up Geckodriver
       uses: browser-actions/setup-geckodriver@latest
