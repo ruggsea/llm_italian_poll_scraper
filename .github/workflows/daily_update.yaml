@@ -53,6 +53,7 @@ jobs:
       shell: bash
 
     - name: Rebase and force push changes
+      if: github.ref == 'refs/heads/main'  # only scheduled/push runs on main may push to main
       run: |
         git fetch origin main
         git rebase origin/main
