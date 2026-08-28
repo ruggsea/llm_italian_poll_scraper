@@ -9,7 +9,7 @@ on:
 
 jobs:
   update_job:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -26,8 +26,20 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Set up Firefox
-      uses: browser-actions/setup-firefox@latest
+    - name: Find a working proxy (the site tarpits GitHub/Azure IPs)
+      run: |
+        TARGET="https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME"
+        { curl -s --max-time 20 "https://api.proxyscrape.com/v3/free-proxy-list/get?request=displayproxies&protocol=http&timeout=8000&proxy_format=ipport&format=text";
+          curl -s --max-time 20 "https://proxylist.geonode.com/api/proxy-list?limit=100&page=1&sort_by=lastChecked&sort_type=desc&protocols=http%2Chttps" | jq -r '.[]? | "\(.ip):\(.port)"'; } \
+          | tr -d '\r' | grep -E '^[0-9.]+:[0-9]+$' | sort -u > proxies.txt || true
+        echo "Testing $(wc -l < proxies.txt) proxies"
+        test_one() { code=$(curl -s --max-time 8 --proxy "http://$1" "$TARGET" -o /dev/null -w "%{http_code}" 2>/dev/null); [ "$code" = "200" ] && echo "$1"; return 0; }
+        export -f test_one
+        export TARGET
+        PROXY=$(head -400 proxies.txt | xargs -P 25 -n 1 -I{} bash -c 'test_one "$@"' _ {} | head -1)
+        if [ -z "$PROXY" ]; then echo "No working proxy found"; exit 1; fi
+        echo "Using proxy $PROXY"
+        echo "SCRAPER_PROXY=$PROXY" >> "$GITHUB_ENV"
 
     - name: Set up Geckodriver
       uses: browser-actions/setup-geckodriver@latest

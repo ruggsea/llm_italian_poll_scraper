@@ -1,19 +1,21 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
-import re, time, json
+import re, time, json, os
 
 
 
 def start_driver(headless=False):
-    # Create a new instance of the firefox driver    
+    # Create a new instance of the firefox driver
+    options = webdriver.FirefoxOptions()
     if headless:
         # if headless is True, run the browser in headless mode for github actions
-        options = webdriver.FirefoxOptions()
         options.headless = True
         options.add_argument("--headless")
-        driver = webdriver.Firefox(options=options)
-    else:
-        driver = webdriver.Firefox()
+    # route traffic through a proxy if SCRAPER_PROXY is set (the site tarpits some IPs, e.g. github actions runners)
+    proxy_url = os.environ.get('SCRAPER_PROXY')
+    if proxy_url:
+        options.proxy = webdriver.Proxy({'proxyType': 'MANUAL', 'httpProxy': proxy_url, 'sslProxy': proxy_url})
+    driver = webdriver.Firefox(options=options)
 
     driver.set_page_load_timeout(60)
 
