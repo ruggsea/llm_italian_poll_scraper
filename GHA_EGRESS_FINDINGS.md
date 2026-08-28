@@ -1,10 +1,11 @@
 # GHA-hosted egress findings (branch fix/gha-hosted-egress, 2026-08-28)
 
 Goal: make the daily scrape work on GitHub-hosted runners (`ubuntu-latest`) again,
-without the artemis self-hosted runner. **Verdict: possible but probabilistic —
-the tarpit is per-IP and ~1/8 Azure egress IPs are currently unblocked, so a
-16-attempt reachability-gated matrix (implemented here) succeeds ~9/10 days.
-The artemis runner (branch fix/gha-site-timeout) remains the deterministic option.**
+without the artemis self-hosted runner. **Verdict: not viable long-term. The
+tarpit is per-IP and datacenter-broad; the few unblocked Azure IPs (~2/26 at
+00:10–00:27 UTC on 2026-08-28) dropped to 0/48 within the hour. A 32-attempt
+reachability-gated matrix is implemented here as a free fallback, but keep the
+artemis runner (branch fix/gha-site-timeout) as the primary path.**
 
 ## What the pipeline actually needs (STEP 0)
 
@@ -66,8 +67,10 @@ only proceeds if reachable. Before scraping it checks whether a
 practice exactly one attempt does the work. Push stays guarded to
 `github.ref == 'refs/heads/main'`.
 
-Estimated daily success at the measured ~1/8–1/5 unblocked-IP rate:
-P(≥1 of 16 reachable) ≈ 88–97%. Max added wall time ≈ 30 min.
+Estimated daily success at the ~1/8 rate measured around 00:27 UTC: ~88%.
+BUT see below — reachability collapsed to 0/48 within the hour, so the real
+rate is unstable and can be zero for long stretches. The matrix was later
+bumped to 32 attempts / 60 s stagger.
 
 ## Viable paths, honestly
 
@@ -86,6 +89,21 @@ P(≥1 of 16 reachable) ≈ 88–97%. Max added wall time ≈ 30 min.
 
 - Plain main-style workflow on ubuntu-latest (run 33129476621): scrape SUCCEEDED
   (lucky IP), run failed only at the branch-dispatch push-to-main step.
-- Shotgun-matrix workflow dispatched on this branch (run 33129919480):
-  see mission report for outcome.
+- Shotgun matrix, 16 attempts (run 33129919480): **0/16 reachable**, no scrape.
+- Shotgun matrix, 32 attempts (run 33131628472): **0/32 reachable**, no scrape.
+
+Timeline on 2026-08-28 (UTC): 00:10–00:27 → 2 of ~10 runner instances reached the
+site (one full successful scrape); after 00:30 → 0 of 48. The unblocked Azure
+pool shrank to zero within the hour — whether it comes back is unknown and
+outside our control.
+
+## Final verdict
+
+**GHA-hosted is not viable long-term.** The site tarpits datacenter IPs broadly
+and apparently adapts; the brief window of unblocked Azure IPs closed within an
+hour of measurement. The 32-attempt matrix in this branch's daily_update.yaml is
+kept as a free fallback (it self-skips and costs nothing when unreachable), but
+the artemis self-hosted runner (branch fix/gha-site-timeout) should stay the
+primary path. Only a paid residential/keyed proxy would make GHA-hosted
+deterministic — out of scope (signup wall) per mission constraints.
 
