@@ -1,8 +1,10 @@
 # GHA-hosted egress findings (branch fix/gha-hosted-egress, 2026-08-28)
 
 Goal: make the daily scrape work on GitHub-hosted runners (`ubuntu-latest`) again,
-without the artemis self-hosted runner. **Verdict: not viable without a paid/keyed
-proxy. Keep the artemis runner (branch fix/gha-site-timeout).**
+without the artemis self-hosted runner. **Verdict: possible but probabilistic —
+the tarpit is per-IP and ~1/8 Azure egress IPs are currently unblocked, so a
+16-attempt reachability-gated matrix (implemented here) succeeds ~9/10 days.
+The artemis runner (branch fix/gha-site-timeout) remains the deterministic option.**
 
 ## What the pipeline actually needs (STEP 0)
 
@@ -47,20 +49,43 @@ requests through it (see above). Free public proxies die mid-flow — observed b
 from the runner and locally. A daily cron on proxy roulette would fail most days
 and hammer a public-service site from random open proxies. Not a real option.
 
+## Round 3-4: it's an IP lottery, not a fingerprint block
+
+Same-runner test (r3): plain curl, curl with a Firefox UA, and real headless
+Firefox ALL timed out from egress 20.161.45.113 → block is per-IP, not per-client.
+An 8-runner matrix (r4): **1/8 runners reached the site** (57.151.83.102 → http 200;
+other 7: 40.116.x, 40.76.x, 158.23.x, 20.161.x, 172.184.x, 52.238.x all tarpitted).
+Separately, a full `daily_update.py` run on ubuntu-latest SUCCEEDED end-to-end
+(scrape → parse → plot) on a runner that drew an unblocked IP.
+
+## Chosen workaround: reachability-lottery matrix (implemented in daily_update.yaml)
+
+16 parallel matrix attempts; each sleeps `(N-1)*120s`, probes the homepage, and
+only proceeds if reachable. Before scraping it checks whether a
+`Daily update: <today>` commit already exists on main (idempotence guard), so in
+practice exactly one attempt does the work. Push stays guarded to
+`github.ref == 'refs/heads/main'`.
+
+Estimated daily success at the measured ~1/8–1/5 unblocked-IP rate:
+P(≥1 of 16 reachable) ≈ 88–97%. Max added wall time ≈ 30 min.
+
 ## Viable paths, honestly
 
-1. **Keep the artemis self-hosted runner** (branch `fix/gha-site-timeout`) — works
-   today, zero cost, already set up. Recommended.
-2. Paid/keyed scraping proxy with residential or unblocked DC IPs (ScraperAPI,
-   ScrapingBee, Bright Data…). ScraperAPI has a free tier (1k credits/mo — a daily
-   run needs ~50+ requests/run ⇒ ~1.5k/mo, so even that tier is marginal), but
-   requires API-key signup → out of scope for this mission, documented here per
-   instructions. STOP.
-3. (Hybrid, not pursued) GHA job egressing through artemis via a Tailscale exit
+1. **Keep the artemis self-hosted runner** (branch `fix/gha-site-timeout`) —
+   deterministic, zero cost, already set up. Still the safest choice.
+2. **This branch's shotgun matrix on ubuntu-latest** — free, no keys, works
+   ~9 days out of 10 at the current block rate; degrades if the site blocks more
+   Azure ranges. Also relies on the site never tightening to ALL Azure IPs.
+3. Paid/keyed scraping proxy with residential or unblocked DC IPs (ScraperAPI,
+   ScrapingBee…). Even ScraperAPI's free tier needs API-key signup → out of scope
+   per mission constraints. STOP.
+4. (Hybrid, not pursued) GHA job egressing through artemis via a Tailscale exit
    node — still depends on artemis, adds secrets/complexity, defeats the purpose.
 
 ## End-to-end validation (STEP 3)
 
-`daily_update.yaml` dispatched on this branch with `runs-on: ubuntu-latest`:
-expected failure at `driver.get(...)` (Selenium netTimeout / page-load timeout),
-same as the failures since 2026-08-16. See run URL in the mission report.
+- Plain main-style workflow on ubuntu-latest (run 33129476621): scrape SUCCEEDED
+  (lucky IP), run failed only at the branch-dispatch push-to-main step.
+- Shotgun-matrix workflow dispatched on this branch (run 33129919480):
+  see mission report for outcome.
+
