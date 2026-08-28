@@ -1,0 +1,78 @@
+# TEMPORARY DEBUG WORKFLOW — workflow_dispatch only, no schedule.
+# Purpose: probe which egress tricks can reach www.sondaggipoliticoelettorali.it
+# from GitHub-hosted (Azure) runner IPs, which the site tarpits since ~2026-08-16.
+# DELETE THIS FILE once the egress question is settled.
+name: DEBUG egress probes (manual only)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe egress methods
+        run: |
+          set +e
+          SITE="https://www.sondaggipoliticoelettorali.it"
+          HOME_URL="$SITE/Home.aspx?st=HOME"
+          LISTA_URL="$SITE/ListaSondaggi.aspx?st=SONDAGGI"
+          T=25   # per-request timeout; tarpit = hang, so timeouts are the signal
+
+          report() {  # $1=label $2=file
+            local rows
+            rows=$(grep -c "dgSondaggi_Row" "$2" 2>/dev/null)
+            if [ "$rows" -gt 0 ] 2>/dev/null; then
+              echo "RESULT $1: REAL LISTING PAGE (rows=$rows)"
+            elif grep -q "sessionended" "$2" 2>/dev/null || grep -q "Sondaggi" "$2" 2>/dev/null; then
+              echo "RESULT $1: reached site but NOT the listing (sessionended or home page)"
+            else
+              echo "RESULT $1: FAIL/empty/wrong content (size=$(stat -c%s "$2" 2>/dev/null))"
+            fi
+          }
+
+          enc() { python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1], safe=''))" "$1"; }
+
+          echo "===== a) DIRECT (control — expect timeout) ====="
+          curl -s -m $T -c /tmp/cj_a -o /tmp/a_home.html -w "direct home: http=%{http_code} time=%{time_total}s\n" "$HOME_URL"
+          echo "direct home exit=$?"
+          curl -s -m $T -b /tmp/cj_a -o /tmp/a_lista.html -w "direct lista: http=%{http_code} time=%{time_total}s\n" "$LISTA_URL"
+          echo "direct lista exit=$?"
+          report "a-direct" /tmp/a_lista.html
+
+          echo "===== b1) ALLORIGINS ====="
+          curl -s -m $T -D /tmp/h_b1 -o /tmp/b1_home.html -w "allorigins home: http=%{http_code}\n" "https://api.allorigins.win/raw?url=$(enc "$HOME_URL")"
+          grep -i "set-cookie" /tmp/h_b1 || echo "allorigins: no Set-Cookie forwarded"
+          # extract ASP.NET_SessionId if forwarded, retry lista with it
+          SID=$(grep -i "set-cookie" /tmp/h_b1 | grep -o "ASP.NET_SessionId=[^;]*" | head -1)
+          echo "allorigins extracted session: ${SID:-none}"
+          curl -s -m $T ${SID:+-H "Cookie: $SID"} -o /tmp/b1_lista.html -w "allorigins lista: http=%{http_code}\n" "https://api.allorigins.win/raw?url=$(enc "$LISTA_URL")"
+          report "b1-allorigins" /tmp/b1_lista.html
+
+          echo "===== b2) CORSPROXY.IO ====="
+          curl -s -m $T -D /tmp/h_b2 -o /tmp/b2_home.html -w "corsproxy home: http=%{http_code}\n" "https://corsproxy.io/?url=$(enc "$HOME_URL")"
+          grep -i "set-cookie" /tmp/h_b2 || echo "corsproxy: no Set-Cookie forwarded"
+          SID2=$(grep -i "set-cookie" /tmp/h_b2 | grep -o "ASP.NET_SessionId=[^;]*" | head -1)
+          echo "corsproxy extracted session: ${SID2:-none}"
+          curl -s -m $T ${SID2:+-H "Cookie: $SID2"} -o /tmp/b2_lista.html -w "corsproxy lista: http=%{http_code}\n" "https://corsproxy.io/?url=$(enc "$LISTA_URL")"
+          report "b2-corsproxy" /tmp/b2_lista.html
+
+          echo "===== c) R.JINA.AI ====="
+          curl -s -m 60 -o /tmp/c_lista.html -w "jina lista: http=%{http_code}\n" "https://r.jina.ai/$LISTA_URL"
+          head -c 300 /tmp/c_lista.html; echo
+          report "c-jina" /tmp/c_lista.html
+
+          echo "===== d) FREE PUBLIC HTTP PROXIES (UNRELIABLE — fresh list fetched at runtime) ====="
+          PROXIES=$(curl -s -m 20 "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&protocol=http&proxy_format=ipport&format=text&timeout=3000" | tr -d '\r' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+$' | head -8)
+          echo "candidate proxies: $(echo "$PROXIES" | wc -l)"
+          OK=0
+          for P in $PROXIES; do
+            [ $OK -ge 3 ] && break
+            echo "--- trying proxy $P"
+            curl -s -m $T -x "http://$P" -c /tmp/cj_d -o /tmp/d_home.html -w "proxy $P home: http=%{http_code} time=%{time_total}s\n" "$HOME_URL" || { echo "proxy $P home FAILED"; continue; }
+            curl -s -m $T -x "http://$P" -b /tmp/cj_d -o "/tmp/d_lista_$P.html" -w "proxy $P lista: http=%{http_code}\n" "$LISTA_URL" || { echo "proxy $P lista FAILED"; continue; }
+            report "d-proxy-$P" "/tmp/d_lista_$P.html"
+            OK=$((OK+1))
+          done
+          echo "RESULT d-proxies: $OK proxies completed the full flow"
+          echo "===== DONE ====="
