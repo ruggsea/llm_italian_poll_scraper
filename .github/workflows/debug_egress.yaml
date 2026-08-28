@@ -13,31 +13,15 @@ on:
 jobs:
   probe:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        attempt: [1, 2, 3, 4, 5, 6, 7, 8]
     steps:
-      - name: Same-runner curl vs Firefox probe
+      - name: Direct reachability lottery probe
         run: |
           set +e
-          SITE="https://www.sondaggipoliticoelettorali.it"
-          HOME_URL="$SITE/Home.aspx?st=HOME"
-          echo "runner egress IP: $(curl -s -m 10 https://api.ipify.org)"
-          echo "--- curl plain:"
-          curl -s -m 25 -o /tmp/r3a.html -w "http=%{http_code} time=%{time_total}s\n" "$HOME_URL"; echo "exit=$?"
-          echo "--- curl with Firefox UA:"
-          curl -s -m 25 -A "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0" -o /tmp/r3b.html -w "http=%{http_code} time=%{time_total}s\n" "$HOME_URL"; echo "exit=$?"
-      - name: Firefox probe
-        run: |
-          set +e
-          pip install -q selenium
-          python3 - <<'PYEOF'
-          from selenium import webdriver
-          o = webdriver.FirefoxOptions()
-          o.add_argument("--headless")
-          d = webdriver.Firefox(options=o)
-          d.set_page_load_timeout(30)
-          try:
-              d.get("https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME")
-              print("FIREFOX: OK, title =", d.title, "len =", len(d.page_source))
-          except Exception as e:
-              print("FIREFOX: FAIL ->", type(e).__name__, str(e)[:200])
-          d.quit()
-          PYEOF
+          IP=$(curl -s -m 10 https://api.ipify.org)
+          CODE=$(curl -s -m 25 -o /tmp/p.html -w "%{http_code}" "https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME")
+          ROWS_MARKER=$(grep -c "Sondaggi" /tmp/p.html 2>/dev/null)
+          echo "RESULT attempt=${{ matrix.attempt }} ip=$IP http=$CODE marker=$ROWS_MARKER"
