@@ -1,12 +1,7 @@
-# TEMPORARY DEBUG WORKFLOW — workflow_dispatch only, no schedule.
-# Purpose: probe which egress tricks can reach www.sondaggipoliticoelettorali.it
-# from GitHub-hosted (Azure) runner IPs, which the site tarpits since ~2026-08-16.
-# DELETE THIS FILE once the egress question is settled.
-name: DEBUG egress probes (manual only)
+# TEMPORARY DEBUG WORKFLOW — round 2. workflow_dispatch + push to this branch only.
+# NEVER merge to main; no schedule. DELETE once egress question is settled.
+name: DEBUG egress probes r2 (manual only)
 
-# NOTE: also triggers on push to fix/gha-hosted-egress ONLY, because the
-# workflow_dispatch API requires the file to exist on the default branch.
-# NEVER merge this file to main; it has no schedule.
 on:
   workflow_dispatch:
   push:
@@ -17,68 +12,56 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Probe egress methods
+      - name: Probe egress methods round 2
         run: |
           set +e
           SITE="https://www.sondaggipoliticoelettorali.it"
           HOME_URL="$SITE/Home.aspx?st=HOME"
           LISTA_URL="$SITE/ListaSondaggi.aspx?st=SONDAGGI"
-          T=25   # per-request timeout; tarpit = hang, so timeouts are the signal
+          T=20
 
-          report() {  # $1=label $2=file
-            local rows
-            rows=$(grep -c "dgSondaggi_Row" "$2" 2>/dev/null)
-            if [ "$rows" -gt 0 ] 2>/dev/null; then
-              echo "RESULT $1: REAL LISTING PAGE (rows=$rows)"
-            elif grep -q "sessionended" "$2" 2>/dev/null || grep -q "Sondaggi" "$2" 2>/dev/null; then
-              echo "RESULT $1: reached site but NOT the listing (sessionended or home page)"
-            else
-              echo "RESULT $1: FAIL/empty/wrong content (size=$(stat -c%s "$2" 2>/dev/null))"
-            fi
-          }
+          rows() { grep -c "dgSondaggi_Row" "$1" 2>/dev/null; }
 
-          enc() { python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1], safe=''))" "$1"; }
+          echo "===== e) GOOGLE TRANSLATE PROXY (translate.goog) ====="
+          curl -s -m 40 -o /tmp/e_home.html -w "translate home: http=%{http_code}\n" \
+            "https://www-sondaggipoliticoelettorali-it.translate.goog/Home.aspx?st=HOME&_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=en"
+          curl -s -m 40 -o /tmp/e_lista.html -w "translate lista: http=%{http_code} size=%{size_download}\n" \
+            "https://www-sondaggipoliticoelettorali-it.translate.goog/ListaSondaggi.aspx?st=SONDAGGI&_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=en"
+          echo "RESULT e-translate: lista rows=$(rows /tmp/e_lista.html)"
 
-          echo "===== a) DIRECT (control — expect timeout) ====="
-          curl -s -m $T -c /tmp/cj_a -o /tmp/a_home.html -w "direct home: http=%{http_code} time=%{time_total}s\n" "$HOME_URL"
-          echo "direct home exit=$?"
-          curl -s -m $T -b /tmp/cj_a -o /tmp/a_lista.html -w "direct lista: http=%{http_code} time=%{time_total}s\n" "$LISTA_URL"
-          echo "direct lista exit=$?"
-          report "a-direct" /tmp/a_lista.html
-
-          echo "===== b1) ALLORIGINS ====="
-          curl -s -m $T -D /tmp/h_b1 -o /tmp/b1_home.html -w "allorigins home: http=%{http_code}\n" "https://api.allorigins.win/raw?url=$(enc "$HOME_URL")"
-          grep -i "set-cookie" /tmp/h_b1 || echo "allorigins: no Set-Cookie forwarded"
-          # extract ASP.NET_SessionId if forwarded, retry lista with it
-          SID=$(grep -i "set-cookie" /tmp/h_b1 | grep -o "ASP.NET_SessionId=[^;]*" | head -1)
-          echo "allorigins extracted session: ${SID:-none}"
-          curl -s -m $T ${SID:+-H "Cookie: $SID"} -o /tmp/b1_lista.html -w "allorigins lista: http=%{http_code}\n" "https://api.allorigins.win/raw?url=$(enc "$LISTA_URL")"
-          report "b1-allorigins" /tmp/b1_lista.html
-
-          echo "===== b2) CORSPROXY.IO ====="
-          curl -s -m $T -D /tmp/h_b2 -o /tmp/b2_home.html -w "corsproxy home: http=%{http_code}\n" "https://corsproxy.io/?url=$(enc "$HOME_URL")"
-          grep -i "set-cookie" /tmp/h_b2 || echo "corsproxy: no Set-Cookie forwarded"
-          SID2=$(grep -i "set-cookie" /tmp/h_b2 | grep -o "ASP.NET_SessionId=[^;]*" | head -1)
-          echo "corsproxy extracted session: ${SID2:-none}"
-          curl -s -m $T ${SID2:+-H "Cookie: $SID2"} -o /tmp/b2_lista.html -w "corsproxy lista: http=%{http_code}\n" "https://corsproxy.io/?url=$(enc "$LISTA_URL")"
-          report "b2-corsproxy" /tmp/b2_lista.html
-
-          echo "===== c) R.JINA.AI ====="
-          curl -s -m 60 -o /tmp/c_lista.html -w "jina lista: http=%{http_code}\n" "https://r.jina.ai/$LISTA_URL"
-          head -c 300 /tmp/c_lista.html; echo
-          report "c-jina" /tmp/c_lista.html
-
-          echo "===== d) FREE PUBLIC HTTP PROXIES (UNRELIABLE — fresh list fetched at runtime) ====="
-          PROXIES=$(curl -s -m 20 "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&protocol=http&proxy_format=ipport&format=text&timeout=3000" | tr -d '\r' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+$' | head -8)
-          echo "candidate proxies: $(echo "$PROXIES" | wc -l)"
-          OK=0
+          echo "===== d2) FREE PROXY POOL, up to 30 candidates, stop at 2 full-flow successes ====="
+          PROXIES=$(curl -s -m 20 "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&protocol=http&proxy_format=ipport&format=text&timeout=5000" | tr -d '\r' | grep -E '^[0-9.]+:[0-9]+$' | head -30)
+          echo "candidates: $(echo "$PROXIES" | wc -l)"
+          OK=0; WINNERS=""
           for P in $PROXIES; do
-            [ $OK -ge 3 ] && break
-            echo "--- trying proxy $P"
-            curl -s -m $T -x "http://$P" -c /tmp/cj_d -o /tmp/d_home.html -w "proxy $P home: http=%{http_code} time=%{time_total}s\n" "$HOME_URL" || { echo "proxy $P home FAILED"; continue; }
-            curl -s -m $T -x "http://$P" -b /tmp/cj_d -o "/tmp/d_lista_$P.html" -w "proxy $P lista: http=%{http_code}\n" "$LISTA_URL" || { echo "proxy $P lista FAILED"; continue; }
-            report "d-proxy-$P" "/tmp/d_lista_$P.html"
-            OK=$((OK+1))
+            [ $OK -ge 2 ] && break
+            rm -f /tmp/cj_d
+            curl -s -m $T -x "http://$P" -c /tmp/cj_d -o /tmp/d_home.html "$HOME_URL" || { echo "proxy $P: home FAIL"; continue; }
+            curl -s -m $T -x "http://$P" -b /tmp/cj_d -o /tmp/d_lista.html "$LISTA_URL" || { echo "proxy $P: lista FAIL"; continue; }
+            R=$(rows /tmp/d_lista.html)
+            if [ "$R" -gt 0 ] 2>/dev/null; then
+              echo "proxy $P: FULL FLOW OK (rows=$R) — testing WebForms postback..."
+              python3 -c "
+import re, urllib.parse
+html = open('/tmp/d_lista.html').read()
+def val(n):
+    m = re.search(r'name=\"%s\"[^>]*value=\"([^\"]*)\"' % re.escape(n), html)
+    return m.group(1) if m else ''
+data = {'__VIEWSTATE': val('__VIEWSTATE'), '__VIEWSTATEGENERATOR': val('__VIEWSTATEGENERATOR'), '__EVENTVALIDATION': val('__EVENTVALIDATION'), 'ctl00\$Contenuto\$dgSondaggi_PaginaSuccessiva': ' > '}
+open('/tmp/post_data.txt','w').write(urllib.parse.urlencode(data))
+m = re.search(r'title=\"(\d{2}/\d{2}/\d{4})\"', html)
+open('/tmp/page1_date.txt','w').write(m.group(1) if m else '?')
+"
+              curl -s -m $T -x "http://$P" -b /tmp/cj_d -X POST --data @/tmp/post_data.txt -o /tmp/d_page2.html "$LISTA_URL"
+              P2ROWS=$(rows /tmp/d_page2.html)
+              D1=$(cat /tmp/page1_date.txt)
+              D2=$(grep -oE 'title="[0-9]{2}/[0-9]{2}/[0-9]{4}"' /tmp/d_page2.html | head -1 | grep -oE '[0-9]{2}/[0-9]{2}/[0-9]{4}')
+              echo "postback via $P: page2 rows=$P2ROWS first-date page1=$D1 page2=$D2"
+              if [ -n "$D2" ] && [ "$D1" != "$D2" ]; then echo "RESULT postback-via-$P: WORKED"; else echo "RESULT postback-via-$P: FAILED (same page)"; fi
+              OK=$((OK+1)); WINNERS="$WINNERS $P"
+            else
+              echo "proxy $P: lista reached but no rows (blocked?)"
+            fi
           done
-          echo "RESULT d-proxies: $OK proxies completed the full flow"
+          echo "RESULT d2-pool: $OK proxies completed full flow:$WINNERS"
           echo "===== DONE ====="
