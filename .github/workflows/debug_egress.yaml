@@ -1,0 +1,43 @@
+# TEMPORARY DEBUG WORKFLOW — round 3. workflow_dispatch + push to this branch only.
+# NEVER merge to main; no schedule. DELETE once egress question is settled.
+# Question: is the tarpit per-IP (lottery) or per-client (curl vs Firefox)?
+# Method: on ONE runner, try curl, curl with Firefox UA, then real headless Firefox.
+name: DEBUG egress probes r3 (manual only)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - fix/gha-hosted-egress
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Same-runner curl vs Firefox probe
+        run: |
+          set +e
+          SITE="https://www.sondaggipoliticoelettorali.it"
+          HOME_URL="$SITE/Home.aspx?st=HOME"
+          echo "runner egress IP: $(curl -s -m 10 https://api.ipify.org)"
+          echo "--- curl plain:"
+          curl -s -m 25 -o /tmp/r3a.html -w "http=%{http_code} time=%{time_total}s\n" "$HOME_URL"; echo "exit=$?"
+          echo "--- curl with Firefox UA:"
+          curl -s -m 25 -A "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0" -o /tmp/r3b.html -w "http=%{http_code} time=%{time_total}s\n" "$HOME_URL"; echo "exit=$?"
+      - name: Firefox probe
+        run: |
+          set +e
+          pip install -q selenium
+          python3 - <<'PYEOF'
+          from selenium import webdriver
+          o = webdriver.FirefoxOptions()
+          o.add_argument("--headless")
+          d = webdriver.Firefox(options=o)
+          d.set_page_load_timeout(30)
+          try:
+              d.get("https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME")
+              print("FIREFOX: OK, title =", d.title, "len =", len(d.page_source))
+          except Exception as e:
+              print("FIREFOX: FAIL ->", type(e).__name__, str(e)[:200])
+          d.quit()
+          PYEOF
