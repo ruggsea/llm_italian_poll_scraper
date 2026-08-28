@@ -4,8 +4,14 @@
 # DELETE THIS FILE once the egress question is settled.
 name: DEBUG egress probes (manual only)
 
+# NOTE: also triggers on push to fix/gha-hosted-egress ONLY, because the
+# workflow_dispatch API requires the file to exist on the default branch.
+# NEVER merge this file to main; it has no schedule.
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - fix/gha-hosted-egress
 
 jobs:
   probe:
