@@ -1,6 +1,8 @@
 name: Throwaway connectivity test (delete before merge)
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - fix/gha-site-timeout
 
 jobs:
   net_test:
