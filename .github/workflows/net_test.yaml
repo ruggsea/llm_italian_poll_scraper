@@ -5,10 +5,18 @@ on:
       - fix/gha-site-timeout
 
 jobs:
-  net_test:
+  net_test_macos:
+    runs-on: macos-latest
+    steps:
+    - name: Curl target site from macOS runner
+      run: |
+        curl -s --max-time 30 "https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME" -o /dev/null -w "macos: %{http_code} in %{time_total}s\n" || echo "macos: FAILED"
+        curl -s --max-time 10 ifconfig.me || true; echo
+
+  net_test_ubuntu:
     runs-on: ubuntu-latest
     steps:
-    - name: Check SSH reachability of jump host
+    - name: Curl target site from Ubuntu runner (control)
       run: |
-        nc -zvw10 143.50.189.174 22 || true
-        curl -s --max-time 10 https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME -o /dev/null -w "direct curl from runner: %{http_code} in %{time_total}s\n" || true
+        curl -s --max-time 30 "https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME" -o /dev/null -w "ubuntu: %{http_code} in %{time_total}s\n" || echo "ubuntu: FAILED"
+        curl -s --max-time 10 ifconfig.me || true; echo
