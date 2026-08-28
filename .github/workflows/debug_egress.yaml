@@ -41,17 +41,7 @@ jobs:
             R=$(rows /tmp/d_lista.html)
             if [ "$R" -gt 0 ] 2>/dev/null; then
               echo "proxy $P: FULL FLOW OK (rows=$R) — testing WebForms postback..."
-              python3 -c "
-import re, urllib.parse
-html = open('/tmp/d_lista.html').read()
-def val(n):
-    m = re.search(r'name=\"%s\"[^>]*value=\"([^\"]*)\"' % re.escape(n), html)
-    return m.group(1) if m else ''
-data = {'__VIEWSTATE': val('__VIEWSTATE'), '__VIEWSTATEGENERATOR': val('__VIEWSTATEGENERATOR'), '__EVENTVALIDATION': val('__EVENTVALIDATION'), 'ctl00\$Contenuto\$dgSondaggi_PaginaSuccessiva': ' > '}
-open('/tmp/post_data.txt','w').write(urllib.parse.urlencode(data))
-m = re.search(r'title=\"(\d{2}/\d{2}/\d{4})\"', html)
-open('/tmp/page1_date.txt','w').write(m.group(1) if m else '?')
-"
+              python3 debug/make_postback.py /tmp/d_lista.html
               curl -s -m $T -x "http://$P" -b /tmp/cj_d -X POST --data @/tmp/post_data.txt -o /tmp/d_page2.html "$LISTA_URL"
               P2ROWS=$(rows /tmp/d_page2.html)
               D1=$(cat /tmp/page1_date.txt)
