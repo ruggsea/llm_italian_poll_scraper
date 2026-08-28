@@ -12,20 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      # The site tarpits most GitHub/Azure egress IPs, but not all (~1 in 8
-      # runners gets through, measured 2026-08-28). Fire N parallel attempts;
-      # each attempt first checks reachability and only the reachable ones
-      # proceed. Staggered + idempotent so at most one actually pushes.
+      # The site tarpits most GitHub/Azure egress IPs (~8% reachable, measured
+      # 2026-08-28: 2/26 runners). Fire 32 parallel attempts; each checks
+      # reachability first and only reachable ones proceed. Staggered +
+      # idempotent so at most one actually pushes. P(>=1 reachable) ~= 93%.
       matrix:
-        attempt: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        attempt: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+                  17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
     steps:
     - name: Reachability gate
       id: gate
       run: |
         set +e
-        # stagger: attempt N starts (N-1)*2 min late, so the earliest reachable
+        # stagger: attempt N starts (N-1)*60s late, so the earliest reachable
         # attempt usually finishes (and pushes) before later ones wake up
-        sleep $(( (${{ matrix.attempt }} - 1) * 120 ))
+        sleep $(( (${{ matrix.attempt }} - 1) * 60 ))
         IP=$(curl -s -m 10 https://api.ipify.org)
         CODE=$(curl -s -m 20 -o /dev/null -w "%{http_code}" "https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME")
         echo "attempt ${{ matrix.attempt }}: http=$CODE from egress $IP"
