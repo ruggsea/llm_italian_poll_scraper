@@ -1,0 +1,12 @@
+name: Throwaway connectivity test (delete before merge)
+on:
+  workflow_dispatch:
+
+jobs:
+  net_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check SSH reachability of jump host
+      run: |
+        nc -zvw10 143.50.189.174 22 || true
+        curl -s --max-time 10 https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME -o /dev/null -w "direct curl from runner: %{http_code} in %{time_total}s\n" || true
