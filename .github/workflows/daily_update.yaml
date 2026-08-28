@@ -10,46 +10,90 @@ on:
 jobs:
   update_job:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      # The site tarpits most GitHub/Azure egress IPs, but not all (~1 in 8
+      # runners gets through, measured 2026-08-28). Fire N parallel attempts;
+      # each attempt first checks reachability and only the reachable ones
+      # proceed. Staggered + idempotent so at most one actually pushes.
+      matrix:
+        attempt: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
     steps:
+    - name: Reachability gate
+      id: gate
+      run: |
+        set +e
+        # stagger: attempt N starts (N-1)*2 min late, so the earliest reachable
+        # attempt usually finishes (and pushes) before later ones wake up
+        sleep $(( (${{ matrix.attempt }} - 1) * 120 ))
+        IP=$(curl -s -m 10 https://api.ipify.org)
+        CODE=$(curl -s -m 20 -o /dev/null -w "%{http_code}" "https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME")
+        echo "attempt ${{ matrix.attempt }}: http=$CODE from egress $IP"
+        if [ "$CODE" = "200" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+      shell: bash
+
     - name: Checkout repository
+      if: steps.gate.outputs.ok == 'true'
       uses: actions/checkout@v4
       with:
         fetch-depth: 0  # Fetch all history for all branches and tags
 
+    - name: Skip if today is already updated
+      if: steps.gate.outputs.ok == 'true'
+      id: done
+      run: |
+        git fetch origin main
+        if git log origin/main --oneline --grep="Daily update: $(date -u +'%Y-%m-%d')" | grep -q .; then
+          echo "Today's update commit already exists on main; skipping."
+          echo "skip=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+        fi
+      shell: bash
+
     - name: Set up Python
+      if: steps.gate.outputs.ok == 'true' && steps.done.outputs.skip == 'false'
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
 
     - name: Install dependencies
+      if: steps.gate.outputs.ok == 'true' && steps.done.outputs.skip == 'false'
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Set up Geckodriver
+      if: steps.gate.outputs.ok == 'true' && steps.done.outputs.skip == 'false'
       uses: browser-actions/setup-geckodriver@latest
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         geckodriver-version: 'latest'
 
     - name: Run daily update script
+      if: steps.gate.outputs.ok == 'true' && steps.done.outputs.skip == 'false'
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: python llm_poll_parser/daily_update.py
 
     - name: Commit changes
+      if: steps.gate.outputs.ok == 'true' && steps.done.outputs.skip == 'false'
       run: |
         git config --global user.name "GitHub Actions Bot"
         git config --global user.email "actions@github.com"
         git add .
         if git diff-index --quiet HEAD; then
           echo "No changes to commit"
+          echo "changes=false" >> "$GITHUB_OUTPUT"
         else
           git commit -m "Daily update: $(date +'%Y-%m-%d')"
+          echo "changes=true" >> "$GITHUB_OUTPUT"
         fi
+      id: commit
       shell: bash
 
     - name: Rebase and force push changes
+      if: github.ref == 'refs/heads/main' && steps.commit.outputs.changes == 'true'  # only runs on main may push to main
       run: |
         git fetch origin main
         git rebase origin/main
