@@ -1,10 +1,11 @@
 import json
 import logging
+import os
 import time
 from datetime import datetime
 from typing import Union
 import pandas as pd
-from website_getter import get_poll_data, get_prossima_pagina, start_driver, find_sondaggi_table
+from website_getter import get_prossima_pagina, start_driver, find_sondaggi_table
 from archiving_polls import handle_one_pagina
 from calculating_average import load_and_process_data, make_temporal_plot, calculate_moving_average, parties_list, party_colors
 from poll_parser import parse_poll_results
@@ -29,7 +30,29 @@ def get_latest_poll_from_file(filename: str) -> dict:
         latest_poll = polls.iloc[-1].to_dict()
         return latest_poll
 
-def get_polls_until_latest_saved(driver, filename):
+def get_proxies() -> list:
+    # SCRAPER_PROXIES is a comma separated "host:port" list (the workflow finds a few working ones);
+    # "direct" means no proxy. Falls back to the single SCRAPER_PROXY, then to a direct connection.
+    raw = os.environ.get("SCRAPER_PROXIES") or os.environ.get("SCRAPER_PROXY") or "direct"
+    return [p.strip() for p in raw.split(",") if p.strip()]
+
+def start_driver_with_failover(proxies: list, page: int):
+    # Try the proxies in order until one can open the list page; returns the driver and the
+    # proxies rotated so the working one comes first.
+    for i, proxy in enumerate(proxies):
+        try:
+            driver = start_driver(headless=True, proxy=proxy, page=page)
+        except Exception as e:
+            logging.warning(f"Proxy {proxy} could not open the site: {type(e).__name__}: {str(e)[:200]}")
+            continue
+        logging.info(f"Started the driver on proxy {proxy}, page {page}")
+        return driver, proxies[i:] + proxies[:i]
+    raise RuntimeError(f"None of the proxies could open the site: {proxies}")
+
+MAX_PAGE_FAILURES = 6
+MAX_PAGES = 5  # a daily update never needs more; beyond this something is wrong, don't crawl the whole archive
+
+def get_polls_until_latest_saved(filename, proxies):
     latest_poll = get_latest_poll_from_file(filename)
     latest_date = latest_poll["Data Inserimento"]
     latest_committente = latest_poll["Committente"]
@@ -37,16 +60,38 @@ def get_polls_until_latest_saved(driver, filename):
 
     logging.info(f"Latest poll is the one dated {latest_date} from {latest_committente} with the title {latest_titolo}")
 
+    def is_latest_saved(row):
+        return row["Data Inserimento"] == latest_date and row["Committente"] == latest_committente and row["Titolo"] == latest_titolo
+
     poll_data = []
+    page = 1
+    failures = 0
+    driver, proxies = start_driver_with_failover(proxies, page)
     while True:
-        one_page_poll_data = handle_one_pagina(driver)
-        for poll in one_page_poll_data:
-            if poll["Data Inserimento"] == latest_date and poll["Committente"] == latest_committente and poll["Titolo"] == latest_titolo:
-                logging.info(f"Found the latest poll already saved in the file, adding {len(poll_data)} new polls to the file")
-                return poll_data
-            else:
-                poll_data.append(poll)
+        if page > MAX_PAGES:
+            driver.quit()
+            raise RuntimeError(f"Latest saved poll not found in the first {MAX_PAGES} pages, refusing to crawl further")
+        try:
+            # the stop check uses the raw table, not the LLM-classified rows: the already saved poll
+            # marks where to stop, and rows from it downwards are not parsed again
+            latest_row = next((row["Row"] for row in find_sondaggi_table(driver) if is_latest_saved(row)), None)
+            one_page_poll_data = handle_one_pagina(driver, page, upto_row=latest_row)
+        except Exception as e:
+            # free proxies die mid-run: drop this one, restart on the next and redo the page
+            failures += 1
+            logging.warning(f"Page {page} failed on proxy {proxies[0]} ({failures}/{MAX_PAGE_FAILURES}): {type(e).__name__}: {str(e)[:200]}")
+            driver.quit()
+            if failures >= MAX_PAGE_FAILURES:
+                raise
+            driver, proxies = start_driver_with_failover(proxies[1:] + proxies[:1], page)
+            continue
+        poll_data.extend(one_page_poll_data)
+        if latest_row is not None:
+            logging.info(f"Found the latest poll already saved in the file, adding {len(poll_data)} new polls to the file")
+            driver.quit()
+            return poll_data
         get_prossima_pagina(driver)
+        page += 1
 
 def update_readme_with_moving_averages(moving_averages):
     with open("readme.md", "r") as file:
@@ -103,10 +148,7 @@ def main():
         console_handler.setFormatter(console_formatter)
         logging.getLogger().addHandler(console_handler)
 
-    driver = start_driver(headless=True)
-    logging.info("Started the driver")
-
-    poll_data = get_polls_until_latest_saved(driver, filename)
+    poll_data = get_polls_until_latest_saved(filename, get_proxies())
     # if poll_data is empty, there are no new polls to add
     if poll_data:
         add_beginning_of_file(filename, poll_data)
@@ -124,9 +166,6 @@ def main():
 
     convert_jsonl_to_csv()
     logging.info("Turned the jsonl file into a csv file")
-
-    driver.quit()
-    logging.info("Quitted the driver")
 
 if __name__ == "__main__":
     import sys
