@@ -2,5 +2,7 @@
 .env
 *.log
 __pycache__/
-*.pyc.claude/
+*.pyc
+.claude/
 __pycache__/
+.venv/

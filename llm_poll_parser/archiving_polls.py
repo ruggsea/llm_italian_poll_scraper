@@ -17,10 +17,10 @@ def add_data_to_file(poll_data, filename):
             file.write(serialized_data + "\n")
 
 
-def handle_one_pagina(driver):
+def handle_one_pagina(driver, page=1, upto_row=None):
     table = find_sondaggi_table(driver)
-    # Get the poll data from the current page
-    poll_data = get_poll_data(driver)
+    # Get the poll data from the current page (only rows above `upto_row` when given)
+    poll_data = get_poll_data(driver, page, upto_row)
     
     # poll data is a list of (rownumber, poll) tuples
     # get corresponding table rows from table

@@ -1,40 +1,60 @@
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
 from bs4 import BeautifulSoup
 import re, time, json, os
 
 
 
-def start_driver(headless=False):
-    # Create a new instance of the firefox driver
+HOME_URL = 'https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME'
+LISTA_URL = 'https://www.sondaggipoliticoelettorali.it/ListaSondaggi.aspx?st=SONDAGGI'
+
+
+def start_driver(headless=False, proxy=None, page=1):
+    """Start Firefox and open the sondaggi list at `page`.
+
+    `proxy` is "host:port" or "direct" (no proxy); None falls back to the SCRAPER_PROXY env var.
+    The site tarpits some IP ranges (e.g. github actions runners), hence the proxy."""
     options = webdriver.FirefoxOptions()
     if headless:
         # if headless is True, run the browser in headless mode for github actions
         options.headless = True
         options.add_argument("--headless")
-    # route traffic through a proxy if SCRAPER_PROXY is set (the site tarpits some IPs, e.g. github actions runners)
-    proxy_url = os.environ.get('SCRAPER_PROXY')
-    if proxy_url:
-        options.proxy = webdriver.Proxy({'proxyType': 'MANUAL', 'httpProxy': proxy_url, 'sslProxy': proxy_url})
+    if proxy is None:
+        proxy = os.environ.get('SCRAPER_PROXY') or 'direct'
+    if proxy != 'direct':
+        options.proxy = webdriver.Proxy({'proxyType': 'MANUAL', 'httpProxy': proxy, 'sslProxy': proxy})
     driver = webdriver.Firefox(options=options)
-
-    driver.set_page_load_timeout(60)
-
-    # Open the website, retrying on timeout (the site can be slow to answer)
-    for attempt in range(4):
-        try:
-            driver.get('https://www.sondaggipoliticoelettorali.it/Home.aspx?st=HOME')
-            break
-        except Exception as e:
-            print(f'Attempt {attempt + 1} to open homepage failed: {e}')
-            if attempt == 3:
-                raise
-            time.sleep(30 * (attempt + 1))
-
-    # Find the "sondaggi" link by its text and click on it
-    sondaggi_link = driver.find_element('link text', 'Sondaggi')
-    sondaggi_link.click()
-    
+    # the server randomly never answers a request (~1 in 10): fail such loads fast and retry them
+    driver.set_page_load_timeout(25)
+    # the site (and free proxies) can be slow: every find_element waits up to 20s for the element to appear
+    driver.implicitly_wait(20)
+    try:
+        open_lista_sondaggi(driver, page)
+    except Exception:
+        driver.quit()
+        raise
     return driver
+
+
+def get_with_retry(driver, url, attempts=3):
+    for attempt in range(attempts):
+        try:
+            driver.get(url)
+            return
+        except TimeoutException:
+            print(f'Loading {url} timed out (attempt {attempt + 1}/{attempts})')
+    raise TimeoutException(f'{url} did not load in {attempts} attempts')
+
+
+def open_lista_sondaggi(driver, page=1):
+    # Load the sondaggi list from scratch and page forward to `page`
+    # (paging is an ASP.NET postback, so page N has no URL of its own).
+    # The home page must come first: without its session cookie the list redirects to Home.aspx?sessionended=1
+    get_with_retry(driver, HOME_URL)
+    get_with_retry(driver, LISTA_URL)
+    driver.find_element('id', 'lista')
+    for _ in range(page - 1):
+        get_prossima_pagina(driver)
 
 
 def extract_table_data(html_content):
@@ -129,8 +149,6 @@ def click_on_row(driver, row):
     input_elem=driver.find_element('id', f'ctl00_Contenuto_dgSondaggi_Row{row}_DataInserimento')
     # click on it once
     input_elem.click()
-    # wait for the page to load
-    driver.implicitly_wait(0.01)
     
 def click_on_domande(driver):
     # find the domande element, it has id ctl00_Titolo_TabSondaggio_DomandeRisposte
@@ -139,17 +157,10 @@ def click_on_domande(driver):
     
 
 def get_lista_domande(driver):
-    # we want a list of the elements that contain the domande, their id look like ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row1_Domanda
-    domande=[]
-    for i in range(1, 100):
-        try:
-            domanda_elem = driver.find_element('id', f'ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row{i}_Domanda')
-            # get the title of the domanda
-            domanda_title = domanda_elem.get_attribute('title')
-            domande.append(domanda_elem)
-        except:
-            break
-    return domande
+    # postback clicks don't block until the next page is loaded, so first wait for the domande grid to exist
+    driver.find_element('id', 'ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande')
+    # the domande elements have ids like ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row1_Domanda
+    return driver.find_elements('css selector', '[id^="ctl00_Contenuto_ucGestioneDomande_ucListaDomande_dgDomande_Row"][id$="_Domanda"]')
 
 def get_right_domanda(driver, domande):
     
@@ -228,11 +239,16 @@ def get_risposta_or_allegato(driver):
         else:
             return testo_risposta
 
-def go_back_to_sondaggi(driver):
-    # go back 3 times
-    for i in range(3):
-        driver.back()
-        
+def back_to_lista(driver, page=1):
+    # 3 backs are cheaper than reloading the list and paging forward again; reload if a back stalls
+    try:
+        for i in range(3):
+            driver.back()
+        driver.find_element('id', 'lista')
+    except Exception as e:
+        print(f'Going back to the list failed ({type(e).__name__}), reloading it')
+        open_lista_sondaggi(driver, page)
+
 def get_prossima_pagina(driver):
     # find the element that contains the prossima pagina, a button with id ctl00_Contenuto_dgSondaggi_PaginaSuccessiva
     prossima_pagina_button = driver.find_element('id', 'ctl00_Contenuto_dgSondaggi_PaginaSuccessiva')
@@ -249,29 +265,34 @@ def handle_one_sondaggio(driver, rownumber):
     domande=get_lista_domande(driver)
     right_domanda=get_right_domanda(driver, domande)    
     testo_sondaggio = get_risposta_or_allegato(driver)
-    
-    # Go back to the sondaggi page
-    go_back_to_sondaggi(driver)
-    driver.implicitly_wait(1)
-    
     return right_domanda, testo_sondaggio
     
-def get_poll_data(driver):
+ROW_ATTEMPTS = 3
+
+def get_poll_data(driver, page=1, upto_row=None):
     # Find the table containing the sondaggi
     table = find_sondaggi_table(driver)
     
-    # Find the rows that contain intenzioni di voto
+    # Find the rows that contain intenzioni di voto (only above `upto_row` when given)
     rows_to_click = rows_intenzioni_di_voto(driver, table)
+    if upto_row is not None:
+        rows_to_click = [row for row in rows_to_click if row < upto_row]
     
     testi_sondaggi = []
-    # handle on each row
+    # each row takes ~6 requests and the server (or a free proxy) randomly drops one, so a row gets
+    # a few attempts, reloading the list in between. Running out of attempts raises so the caller can switch proxy.
     for row in rows_to_click:
-        try:
-            right_domanda, testo_sondaggio = handle_one_sondaggio(driver, row)
-            testi_sondaggi.append((row, right_domanda, testo_sondaggio))
-        except Exception as e:
-            print(f"Error handling sondaggio: {e}")
-            testi_sondaggi.append((row, None, None))
+        for attempt in range(ROW_ATTEMPTS):
+            try:
+                right_domanda, testo_sondaggio = handle_one_sondaggio(driver, row)
+                break
+            except Exception as e:
+                print(f"Error handling sondaggio at row {row} (attempt {attempt + 1}/{ROW_ATTEMPTS}): {str(e)[:200]}")
+                if attempt == ROW_ATTEMPTS - 1:
+                    raise
+                open_lista_sondaggi(driver, page)
+        testi_sondaggi.append((row, right_domanda, testo_sondaggio))
+        back_to_lista(driver, page)
         
     return testi_sondaggi
 
